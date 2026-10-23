@@ -16,6 +16,7 @@ import LiveFleetMap from './pages/admin/LiveFleetMap';
 import Sustainability from './pages/admin/Sustainability';
 import ModelLab from './pages/admin/ModelLab';
 import RoundPlanner from './pages/admin/RoundPlanner';
+import Sandbox from './pages/admin/Sandbox';
 import AdminSettings from './pages/admin/AdminSettings';
 import Reports from './pages/admin/Reports';
 import Learning from './pages/admin/Learning';
@@ -77,6 +78,7 @@ function App() {
             {/* Phase 5 pages */}
             <Route path="fleet-map" element={<LiveFleetMap />} />
             <Route path="rounds" element={<RoundPlanner />} />
+            <Route path="sandbox" element={<Sandbox />} />
             <Route path="sustainability" element={<Sustainability />} />
             <Route path="reports" element={<Reports />} />
             <Route path="learning" element={<Learning />} />

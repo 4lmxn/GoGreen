@@ -86,6 +86,8 @@ def create_app(test_config=None):
     app.register_blueprint(context_bp, url_prefix='/api/v1/context')
     from app.blueprints.rounds import rounds_bp
     app.register_blueprint(rounds_bp, url_prefix='/api/v1/rounds')
+    from app.blueprints.sim import sim_bp
+    app.register_blueprint(sim_bp, url_prefix='/api/v1/sim')
 
     @app.cli.command('init-db')
     def init_db():

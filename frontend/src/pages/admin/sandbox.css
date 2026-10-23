@@ -1,0 +1,141 @@
+/* Fleet simulation sandbox. Uses the design tokens from src/index.css. */
+
+.sb-mono { font-family: var(--gg-font-mono); font-variant-numeric: tabular-nums; }
+
+/* Simulation tag: always visible, quiet but unmistakable. */
+.sb-tag {
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+  padding: 10px 14px;
+  border-left: 4px solid var(--gg-amber);
+  background: var(--gg-amber-tint);
+  border-radius: 0 var(--gg-radius-sm) var(--gg-radius-sm) 0;
+  font-size: 13px;
+  color: var(--gg-ink);
+}
+.sb-tag strong {
+  font-family: var(--gg-font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* Start screen */
+.sb-start {
+  display: grid;
+  grid-template-columns: minmax(0, 340px) minmax(0, 1fr);
+  gap: 32px;
+}
+.sb-start-form { display: grid; gap: 14px; align-content: start; }
+.sb-start-form h2,
+.sb-start-side h3 { font-family: var(--gg-font-display); font-size: 24px; font-weight: 700; }
+.sb-start-form label { display: grid; gap: 6px; font-size: 13px; font-weight: 600; }
+.sb-start-form label span { color: var(--gg-faint); font-weight: 400; margin-left: 6px; }
+.sb-start-side { display: grid; gap: 12px; align-content: start; }
+.sb-steps { display: grid; gap: 10px; padding-left: 1.2em; font-size: 14px; color: var(--gg-muted); }
+.sb-failed { color: var(--gg-risk); font-size: 14px; }
+
+.sb-progress { display: grid; gap: 10px; }
+.sb-progress-track { height: 10px; background: var(--gg-line); border-radius: 999px; overflow: hidden; }
+.sb-progress-fill { height: 100%; background: var(--gg-sign); transition: width 0.4s ease; }
+
+/* Clock bar */
+.sb-clock {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 16px;
+  background: var(--gg-sign-deep);
+  color: #fff;
+  border-radius: var(--gg-radius-lg);
+  box-shadow: var(--gg-shadow-md);
+}
+.sb-clock .op-note { color: rgb(255 255 255 / 0.65); }
+.sb-clock-time { display: grid; gap: 2px; min-width: 120px; }
+.sb-big { font-size: 30px; font-weight: 600; line-height: 1; }
+.sb-slider { flex: 1 1 240px; accent-color: var(--gg-amber); }
+.sb-speeds { display: flex; gap: 4px; }
+.sb-speeds button {
+  padding: 6px 10px;
+  border-radius: var(--gg-radius-sm);
+  border: 1px solid rgb(255 255 255 / 0.2);
+  color: rgb(255 255 255 / 0.75);
+  font-size: 12px;
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+.sb-speeds button:hover { color: #fff; border-color: rgb(255 255 255 / 0.5); }
+.sb-speeds button.active { background: var(--gg-amber); border-color: var(--gg-amber); color: var(--gg-sign-deep); font-weight: 600; }
+.sb-shapes { margin-left: auto; }
+
+/* KPI strip: one lead figure, the rest quieter. */
+.sb-kpis {
+  display: grid;
+  grid-template-columns: 1.3fr repeat(4, minmax(0, 1fr));
+  background: var(--gg-surface);
+  border-radius: var(--gg-radius-lg);
+  box-shadow: var(--gg-shadow-sm);
+  overflow: hidden;
+}
+.sb-kpi { padding: 14px 18px; display: grid; gap: 4px; border-left: 1px solid var(--gg-line); min-width: 0; }
+.sb-kpi:first-child { border-left: 0; }
+.sb-kpi span { font-size: 12px; color: var(--gg-muted); }
+.sb-kpi strong { font-size: 22px; font-weight: 600; color: var(--gg-ink); }
+.sb-kpi small { font-size: 12px; color: var(--gg-faint); font-weight: 400; }
+.sb-kpi.lead { background: var(--gg-sign-tint); }
+.sb-kpi.lead strong { font-size: 28px; color: var(--gg-sign); }
+
+/* Map and truck panel */
+.sb-main { display: grid; grid-template-columns: minmax(0, 1fr) 380px; gap: 18px; align-items: start; }
+.sb-map { display: grid; gap: 8px; min-width: 0; }
+.sb-map-canvas {
+  height: 620px;
+  border-radius: var(--gg-radius-lg);
+  box-shadow: var(--gg-shadow-md);
+  z-index: 0;
+}
+.sb-legend { display: flex; flex-wrap: wrap; gap: 6px 16px; list-style: none; padding: 0; font-size: 12px; color: var(--gg-muted); }
+.sb-legend li { display: flex; align-items: center; gap: 6px; }
+.sb-legend i { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+
+.sb-truck { display: grid; gap: 14px; max-height: 660px; overflow-y: auto; align-content: start; }
+.sb-truck-empty h2 { font-family: var(--gg-font-display); font-size: 22px; }
+.sb-plate { font-size: 18px; font-weight: 600; }
+.sb-factors { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.sb-factors div { display: grid; gap: 2px; padding: 8px 10px; background: var(--gg-paper); border-radius: var(--gg-radius-sm); }
+.sb-factors span { font-size: 11px; color: var(--gg-muted); line-height: 1.3; }
+.sb-factors strong { font-size: 16px; }
+.sb-round { display: grid; gap: 8px; padding-top: 12px; border-top: 1px solid var(--gg-line); }
+.sb-round h3 { font-size: 14px; font-weight: 600; display: flex; gap: 8px; align-items: baseline; }
+.sb-round h3 em { font-style: normal; font-size: 11px; color: var(--gg-sign); font-weight: 600; margin-left: auto; }
+.sb-fuel { font-size: 13px; color: var(--gg-muted); }
+.sb-rejected { color: var(--gg-risk); font-style: normal; }
+
+.sb-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.sb-table th { text-align: left; font-weight: 600; color: var(--gg-faint); font-size: 11px; padding: 4px 6px; border-bottom: 1px solid var(--gg-line); }
+.sb-table td { padding: 5px 6px; border-bottom: 1px solid var(--gg-line); }
+.sb-table tr:last-child td { border-bottom: 0; }
+
+/* Day summary */
+.sb-summary { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.sb-summary .op-panel { display: grid; gap: 10px; align-content: start; }
+.sb-summary h2 { font-family: var(--gg-font-display); font-size: 22px; font-weight: 700; }
+.sb-assumptions ul { display: grid; gap: 6px; padding-left: 1.1em; font-size: 13px; color: var(--gg-muted); }
+
+.sb-chart { width: 100%; height: auto; }
+.sb-grid { stroke: var(--gg-line); stroke-width: 1; }
+.sb-axis { fill: var(--gg-faint); font: 11px var(--gg-font-mono); }
+.sb-baseline { stroke: var(--gg-amber); stroke-width: 1.5; stroke-dasharray: 5 4; }
+.sb-line { fill: none; stroke: var(--gg-sign); stroke-width: 2.5; }
+.sb-dot { fill: var(--gg-sign); }
+
+@media (max-width: 1100px) {
+  .sb-main, .sb-summary, .sb-start { grid-template-columns: minmax(0, 1fr); }
+  .sb-kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sb-kpi:nth-child(odd) { border-left: 0; }
+  .sb-map-canvas { height: 460px; }
+}

@@ -3,7 +3,7 @@ import { NavLink, Outlet, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import {
   Leaf, LayoutDashboard, Users, Car, Map, BarChart2, FlaskConical, Route, Settings, LogOut,
-  ChevronLeft, ChevronRight, FileDown,
+  ChevronLeft, ChevronRight, FileDown, Boxes,
 } from 'lucide-react';
 import '../../components/operations.css';
 
@@ -26,6 +26,12 @@ const NAV_GROUPS = [
       { label: 'Evidence and feedback', to: '/admin/learning', icon: BarChart2 },
       { label: 'Model lab', to: '/admin/ai', icon: FlaskConical },
       { label: 'Reports', to: '/admin/reports', icon: FileDown },
+    ],
+  },
+  {
+    title: 'Simulation',
+    items: [
+      { label: 'Fleet sandbox', to: '/admin/sandbox', icon: Boxes },
     ],
   },
 ];
