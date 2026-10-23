@@ -170,7 +170,7 @@ function RouteOption({ route, scaleMax, selected, disabled, onSelect }) {
         {' · '}{route.isFastest ? 'Fastest alternative' : 'Alternative road route'}
       </p>
       {route.ecoScore != null && (
-        <p className="op-note">Eco score {amount(route.ecoScore)} · 50 is typical for this vehicle class at half load on a flat road</p>
+        <p className="op-note">Eco score {amount(route.ecoScore)} · 50 = typical mixed driving for this vehicle class, 100 = zero CO₂</p>
       )}
     </button>
   );

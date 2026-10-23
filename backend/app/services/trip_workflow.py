@@ -48,7 +48,7 @@ def estimate(route, vehicle, load, weather=None):
     reference = physics.reference_co2_per_km(vehicle_key or 'van', fuel_key or 'diesel', vehicle.load_capacity_kg)
     co2 = result['co2_kg'] * factor
     trips = vehicle.calibration.trips if getattr(vehicle, 'calibration', None) else 0
-    mode = 'Physics road-load model' + (f', calibrated on {trips} trips' if trips else ', class defaults')
+    mode = 'Physics road-load model' + (f', calibrated on {trips} trip' + ('s' if trips != 1 else '') if trips else ', class defaults')
     details = {'temp_c': temp_c, 'wet_road': wet_road, 'weather_status': weather_status,
                'elevation_status': route.get('elevation_status', 'unavailable'), 'turns': route.get('turns', 0),
                'uncertainty_pct': uncertainty, 'calibration_trips': trips}
