@@ -8,7 +8,8 @@ import {
   Car,
   Map,
   BarChart2,
-  Cpu,
+  FlaskConical,
+  Route,
   Settings,
   LogOut,
   ChevronLeft,
@@ -20,10 +21,11 @@ const NAV = [
   { label: 'Driver Approvals', to: '/admin/approvals', icon: Users },
   { label: 'Vehicles', to: '/admin/vehicles', icon: Car },
   { label: 'Live Fleet Map', to: '/admin/fleet-map', icon: Map },
+  { label: 'Round planner', to: '/admin/rounds', icon: Route },
   { label: 'Sustainability', to: '/admin/sustainability', icon: Leaf },
   { label: 'Evidence & Feedback', to: '/admin/learning', icon: BarChart2 },
   { label: 'Reports', to: '/admin/reports', icon: BarChart2 },
-  { label: 'AI Command Center', to: '/admin/ai', icon: Cpu },
+  { label: 'Model lab', to: '/admin/ai', icon: FlaskConical },
   { label: 'Settings', to: '/admin/settings', icon: Settings },
 ];
 

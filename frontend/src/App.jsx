@@ -14,7 +14,8 @@ import DriverApprovals from './pages/admin/DriverApprovals';
 import VehicleManagement from './pages/admin/VehicleManagement';
 import LiveFleetMap from './pages/admin/LiveFleetMap';
 import Sustainability from './pages/admin/Sustainability';
-import AICommandCenter from './pages/admin/AICommandCenter';
+import ModelLab from './pages/admin/ModelLab';
+import RoundPlanner from './pages/admin/RoundPlanner';
 import AdminSettings from './pages/admin/AdminSettings';
 import Reports from './pages/admin/Reports';
 import Learning from './pages/admin/Learning';
@@ -75,10 +76,11 @@ function App() {
             <Route path="vehicles" element={<VehicleManagement />} />
             {/* Phase 5 pages */}
             <Route path="fleet-map" element={<LiveFleetMap />} />
+            <Route path="rounds" element={<RoundPlanner />} />
             <Route path="sustainability" element={<Sustainability />} />
             <Route path="reports" element={<Reports />} />
             <Route path="learning" element={<Learning />} />
-            <Route path="ai" element={<AICommandCenter />} />
+            <Route path="ai" element={<ModelLab />} />
             <Route path="settings" element={<AdminSettings />} />
           </Route>
 

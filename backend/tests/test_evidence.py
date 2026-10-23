@@ -3,18 +3,23 @@ from app.services.evidence import evidence_for
 from app.services.decision_policy import choose_route
 
 
-def test_fuel_and_distance_domain_are_explicit():
-    vehicle = SimpleNamespace(type='Van', fuel_type='Petrol')
-    result = evidence_for({'distance_km': 600}, vehicle, 300, 'Formula fallback')
+DETAILS = {'temp_c': 25.0, 'wet_road': False, 'weather_status': 'available', 'elevation_status': 'available',
+           'turns': 4, 'uncertainty_pct': 25.0, 'calibration_trips': 0}
+
+
+def test_unknown_vehicle_and_fuel_are_out_of_domain():
+    result = evidence_for(SimpleNamespace(type='Spaceship', fuel_type='Hybrid'), 300, DETAILS, 'Physics')
     assert result['within_documented_domain'] is False
-    assert len(result['limitations']) == 2
-    assert result['artifact_sha256'] is None
+    assert len([l for l in result['limitations'] if 'not modelled' in l or 'no physics profile' in l]) == 2
 
 
-def test_supported_synthetic_domain_is_not_claimed_validated():
-    result = evidence_for({'distance_km': 40}, SimpleNamespace(type='Van', fuel_type='Diesel'), 200, 'Formula fallback')
+def test_missing_terrain_and_weather_are_disclosed_not_hidden():
+    details = dict(DETAILS, elevation_status='unavailable', weather_status='unavailable')
+    result = evidence_for(SimpleNamespace(type='Van', fuel_type='Diesel'), 200, details, 'Physics')
     assert result['within_documented_domain']
-    assert result['confidence'] == 'Uncalibrated'
+    assert any('flat' in l for l in result['limitations'])
+    assert any('Weather unavailable' in l for l in result['limitations'])
+    assert 'not yet calibrated' in result['confidence']
     assert result['truck_restrictions_verified'] is False
 
 

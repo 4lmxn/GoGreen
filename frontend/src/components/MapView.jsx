@@ -15,13 +15,19 @@ const DefaultIcon = L.icon({
 });
 L.Marker.prototype.options.icon = DefaultIcon;
 
+// Stable empty defaults so the drawing effect does not rerun on every render.
+const NONE = [];
+
 export default function MapView({ 
   routes = [], 
   selectedRouteId, 
   origin, 
   destination, 
   currentLocation = null, // [lat, lng] for live GPS tracking
-  autoCenterOnGps = false 
+  autoCenterOnGps = false,
+  markers = NONE, // [{ lat, lng, label, title, className }] numbered pins (round planner)
+  lines = NONE, // [{ points, color }] extra polylines drawn in order
+  onMapClick = null, // (lat, lng) => void
 }) {
   const mapRef = useRef(null);
   const leafletMapRef = useRef(null);
@@ -58,6 +64,15 @@ export default function MapView({
     };
   }, []);
 
+  // Optional click handler (used to place depot and stops)
+  useEffect(() => {
+    const map = leafletMapRef.current;
+    if (!map || !onMapClick) return;
+    const handleClick = (event) => onMapClick(event.latlng.lat, event.latlng.lng);
+    map.on('click', handleClick);
+    return () => map.off('click', handleClick);
+  }, [onMapClick]);
+
   // Update Route Polylines, Markers, and Live GPS Position
   useEffect(() => {
     const map = leafletMapRef.current;
@@ -66,9 +81,36 @@ export default function MapView({
 
     layerGroup.clearLayers();
 
-    if (!routes || routes.length === 0) return;
-
     const bounds = L.latLngBounds([]);
+
+    // Extra polylines (e.g. an optimised multi-stop round)
+    lines.forEach((line) => {
+      if (!line.points || line.points.length < 2) return;
+      const polyline = L.polyline(line.points, {
+        color: line.color || '#16a34a',
+        weight: 6,
+        opacity: 0.9,
+        lineJoin: 'round',
+      }).addTo(layerGroup);
+      bounds.extend(polyline.getBounds());
+    });
+
+    // Numbered pins
+    markers.forEach((marker) => {
+      const icon = L.divIcon({
+        className: `op-pin ${marker.className || ''}`,
+        html: `<span>${marker.label}</span>`,
+        iconSize: [28, 28],
+        iconAnchor: [14, 14],
+      });
+      const pin = L.marker([marker.lat, marker.lng], { icon }).addTo(layerGroup);
+      if (marker.title) {
+        const text = document.createElement('span');
+        text.textContent = marker.title;
+        pin.bindPopup(text);
+      }
+      bounds.extend([marker.lat, marker.lng]);
+    });
 
     // Helper: Determine Route Color
     const getRouteColor = (route) => {
@@ -165,7 +207,7 @@ export default function MapView({
     }
 
     map.invalidateSize();
-  }, [routes, selectedRouteId, origin, destination, currentLocation, autoCenterOnGps]);
+  }, [routes, selectedRouteId, origin, destination, currentLocation, autoCenterOnGps, markers, lines]);
 
   return (
     <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-sm border border-slate-200">

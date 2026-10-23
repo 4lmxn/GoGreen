@@ -2,6 +2,7 @@ from sqlalchemy import func
 from app import db
 from app.models import Trip, TripPlan, Route, TripStatus
 from app.services.trip_workflow import iso
+from app.services.calibration import calibration_rows
 import json
 from pathlib import Path
 
@@ -36,4 +37,5 @@ def feedback_report():
             'bias_l': round(float(bias), 3) if bias is not None else None,
             'records': rows, 'measurement_source': 'Driver-reported, unverified',
             'evaluation_status': 'Operational diagnostic only; not a held-out model evaluation',
-            'automatic_retraining': False, 'public_benchmark': public_benchmark()}
+            'automatic_retraining': False, 'public_benchmark': public_benchmark(),
+            'calibration': calibration_rows()}

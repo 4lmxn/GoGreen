@@ -1,61 +1,55 @@
-🌱 GoGreen — AI-Driven Eco-Friendly Fleet Routing Platform
+# GoGreen: eco-routing and emissions accounting for small fleets
 
-An intelligent logistics and fleet routing platform that calculates optimal driving paths, predicts fuel consumption and $CO_2$ emissions using Machine Learning, tracks live GPS positions, and provides smart route suggestions.
+GoGreen plans delivery trips and multi-stop rounds that cut both travel time and CO₂, and tracks them.
 
+**What it does:**
+- **Predicts fuel and CO₂** for each road option with a physics model. Inputs come from live public APIs: OSRM for roads, and Open-Meteo for weather and terrain.
+- **Learns each vehicle's real consumption** from completed trips.
 
-📁 Project Architecture Overview
+**Two portals:**
+- **Drivers:** plan a trip, pick a route, track by GPS, report fuel.
+- **Admins:**
+  - approve drivers and manage vehicles
+  - optimise multi-stop rounds and inspect the model in the Model Lab
+  - watch the live fleet and export reports
 
-GoGreen/
-├── backend/            # Flask REST API + Python ML Models + SQLite Database
-│   ├── app/
-│   ├── instance/
-│   ├── run.py
-│   └── requirements.txt
-└── frontend/           # React + Vite + Leaflet Maps + Tailwind CSS
-    ├── src/
-    ├── package.json
-    └── vite.config.js
+How the model works, with equations and sources: [`docs/MODEL.md`](docs/MODEL.md).
 
+## Architecture
 
-    Quick Start Setup Guide (Windows)
-1️⃣ Setting Up the Backend (Python & Flask)
+```
+frontend/  React 19 + Vite + Leaflet + Tailwind     (driver and admin portals)
+backend/   Flask REST API + SQLAlchemy (SQLite)
+  app/ml/physics.py            road-load fuel/CO₂ model
+  app/services/routing.py      OSRM routes + per-segment speed + turns + terrain
+  app/services/rounds.py       exact multi-stop order optimiser (Held-Karp)
+  app/services/calibration.py  per-vehicle learning loop
+  app/services/decision_policy.py  when to recommend a greener route
+```
 
-# Navigate to backend directory
+## Run it
+
+Backend (Python 3.12):
+
+```bash
 cd backend
-
-# Create a virtual environment
 python -m venv venv
-
-# Activate the virtual environment on Windows
-venv\Scripts\activate
-
-# Upgrade pip (Recommended)
-python -m pip install --upgrade pip
-
-# Install required Python dependencies
+source venv/bin/activate          # Windows: venv\Scripts\activate
 pip install -r requirements.txt
+cp .env.example .env              # Windows: copy .env.example .env  (then set the secrets)
+python -m scripts.run_demo        # demo data on http://127.0.0.1:5002, admin@demo.local / driver@demo.local, DemoPass123!
+```
 
-# Run the Flask backend server
-python run.py
-.
-.
-.
-.
-Setting Up the Frontend (React & Vite)
+Frontend:
 
-# Navigate into the frontend folder
+```bash
 cd frontend
-
-# Install Node.js dependencies
 npm install
+VITE_API_BASE_URL=http://127.0.0.1:5002/api/v1 npm run dev     # Windows PowerShell: $env:VITE_API_BASE_URL="http://127.0.0.1:5002/api/v1"; npm run dev
+```
 
-# Start the Vite development server
-npm run dev
+Run the demo backend with `CORS_ORIGINS` set to the frontend address (e.g. `http://localhost:5173`).
 
+Tests: `cd backend && python -m pytest -q` (89 tests, no network needed).
 
-
-⚙️ Environment Variables Setup (.env)
-If the frontend fails to connect to the backend, make sure a .env file exists inside the frontend/ folder with the following line:
-
-VITE_API_BASE_URL=http://localhost:5000/api/v1"# cO2" 
-"# cO2" 
+Route planning needs internet access: OSRM and Open-Meteo are free public APIs that need no key. If either is down, the app says so instead of inventing values.

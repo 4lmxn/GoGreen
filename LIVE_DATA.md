@@ -1,5 +1,7 @@
 # Live context: what is real and what remains unvalidated
 
+> **Update, 23 Oct 2026:** the synthetic Random Forest has been replaced by a physics road-load model with live weather, terrain and per-vehicle calibration. See `docs/MODEL.md`. Sections below that describe the synthetic model or display-only weather are historical.
+
 The authenticated `/api/v1/context/weather?latitude=12.97&longitude=77.59` endpoint fetches current weather-model output from [Open-Meteo](https://open-meteo.com/en/docs). This is public external data, not generated demo weather. It is **model-derived current weather, not an on-site sensor observation**. The provider timestamp (`valid_at`) and our retrieval timestamp (`fetched_at`) are separate. India may use interpolation of hourly model data; a short frontend refresh does not create higher-resolution observations.
 
 The response includes temperature in Celsius, precipitation in millimetres, wind speed in km/h and WMO weather code. Coordinates are validated and rounded to three decimals for cache keys. Data is cached ten minutes in a bounded 256-entry process-local cache. If the provider fails, cached data up to one hour old is explicitly marked stale; beyond this, the API returns 503 with no invented values. Provider timestamps older than 30 minutes or more than 15 minutes into the future also trigger a stale label. Requests have connection/read timeouts and an authenticated rate limit.

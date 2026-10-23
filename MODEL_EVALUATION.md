@@ -1,5 +1,7 @@
 # Public data and honest model evaluation
 
+> **Update, 23 Oct 2026:** the synthetic Random Forest has been replaced by a physics road-load model with live weather, terrain and per-vehicle calibration. See `docs/MODEL.md`. Sections below that describe the synthetic model or display-only weather are historical.
+
 The route model currently learns from synthetic data. Its random train/test score measures imitation of the generator, not fuel accuracy on roads. Live weather or a routing API improves input context but cannot itself validate predicted fuel or prove that an alternative route saves fuel.
 
 ## Executable public benchmark

@@ -87,6 +87,11 @@ def create_trip():
                         'durationMin': round(candidate['duration_min'], 1),
                         'fuelLiters': route.predicted_fuel_l, 'co2Kg': route.predicted_co2_kg,
                         'evidence': metrics.get('evidence'),
+                        'fuelUnit': metrics.get('fuel_unit', 'L'), 'physicsFuel': metrics.get('physics_fuel'),
+                        'breakdown': metrics.get('breakdown'), 'climbM': metrics.get('climb_m'),
+                        'avgSpeedKmh': metrics.get('avg_speed_kmh'), 'turns': metrics.get('turns'),
+                        'uncertaintyPct': metrics.get('uncertainty_pct'),
+                        'calibrationFactor': metrics.get('calibration_factor'),
                         'ecoScore': route.eco_score, 'isAiRecommended': route.is_recommended, 'isDefault': i == best,
                         'decisionPolicy': decision, 'isFastest': i == fastest, 'pathPoints': candidate['pathPoints']})
     plan = TripPlan(trip_id=trip.id, candidates=records,
@@ -175,6 +180,9 @@ def end_trip(trip_id):
     route = selected(trip)
     if route:
         trip.driver.eco_score = route['ecoScore']
+        if fuel is not None:
+            from app.services.calibration import learn_from_trip
+            learn_from_trip(trip.vehicle, route.get('physicsFuel'), fuel)
     db.session.commit()
     return jsonify(serialize(trip))
 

@@ -3,17 +3,27 @@ from app import db, limiter
 from app.models import User, Driver, UserRole
 from flask_jwt_extended import create_access_token, create_refresh_token, jwt_required, get_jwt_identity
 import bcrypt
+import hmac
 import os
-import random
-import string
+import secrets
+import time
 
 auth_bp = Blueprint('auth', __name__)
 
-# In-memory OTP store: {email: otp_code}
+# In-memory OTP store: {email: (otp_code, expires_at)}
 _otp_store = {}
+OTP_TTL_SECONDS = 600
 
 def _generate_otp():
-    return ''.join(random.choices(string.digits, k=6))
+    return f'{secrets.randbelow(10**6):06d}'
+
+
+def _otp_valid(email, otp):
+    stored = _otp_store.get(email)
+    if not stored or time.time() > stored[1]:
+        _otp_store.pop(email, None)
+        return False
+    return hmac.compare_digest(stored[0], otp)
 
 
 @auth_bp.route('/request-otp', methods=['POST'])
@@ -25,9 +35,9 @@ def request_otp():
         return jsonify({"error": "validation_error", "message": "Email is required"}), 422
 
     otp = _generate_otp()
-    _otp_store[email] = otp
+    _otp_store[email] = (otp, time.time() + OTP_TTL_SECONDS)
 
-    flask_env = os.environ.get('FLASK_ENV', 'development')
+    flask_env = os.environ.get('FLASK_ENV', 'production')
     if flask_env == 'development':
         print(f"[DEMO MODE] OTP for {email}: {otp}")
         return jsonify({
@@ -48,8 +58,7 @@ def verify_otp():
     if not email or not otp:
         return jsonify({"error": "validation_error", "message": "Email and OTP required"}), 422
 
-    stored = _otp_store.get(email)
-    if stored is None or stored != otp:
+    if not _otp_valid(email, otp):
         return jsonify({"error": "invalid_otp", "message": "Invalid or expired OTP"}), 400
 
     return jsonify({"message": "OTP verified", "verified": True}), 200
@@ -67,8 +76,7 @@ def register():
     otp = data['otp'].strip()
 
     # Verify OTP first
-    stored = _otp_store.get(email)
-    if stored is None or stored != otp:
+    if not _otp_valid(email, otp):
         return jsonify({"error": "invalid_otp", "message": "Invalid or expired OTP. Please restart registration."}), 400
 
     if User.query.filter_by(email=email).first():

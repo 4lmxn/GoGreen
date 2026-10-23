@@ -45,5 +45,29 @@ export default function ActiveTrip() {
     catch (err) { setActionError(errorMessage(err)); } finally { setBusy(false); }
   }
   const route = trip?.selectedRoute;
-  return <div className="op-page"><PageHeader eyebrow="GOGREEN / ON THE ROAD" title={trip ? `${trip.origin} → ${trip.destination}` : 'Your active journey'} description={trip ? `Trip #${trip.id} · ${trip.vehicleId} · ${trip.status.replace('_', ' ')}` : 'Loading your saved route'} action={<button className="op-button secondary" onClick={reload}>Refresh trip</button>} /><ErrorNotice>{actionError || error}</ErrorNotice>{loading ? <Loading /> : trip && <><div className="op-metrics"><Metric label="Planned distance" value={amount(route?.distanceKm)} unit="km" note="Selected road route" icon={Navigation} /><Metric label="Estimated duration" value={amount(route?.durationMin)} unit="min" note="At planning time · no live traffic" icon={Flag} /><Metric label="Predicted CO₂" value={amount(route?.co2Kg)} unit="kg" note={trip.predictionMode} icon={MapPin} /><Metric label="Net estimated CO₂ avoided" value={amount(trip.estimatedSavingsKg)} unit="kg" note="Compared with fastest alternative" icon={Flag} /></div><div className="op-planner"><div className="op-stack"><section className="op-panel"><h2>Location sharing</h2><p className="op-description" role="status">{active ? gpsStatus : `This trip is ${trip.status}; tracking has stopped.`}</p><p className="op-note">Last server update: {formatDate(trip.lastLocation?.timestamp)}. GPS sharing requires a secure connection or localhost.</p></section>{active && <section className="op-panel"><form onSubmit={finish} className="op-form"><h2>Arrived at your destination?</h2><p className="op-note">Confirm completion when your journey is finished. No arrival detection or fuel measurement is assumed.</p><label>Fuel used · liters, optional driver report<input className="op-input" type="number" min="0" max="1000000" step="0.01" value={fuel} onChange={e => setFuel(e.target.value)} placeholder="Leave blank if fuel use is unknown" /></label><button disabled={busy} className="op-button">{busy ? 'Saving…' : 'Confirm journey complete'}</button><button disabled={busy} type="button" onClick={cancel} className="op-button danger">Cancel journey</button></form></section>}</div><div className="op-map"><MapView routes={trip.routes} selectedRouteId={trip.selectedRouteId} origin={trip.origin} destination={trip.destination} currentLocation={gps || (trip.lastLocation ? [trip.lastLocation.lat, trip.lastLocation.lng] : null)} /></div></div></>}</div>;
+  return <div className="op-page"><PageHeader eyebrow="GOGREEN / ON THE ROAD" title={trip ? `${trip.origin} → ${trip.destination}` : 'Your active journey'} description={trip ? `Trip #${trip.id} · ${trip.vehicleId} · ${trip.status.replace('_', ' ')}` : 'Loading your saved route'} action={<button className="op-button secondary" onClick={reload}>Refresh trip</button>} /><ErrorNotice>{actionError || error}</ErrorNotice>{loading ? <Loading /> : trip && <><div className="op-metrics"><Metric label="Planned distance" value={amount(route?.distanceKm)} unit="km" note="Selected road route" icon={Navigation} /><Metric label="Estimated duration" value={amount(route?.durationMin)} unit="min" note="At planning time · no live traffic" icon={Flag} /><Metric label="Predicted CO₂" value={amount(route?.co2Kg)} unit="kg" note={trip.predictionMode} icon={MapPin} /><Metric label="Net estimated CO₂ avoided" value={amount(trip.estimatedSavingsKg)} unit="kg" note="Compared with fastest alternative" icon={Flag} /></div><div className="op-planner"><div className="op-stack"><section className="op-panel"><h2>Location sharing</h2><p className="op-description" role="status">{active ? gpsStatus : `This trip is ${trip.status}; tracking has stopped.`}</p><p className="op-note">Last server update: {formatDate(trip.lastLocation?.timestamp)}. GPS sharing requires a secure connection or localhost.</p></section>{active && <section className="op-panel"><form onSubmit={finish} className="op-form"><h2>Arrived at your destination?</h2><p className="op-note">Confirm completion when your journey is finished. No arrival detection or fuel measurement is assumed.</p><FuelReportField unit={route?.fuelUnit || 'L'} value={fuel} onChange={setFuel} /><button disabled={busy} className="op-button">{busy ? 'Saving…' : 'Confirm journey complete'}</button><button disabled={busy} type="button" onClick={cancel} className="op-button danger">Cancel journey</button></form></section>}</div><div className="op-map"><MapView routes={trip.routes} selectedRouteId={trip.selectedRouteId} origin={trip.origin} destination={trip.destination} currentLocation={gps || (trip.lastLocation ? [trip.lastLocation.lat, trip.lastLocation.lng] : null)} /></div></div></>}</div>;
+}
+
+// Optional driver report of fuel (or kWh for electric vehicles). Each report
+// updates this vehicle's calibration factor, so later predictions improve.
+function FuelReportField({ unit, value, onChange }) {
+  const unitName = { L: 'litres', kg: 'kg of CNG', kWh: 'kWh charged' }[unit] || unit;
+  return (
+    <label>
+      Fuel used · {unitName}, optional
+      <input
+        className="op-input"
+        type="number"
+        min="0"
+        max="1000000"
+        step="0.01"
+        value={value}
+        onChange={e => onChange(e.target.value)}
+        placeholder="Leave blank if fuel use is unknown"
+      />
+      <span className="op-note" style={{ display: 'block' }}>
+        Your report trains this vehicle's calibration: the model compares it with its own prediction and adjusts future estimates. Implausible values are ignored.
+      </span>
+    </label>
+  );
 }

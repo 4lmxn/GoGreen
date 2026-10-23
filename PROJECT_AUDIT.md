@@ -1,5 +1,7 @@
 # GoGreen: project audit and improvement plan
 
+> **Update, 23 Oct 2026:** the synthetic Random Forest has been replaced by a physics road-load model with live weather, terrain and per-vehicle calibration. See `docs/MODEL.md`. Sections below that describe the synthetic model or display-only weather are historical.
+
 **Reviewed:** 23 October 2026  
 **Scope:** Current working copy, including existing uncommitted changes. Source inspection, frontend build, scoped lint, and Python syntax checks. No application logic was changed during this audit.
 

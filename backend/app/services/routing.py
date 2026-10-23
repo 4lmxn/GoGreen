@@ -32,6 +32,46 @@ def coordinates(place):
     raise ValueError('Location not recognized. Choose a listed city or enter latitude,longitude.')
 
 
+MAX_SEGMENTS = 99      # 100 elevation samples = one Open-Meteo request per route
+MAX_PATH_POINTS = 400  # enough for the map, small enough to store with the plan
+SLOWDOWN_MANEUVERS = {'turn', 'end of road', 'fork', 'roundabout', 'rotary', 'roundabout turn', 'exit roundabout', 'exit rotary'}
+
+
+def _thin(points, limit):
+    if len(points) <= limit:
+        return points
+    step = (len(points) - 1) / (limit - 1)
+    return [points[round(i * step)] for i in range(limit)]
+
+
+def _segments(points, distances, durations):
+    """Group OSRM's per-edge annotations into at most MAX_SEGMENTS stretches of similar length."""
+    total = sum(distances)
+    bins = min(MAX_SEGMENTS, len(distances))
+    cuts, travelled, target = [0], 0.0, total / bins
+    for i, d in enumerate(distances):
+        travelled += d
+        if travelled >= target * len(cuts) and len(cuts) < bins:
+            cuts.append(i + 1)
+    cuts.append(len(distances))
+    cuts = sorted(set(cuts))
+    segments = []
+    for a, b in zip(cuts, cuts[1:]):
+        segments.append({'start': points[a], 'end': points[b],
+                         'distance_m': sum(distances[a:b]), 'duration_s': sum(durations[a:b])})
+    return segments
+
+
+def _with_elevation(segments):
+    from app.services.elevation import get_elevations
+    heights = get_elevations([segments[0]['start']] + [s['end'] for s in segments])
+    for i, seg in enumerate(segments):
+        rise = heights[i + 1] - heights[i] if heights else 0.0
+        mean = (heights[i + 1] + heights[i]) / 2 if heights else 0.0
+        seg.update(rise_m=rise, elevation_m=mean)
+    return 'available' if heights else 'unavailable'
+
+
 def get_road_routes(source, destination):
     start, end = coordinates(source), coordinates(destination)
     if start == end:
@@ -40,7 +80,8 @@ def get_road_routes(source, destination):
     path = f'{start[1]},{start[0]};{end[1]},{end[0]}'
     try:
         response = requests.get(f'{base}/route/v1/driving/{path}', params={
-            'alternatives': 'true', 'overview': 'simplified', 'geometries': 'geojson'
+            'alternatives': 'true', 'overview': 'full', 'geometries': 'geojson',
+            'annotations': 'distance,duration', 'steps': 'true',
         }, timeout=(5, 20))
         response.raise_for_status()
         data = response.json()
@@ -53,7 +94,16 @@ def get_road_routes(source, destination):
             points = [[float(lat), float(lng)] for lng, lat in route['geometry']['coordinates']]
             if not (math.isfinite(distance) and math.isfinite(duration) and distance > 0 and duration > 0 and len(points) >= 2):
                 raise ValueError('Invalid provider route')
-            result.append({'distance_km': distance, 'duration_min': duration, 'pathPoints': points})
+            leg = route['legs'][0]
+            distances = [float(x) for x in leg['annotation']['distance']]
+            durations = [float(x) for x in leg['annotation']['duration']]
+            if len(distances) != len(points) - 1 or len(durations) != len(distances):
+                raise ValueError('Annotation does not match geometry')
+            segments = _segments(points, distances, durations)
+            turns = sum(1 for step in leg['steps'] if step['maneuver']['type'] in SLOWDOWN_MANEUVERS)
+            result.append({'distance_km': distance, 'duration_min': duration,
+                           'pathPoints': _thin(points, MAX_PATH_POINTS), 'segments': segments,
+                           'turns': turns, 'elevation_status': _with_elevation(segments)})
         return result
-    except (requests.RequestException, ValueError, KeyError, TypeError) as exc:
+    except (requests.RequestException, ValueError, KeyError, TypeError, IndexError) as exc:
         raise ProviderUnavailable('Routing service unavailable. Nothing was saved; please retry.') from exc

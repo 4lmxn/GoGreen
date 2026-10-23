@@ -10,3 +10,4 @@ venv/
 backend/instance/
 backend/public_data/vehicles.csv
 .DS_Store
+.playwright-mcp/

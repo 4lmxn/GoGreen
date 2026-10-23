@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import api from '../api/api';
 
 export default function DriverEcoCoach() {
   const [braking, setBraking] = useState(2);
@@ -11,17 +12,12 @@ export default function DriverEcoCoach() {
   const fetchScore = async () => {
     setLoading(true);
     try {
-      const res = await fetch('http://localhost:5000/api/ai/driver-score', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          harsh_braking: braking,
-          rapid_accel: accel,
-          idle_minutes: idle,
-          avg_speed: speed,
-        }),
+      const { data } = await api.post('/ai/driver-score', {
+        harsh_braking: braking,
+        rapid_accel: accel,
+        idle_minutes: idle,
+        avg_speed: speed,
       });
-      const data = await res.json();
       setResult(data);
     } catch (err) {
       console.error('Failed to calculate driver score:', err);

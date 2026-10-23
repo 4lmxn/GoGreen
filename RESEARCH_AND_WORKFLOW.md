@@ -1,5 +1,7 @@
 # Eco-routing research and workflow improvement review
 
+> **Update, 23 Oct 2026:** the synthetic Random Forest has been replaced by a physics road-load model with live weather, terrain and per-vehicle calibration. See `docs/MODEL.md`. Sections below that describe the synthetic model or display-only weather are historical.
+
 Reviewed 23 October 2026. This is a focused engineering literature/product review, not an exhaustive systematic review or a benchmark proving superiority over commercial systems. Primary product documentation, research abstracts, and dataset documentation were inspected. Where full papers were not reviewed, conclusions below stay at the level supported by their abstracts. Local findings refer to the working source code.
 
 ## Main conclusion

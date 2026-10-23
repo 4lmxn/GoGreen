@@ -1,119 +1,127 @@
+from types import SimpleNamespace
+
 from flask import Blueprint, request, jsonify
-from app.ml.artifacts import load_model
-import os
-import numpy as np
+from flask_jwt_extended import jwt_required
+
+from app import limiter
+from app.ml import physics
+from app.utils.rbac import role_required
 
 ai_bp = Blueprint('ai_engine', __name__, url_prefix='/api/ai')
 
-# Path to the trained model in app/ai_models
-MODEL_PATH = os.path.join(os.path.dirname(__file__), '..', '..', 'ai_models', 'co2_predictor.joblib')
-model = load_model(MODEL_PATH)
+EQUATION = ('F = Crr·m·g·cos θ + ½·ρ·CdA·v² + m·g·sin θ;  '
+            'energy = Σ F·d + turns·½·m·(v² − v_turn²) + P_aux·t;  '
+            'fuel = energy / (efficiency · energy per litre);  CO₂ = fuel · emission factor')
 
-from app.utils.rbac import role_required
+ASSUMPTIONS = [
+    'Vehicle parameters (mass, drag area, rolling resistance) are typical values for each class until a vehicle is calibrated.',
+    'Road speeds are OSRM typical speeds for each road; live traffic is not available.',
+    'Each turn or junction slows the vehicle to 15 km/h; kinetic energy above that is lost (EVs recover 60%).',
+    'Air density uses the live temperature and road elevation; air-conditioning ramps up above 24 °C.',
+    'Wet roads (more than 0.2 mm/h rain) raise rolling resistance by 15%.',
+    'Electric CO₂ uses the Indian grid average, not the vehicle tailpipe (which is zero).',
+]
+
+DATA_SOURCES = [
+    {'name': 'OSRM', 'url': 'https://project-osrm.org/', 'use': 'Road alternatives, per-segment speed, turns, distance matrix'},
+    {'name': 'Open-Meteo Forecast', 'url': 'https://open-meteo.com/', 'use': 'Live temperature and rain at the start point'},
+    {'name': 'Open-Meteo Elevation', 'url': 'https://open-meteo.com/en/docs/elevation-api', 'use': 'Terrain height along each route (Copernicus DEM 90 m)'},
+    {'name': 'IPCC 2006 Guidelines', 'url': 'https://www.ipcc-nggip.iges.or.jp/public/2006gl/vol2.html', 'use': 'Fuel CO₂ factors and calorific values'},
+    {'name': 'CEA CO₂ Baseline Database v19', 'url': 'https://cea.nic.in/cdm-co2-baseline-database/', 'use': 'Indian grid factor 0.716 kg CO₂/kWh'},
+    {'name': 'FuelEconomy.gov', 'url': 'https://www.fueleconomy.gov/feg/ws/index.shtml', 'use': 'Real-data validation of a vehicle-efficiency regressor'},
+]
 
 
 @ai_bp.route('/fleet-health')
 @role_required('admin')
 def fleet_health():
-    from app.ml.predict import _load_models, _models
-    _load_models()
-    return jsonify(models=[{'model_name': name, 'available': True} for name in _models],
-                   predictive_maintenance={'available': False, 'reason': 'No measured maintenance model connected'},
-                   system_status='Model ready' if _models else 'Formula fallback',
-                   training_data='Synthetic; real-world accuracy not validated')
+    from app.services.calibration import calibration_rows
+    rows = calibration_rows()
+    return jsonify(model=physics.MODEL_VERSION, system_status='Model ready',
+                   vehicles=len(rows), calibrated_vehicles=sum(1 for r in rows if r['trips'] >= 3),
+                   predictive_maintenance={'available': False, 'reason': 'No measured maintenance model connected'})
 
-@ai_bp.route('/predict-route', methods=['POST'])
+
+@ai_bp.route('/model-card')
 @role_required('admin')
-def predict_route():
+def model_card():
+    from app.services.calibration import calibration_rows
+    from app.services.feedback import public_benchmark
+    return jsonify(model_version=physics.MODEL_VERSION, equation=EQUATION,
+                   profiles=physics.PROFILES, fuels=physics.FUELS, powertrains=physics.POWERTRAINS,
+                   assumptions=ASSUMPTIONS, data_sources=DATA_SOURCES,
+                   public_benchmark=public_benchmark(), calibration=calibration_rows())
+
+
+@ai_bp.route('/model-lab', methods=['POST'])
+@role_required('admin')
+@limiter.limit('20 per minute')
+def model_lab():
+    """Compare real road alternatives for a hypothetical vehicle; nothing is saved."""
+    from app.services.routing import get_road_routes, ProviderUnavailable
+    from app.services.trip_workflow import number, estimate
+    from app.services.decision_policy import choose_route
     data = request.get_json() or {}
-    
-    from app.services.trip_workflow import number
+    vehicle_key, fuel_key = data.get('vehicle_type'), data.get('fuel_type')
     try:
-        distance = number(data.get('distance_km', 120), 'Distance', 0.1, 500)
-        cargo = number(data.get('cargo_weight_kg', 1500), 'Cargo', 0, 5000)
+        if vehicle_key not in physics.PROFILES:
+            raise ValueError(f'vehicle_type must be one of {", ".join(physics.PROFILES)}.')
+        if fuel_key not in physics.FUELS:
+            raise ValueError(f'fuel_type must be one of {", ".join(physics.FUELS)}.')
+        capacity = number(data.get('capacity_kg', 1000), 'Capacity', 0, 40000)
+        load = number(data.get('load_kg', 0), 'Load', 0, capacity)
+        candidates = get_road_routes(data.get('source', ''), data.get('destination', ''))
     except ValueError as exc:
         return jsonify(message=str(exc)), 422
-    vtype_str = str(data.get('vehicle_type', 'diesel')).lower()
-    
-    # 0: EV, 1: CNG, 2: Diesel
-    type_map = {'ev': 0, 'cng': 1, 'diesel': 2}
-    vtype_code = type_map.get(vtype_str, 2)
-    
-    # 1. Standard Route
-    standard_features = np.array([[distance, cargo, 1.6, vtype_code]])
-    standard_co2 = float(model.predict(standard_features)[0]) if model else distance * 0.28
-    
-    # 2. EcoRoute (optimized traffic flow)
-    eco_distance = round(distance * 1.04, 1)
-    eco_features = np.array([[eco_distance, cargo, 1.1, vtype_code]])
-    eco_co2 = float(model.predict(eco_features)[0]) if model else eco_distance * 0.21
-    
-    saved_co2 = max(0.0, standard_co2 - eco_co2)
-    pct_saved = (saved_co2 / standard_co2) * 100 if standard_co2 > 0 else 0.0
+    except ProviderUnavailable as exc:
+        return jsonify(message=str(exc)), 503
+    vehicle = SimpleNamespace(type=physics.PROFILES[vehicle_key]['label'], fuel_type=fuel_key,
+                              load_capacity_kg=capacity, calibration=None)
+    estimates = [estimate(route, vehicle, load) for route in candidates]
+    fastest, best, decision = choose_route(candidates, estimates)
+    routes = []
+    for i, (route, metrics) in enumerate(zip(candidates, estimates)):
+        routes.append({'id': i, 'title': 'Fastest route' if i == fastest else f'Alternative {i + 1}',
+                       'distanceKm': round(route['distance_km'], 2), 'durationMin': round(route['duration_min'], 1),
+                       'fuelLiters': metrics['predicted_fuel_l'], 'fuelUnit': metrics['fuel_unit'],
+                       'co2Kg': metrics['predicted_co2_kg'], 'breakdown': metrics['breakdown'],
+                       'climbM': metrics['climb_m'], 'avgSpeedKmh': metrics['avg_speed_kmh'], 'turns': metrics['turns'],
+                       'ecoScore': metrics['eco_score'], 'isFastest': i == fastest,
+                       'isRecommended': i == best and not decision['eco_ranking_withheld'],
+                       'pathPoints': route['pathPoints']})
+    inputs = estimates[0]['evidence']['inputs']
+    return jsonify(routes=routes, decision=decision,
+                   weather={'temp_c': inputs['temperature_c'], 'wet_road': inputs['wet_road'], 'status': inputs['weather_status']},
+                   elevation_status='available' if all(r.get('elevation_status') == 'available' for r in candidates) else 'unavailable',
+                   vehicle={'class': vehicle_key, 'label': physics.PROFILES[vehicle_key]['label'], 'fuel': fuel_key,
+                            'mass_kg': estimates[0]['mass_kg']})
 
-    return jsonify({
-        "success": True,
-        "prediction_mode": 'Synthetic-trained scenario model' if model else 'Formula scenario fallback',
-        "standard_route": {
-            "distance_km": distance,
-            "estimated_duration_min": int(distance * 1.3),
-            "predicted_co2_kg": round(standard_co2, 2)
-        },
-        "eco_route": {
-            "distance_km": eco_distance,
-            "estimated_duration_min": int(eco_distance * 1.15),
-            "predicted_co2_kg": round(eco_co2, 2)
-        },
-        "co2_saved_kg": round(saved_co2, 2),
-        "savings_percentage": round(pct_saved, 1)
-    }), 200
+
 @ai_bp.route('/driver-score', methods=['POST'])
+@jwt_required()
 def calculate_driver_score():
+    """Rule-based eco-driving coach from driver-entered events (not learned)."""
     data = request.get_json() or {}
-    
-    # Telemetry inputs from driver trip
-    harsh_braking_count = int(data.get('harsh_braking', 2))
-    rapid_accel_count = int(data.get('rapid_accel', 3))
-    idle_minutes = float(data.get('idle_minutes', 12))
-    avg_speed_kmh = float(data.get('avg_speed', 54))
+    from app.services.trip_workflow import number
+    try:
+        harsh_braking = number(data.get('harsh_braking', 0), 'Harsh braking', 0, 1000)
+        rapid_accel = number(data.get('rapid_accel', 0), 'Rapid acceleration', 0, 1000)
+        idle_minutes = number(data.get('idle_minutes', 0), 'Idle minutes', 0, 1440)
+        avg_speed = number(data.get('avg_speed', 0), 'Average speed', 0, 200)
+    except ValueError as exc:
+        return jsonify(message=str(exc)), 422
 
-    # AI Penalties & Anomaly Calculations
-    brake_penalty = harsh_braking_count * 4.5
-    accel_penalty = rapid_accel_count * 3.5
-    idle_penalty = max(0.0, (idle_minutes - 5.0) * 1.5)
-    speed_penalty = 10.0 if avg_speed_kmh > 75 else 0.0
-
-    raw_score = 100.0 - (brake_penalty + accel_penalty + idle_penalty + speed_penalty)
-    score = int(np.clip(raw_score, 20, 100))
-
-    # Compute wasted fuel and avoidable CO2 emissions
-    wasted_co2_kg = round((harsh_braking_count * 0.18) + (rapid_accel_count * 0.22) + (idle_minutes * 0.08), 2)
-
-    # Determine rank & contextual recommendations
+    penalty = harsh_braking * 4.5 + rapid_accel * 3.5 + max(0.0, (idle_minutes - 5.0) * 1.5) + (10.0 if avg_speed > 75 else 0.0)
+    score = int(max(20, min(100, 100 - penalty)))
     if score >= 85:
-        tier = "Eco Champion"
-        tier_color = "emerald"
-        tip = "Smooth acceleration and minimal idling. Excellent fuel conservation!"
+        tier, colour, tip = 'Eco Champion', 'emerald', 'Smooth acceleration and minimal idling. Excellent fuel conservation!'
     elif score >= 65:
-        tier = "Efficient Driver"
-        tier_color = "amber"
-        tip = "Watch prolonged stop-and-go idling. Cutting idle time by 5 mins saves ~0.4 kg CO₂."
+        tier, colour, tip = 'Efficient Driver', 'amber', 'Watch prolonged stop-and-go idling.'
     else:
-        tier = "Needs Optimization"
-        tier_color = "rose"
-        tip = "High frequency of harsh braking and sudden accelerations detected. Ease throttle pressure."
-
+        tier, colour, tip = 'Needs Optimization', 'rose', 'Frequent harsh braking and sudden acceleration. Ease throttle pressure.'
     return jsonify({
-        "success": True,
-        "eco_score": score,
-        "tier": tier,
-        "tier_color": tier_color,
-        "wasted_co2_kg": wasted_co2_kg,
-        "primary_coaching_tip": tip,
-        "telemetry_breakdown": {
-            "harsh_braking_events": harsh_braking_count,
-            "rapid_accel_events": rapid_accel_count,
-            "idle_duration_min": idle_minutes,
-            "average_speed_kmh": avg_speed_kmh
-        }
+        'success': True, 'eco_score': score, 'tier': tier, 'tier_color': colour, 'primary_coaching_tip': tip,
+        'method': 'Rule-based penalties; not a learned model',
+        'telemetry_breakdown': {'harsh_braking_events': harsh_braking, 'rapid_accel_events': rapid_accel,
+                                'idle_duration_min': idle_minutes, 'average_speed_kmh': avg_speed},
     }), 200

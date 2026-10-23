@@ -1,6 +1,8 @@
 import math
 from datetime import datetime, timezone
-from app.ml.predict import predict_trip_metrics
+from app.ml import physics
+
+DEFAULT_TEMP_C = 25.0
 
 
 def number(value, label, minimum=0, maximum=1_000_000):
@@ -19,14 +21,46 @@ def iso(value):
     return value.replace(tzinfo=timezone.utc).isoformat() if value else None
 
 
-def estimate(route, vehicle, load):
-    # The existing model was trained on synthetic data with categorical weather
-    # and traffic. Fixed inputs are explicit assumptions, never live observations.
-    metrics = predict_trip_metrics(route['distance_km'], load, 'Medium', 'Clear', vehicle.type)
-    from app.ml.predict import _models
-    mode = 'Synthetic-trained Random Forest' if 'co2' in _models else 'Formula fallback'
+def planning_weather(lat, lng):
+    """(temperature °C, wet road, status) from live Open-Meteo data; a labelled default if unavailable."""
+    from app.services.live_context import get_live_context
+    context = get_live_context(lat, lng)
+    current = context.get('current')
+    if not current:
+        return DEFAULT_TEMP_C, False, 'unavailable'
+    return current['temperature_2m'], current['precipitation'] > 0.2, context['status']
+
+
+def estimate(route, vehicle, load, weather=None):
+    """Physics prediction for one candidate route, corrected by the vehicle's learned calibration."""
+    from app.services.calibration import factor_and_uncertainty
     from app.services.evidence import evidence_for
-    return {**metrics, 'prediction_mode': mode, 'evidence': evidence_for(route, vehicle, load, mode)}
+    vehicle_key = physics.vehicle_class(vehicle.type)
+    fuel_key = physics.fuel_kind(vehicle.fuel_type, vehicle.type)
+    segments = route.get('segments') or [{'distance_m': route['distance_km'] * 1000,
+                                          'duration_s': route['duration_min'] * 60, 'rise_m': 0, 'elevation_m': 0}]
+    temp_c, wet_road, weather_status = weather or planning_weather(*route['pathPoints'][0])
+    # Unsupported vehicles still get numbers so routes can be shown, but the
+    # evidence marks them out of domain and the decision policy withholds ranking.
+    result = physics.estimate(segments, vehicle_key or 'van', fuel_key or 'diesel', load,
+                              temp_c=temp_c, wet_road=wet_road, turns=route.get('turns', 0))
+    factor, uncertainty = factor_and_uncertainty(getattr(vehicle, 'calibration', None))
+    reference = physics.reference_co2_per_km(vehicle_key or 'van', fuel_key or 'diesel', vehicle.load_capacity_kg)
+    co2 = result['co2_kg'] * factor
+    trips = vehicle.calibration.trips if getattr(vehicle, 'calibration', None) else 0
+    mode = 'Physics road-load model' + (f', calibrated on {trips} trips' if trips else ', class defaults')
+    details = {'temp_c': temp_c, 'wet_road': wet_road, 'weather_status': weather_status,
+               'elevation_status': route.get('elevation_status', 'unavailable'), 'turns': route.get('turns', 0),
+               'uncertainty_pct': uncertainty, 'calibration_trips': trips}
+    return {
+        'predicted_fuel_l': round(result['fuel'] * factor, 3), 'fuel_unit': result['fuel_unit'],
+        'predicted_co2_kg': round(co2, 3), 'physics_fuel': result['fuel'],
+        'breakdown': {k: round(v * factor, 3) for k, v in result['co2_breakdown_kg'].items()},
+        'climb_m': result['climb_m'], 'avg_speed_kmh': result['avg_speed_kmh'], 'turns': result['turns'],
+        'mass_kg': result['mass_kg'], 'uncertainty_pct': uncertainty, 'calibration_factor': round(factor, 3),
+        'eco_score': physics.eco_score(co2, route['distance_km'], reference),
+        'prediction_mode': mode, 'evidence': evidence_for(vehicle, load, details, mode),
+    }
 
 
 def selected(trip):

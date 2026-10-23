@@ -1,4 +1,5 @@
 import os
+import secrets
 from flask import Flask, app
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
@@ -17,8 +18,12 @@ def create_app(test_config=None):
     app = Flask(__name__)
 
     # Default config
-    app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'change-me-to-a-random-string')
-    app.config['JWT_SECRET_KEY'] = os.environ.get('JWT_SECRET_KEY', 'change-me-to-a-different-random-string')
+    # Never fall back to a guessable secret: without env values, use a random
+    # per-process key (sessions end on restart) and say so.
+    for key in ('SECRET_KEY', 'JWT_SECRET_KEY'):
+        app.config[key] = os.environ.get(key) or secrets.token_hex(32)
+        if not os.environ.get(key) and not test_config:
+            app.logger.warning('%s is not set; using a random key for this process.', key)
     app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///gogreen.db')
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
@@ -79,11 +84,8 @@ def create_app(test_config=None):
     app.register_blueprint(admin_bp, url_prefix='/api/v1/admin')
     app.register_blueprint(reports_bp, url_prefix='/api/v1/reports')
     app.register_blueprint(context_bp, url_prefix='/api/v1/context')
-    # from app.blueprints.trips.routes import trips_bp
-    # from app.blueprints.admin.routes import admin_bp
-    # from app.blueprints.notifications.routes import notifications_bp
-    # from app.blueprints.reports.routes import reports_bp
-    # from app.blueprints.ai.routes import ai_bp
+    from app.blueprints.rounds import rounds_bp
+    app.register_blueprint(rounds_bp, url_prefix='/api/v1/rounds')
 
     @app.cli.command('init-db')
     def init_db():

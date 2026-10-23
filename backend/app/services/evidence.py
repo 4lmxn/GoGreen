@@ -1,35 +1,29 @@
-"""Evidence available at planning time; never a calibrated confidence score."""
-from functools import lru_cache
-from hashlib import sha256
-from pathlib import Path
+"""Evidence available at planning time: what the prediction rests on and where it is weak."""
+from app.ml import physics
 
 
-@lru_cache(maxsize=4)
-def artifact_fingerprint(name):
-    path = Path(__file__).parents[1] / 'ml' / 'models' / name
-    return sha256(path.read_bytes()).hexdigest() if path.exists() else None
-
-
-def evidence_for(route, vehicle, load, mode):
-    kind = (vehicle.type or '').strip().lower()
-    fuel = (vehicle.fuel_type or '').strip().lower()
-    reasons = []
-    if not 5 <= route['distance_km'] <= 500:
-        reasons.append('Distance is outside the synthetic training range of 5–500 km.')
-    if not 0 <= load <= 5000:
-        reasons.append('Cargo is outside the synthetic training range of 0–5000 kg.')
-    if kind not in ('van', 'truck'):
-        reasons.append('Vehicle class has no validated energy profile in this model.')
-    if fuel != 'diesel':
-        reasons.append('The synthetic emissions target uses a diesel factor; this fuel needs a dedicated model.')
+def evidence_for(vehicle, load, details, mode):
+    vehicle_key = physics.vehicle_class(vehicle.type)
+    fuel_key = physics.fuel_kind(vehicle.fuel_type, vehicle.type)
+    out_of_domain, notes = [], []
+    if not vehicle_key:
+        out_of_domain.append(f'Vehicle type "{vehicle.type}" has no physics profile; use car, van, truck or heavy truck.')
+    if not fuel_key:
+        out_of_domain.append(f'Fuel "{vehicle.fuel_type}" is not modelled; supported: diesel, petrol, CNG, electric.')
+    if details['elevation_status'] != 'available':
+        notes.append('Terrain unavailable; the route is treated as flat.')
+    if details['weather_status'] == 'unavailable':
+        notes.append(f'Weather unavailable; assumed {details["temp_c"]:.0f} °C and a dry road.')
+    notes.append('Road speeds are OSRM typical speeds, not live traffic.')
     return {
-        'schema': 'planning-evidence-v1', 'within_documented_domain': not reasons,
-        'limitations': reasons,
-        'inputs': {'distance_km': route['distance_km'], 'cargo_kg': load,
-                   'vehicle_type': vehicle.type, 'fuel_type': vehicle.fuel_type,
-                   'traffic': 'Medium (assumed)', 'weather': 'Clear (assumed)'},
+        'schema': 'planning-evidence-v2', 'within_documented_domain': not out_of_domain,
+        'limitations': out_of_domain + notes,
+        'inputs': {'vehicle_class': vehicle_key, 'fuel': fuel_key, 'cargo_kg': load,
+                   'temperature_c': round(details['temp_c'], 1), 'wet_road': details['wet_road'],
+                   'weather_status': details['weather_status'], 'elevation_status': details['elevation_status'],
+                   'turns': details['turns'], 'road_speeds': 'OSRM typical speeds'},
         'routing_provider': 'OSRM driving', 'truck_restrictions_verified': False,
-        'training_source': 'Synthetic generator', 'prediction_mode': mode,
-        'confidence': 'Uncalibrated',
-        'artifact_sha256': artifact_fingerprint('co2_model.joblib') if 'Random Forest' in mode else None,
+        'model': physics.MODEL_VERSION, 'prediction_mode': mode,
+        'confidence': f'±{details["uncertainty_pct"]:.0f}% '
+                      + ('(learned from this vehicle\'s trips)' if details['calibration_trips'] >= 3 else '(class default, not yet calibrated)'),
     }

@@ -4,6 +4,7 @@ import { ArrowRight, Check } from 'lucide-react';
 import api from '../../api/api';
 import MapView from '../../components/MapView';
 import { PageHeader, ErrorNotice, errorMessage, amount } from '../../components/Operations';
+import { BreakdownBar, BreakdownLegend, breakdownTotal, fuelText } from '../../components/ModelViews';
 
 export default function NewTrip() {
   const [params, setParams] = useSearchParams();
@@ -48,6 +49,129 @@ export default function NewTrip() {
     try { await api.post(`/trips/${trip.id}/cancel`); setTrip(null); setSelected(null); setParams({}); }
     catch (err) { setError(errorMessage(err)); } finally { setBusy(false); }
   }
+
   const routes = trip?.routes || [];
-  return <div className="op-page"><PageHeader eyebrow="GOGREEN / PLAN A JOURNEY" title="Find your greener way." description="Compare real road alternatives for your assigned vehicle. Save your choice, then start tracking." /><ErrorNotice>{error}</ErrorNotice><div className="op-planner"><div className="op-stack"><section className="op-panel"><form onSubmit={plan} className="op-form"><label>Origin<input className="op-input" value={source} onChange={e => setSource(e.target.value)} required disabled={!!trip || busy} /></label><label>Destination<input className="op-input" value={destination} onChange={e => setDestination(e.target.value)} required disabled={!!trip || busy} /></label><label>Cargo weight · kg<input className="op-input" type="number" min="0" step="0.1" value={weight} onChange={e => setWeight(e.target.value)} required disabled={!!trip || busy} /></label><p className="op-note">Cities: Bengaluru, Mysuru, Chennai, Mumbai, Delhi, Pune, Hyderabad, Hosur, Tumakuru, Kochi. You can also enter latitude,longitude. Routes use city centers unless coordinates are supplied.</p>{!trip ? <button disabled={busy} className="op-button">{busy ? 'Finding road alternatives…' : 'Compare routes'} <ArrowRight size={15} /></button> : trip.status === 'planned' ? <button type="button" className="op-button secondary" disabled={busy} onClick={discard}>Cancel this plan and start again</button> : <p className="op-note">This trip is {trip.status}. Open a new plan from the dashboard.</p>}</form></section>{routes.length > 0 && <><section className="op-panel"><h2>Why this route?</h2><p className="op-description">{routes[0]?.decisionPolicy?.reason}</p><p className="op-note">Evidence: synthetic training · confidence not calibrated · truck restrictions not verified.</p></section><p className="op-note">{trip.predictionMode} · assumed medium traffic and clear weather. When evidence permits, recommendation: lowest predicted total CO₂ within 15% of fastest time; improvements below 2% or 0.1 kg retain the fastest route. This threshold is not statistical confidence. Plans expire after 30 minutes. OSRM car routes are not certified truck routes.</p>{routes.map(route => <button key={route.id} disabled={busy || trip.status !== 'planned'} className={`op-route-card ${selected === route.id ? 'selected' : ''}`} onClick={() => setSelected(route.id)} aria-pressed={selected === route.id}><div className="op-row"><strong>{route.title}</strong>{selected === route.id && <Check size={16} />}</div><div className="op-route-values"><div><b>{amount(route.distanceKm)}</b><span>kilometers</span></div><div><b>{amount(route.durationMin)}</b><span>minutes</span></div><div><b>{amount(route.co2Kg)}</b><span>kg CO₂ estimate</span></div></div>{route.evidence?.limitations?.map(note => <p className="op-note" key={note}>⚠ {note}</p>)}<p className="op-note">{amount(route.fuelLiters)} L predicted · {route.isFastest ? 'Fastest alternative' : 'Alternative road route'}</p></button>)}{trip.status === 'planned' && <button disabled={busy || !selected} onClick={start} className="op-button">{busy ? 'Saving your journey…' : 'Start selected journey'} <ArrowRight size={16} /></button>}</>}</div><div className="op-stack"><div className="op-map"><MapView routes={routes} selectedRouteId={selected} origin={source} destination={destination} /></div><p className="op-note">Plans and selected routes are stored in your account. A provider failure never creates a successful journey.</p></div></div></div>;
+  const scaleMax = Math.max(0, ...routes.map((route) => breakdownTotal(route.breakdown)));
+  const editable = trip?.status === 'planned';
+
+  return (
+    <div className="op-page">
+      <PageHeader
+        eyebrow="GOGREEN / PLAN A JOURNEY"
+        title="Find your greener way."
+        description="Compare real road alternatives for your assigned vehicle. Save your choice, then start tracking."
+      />
+      <ErrorNotice>{error}</ErrorNotice>
+
+      <div className="op-planner">
+        <div className="op-stack">
+          <section className="op-panel">
+            <form onSubmit={plan} className="op-form">
+              <label>Origin<input className="op-input" value={source} onChange={e => setSource(e.target.value)} required disabled={!!trip || busy} /></label>
+              <label>Destination<input className="op-input" value={destination} onChange={e => setDestination(e.target.value)} required disabled={!!trip || busy} /></label>
+              <label>Cargo weight · kg<input className="op-input" type="number" min="0" step="0.1" value={weight} onChange={e => setWeight(e.target.value)} required disabled={!!trip || busy} /></label>
+              <p className="op-note">
+                Cities: Bengaluru, Mysuru, Chennai, Mumbai, Delhi, Pune, Hyderabad, Hosur, Tumakuru, Kochi.
+                You can also enter latitude,longitude. Routes use city centers unless coordinates are supplied.
+              </p>
+              <PlanActions trip={trip} busy={busy} onDiscard={discard} />
+            </form>
+          </section>
+
+          {routes.length > 0 && (
+            <>
+              <section className="op-panel">
+                <h2>Why this route?</h2>
+                <p className="op-description">{routes[0]?.decisionPolicy?.reason}</p>
+                <p className="op-note">
+                  {trip.predictionMode}. CO₂ is calculated from road speeds, terrain climb, vehicle mass and current weather,
+                  then corrected by this vehicle's calibration. The recommendation is the lowest predicted CO₂ within 15% of the
+                  fastest time; gains below 2% or 0.1 kg keep the fastest route. Plans expire after 30 minutes.
+                  OSRM car routes are not certified truck routes.
+                </p>
+                <BreakdownLegend />
+              </section>
+
+              {routes.map(route => (
+                <RouteOption
+                  key={route.id}
+                  route={route}
+                  scaleMax={scaleMax}
+                  selected={selected === route.id}
+                  disabled={busy || !editable}
+                  onSelect={() => setSelected(route.id)}
+                />
+              ))}
+
+              {editable && (
+                <button disabled={busy || !selected} onClick={start} className="op-button">
+                  {busy ? 'Saving your journey…' : 'Start selected journey'} <ArrowRight size={16} />
+                </button>
+              )}
+            </>
+          )}
+        </div>
+
+        <div className="op-stack">
+          <div className="op-map">
+            <MapView routes={routes} selectedRouteId={selected} origin={source} destination={destination} />
+          </div>
+          <p className="op-note">Plans and selected routes are stored in your account. A provider failure never creates a successful journey.</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function PlanActions({ trip, busy, onDiscard }) {
+  if (!trip) {
+    return (
+      <button disabled={busy} className="op-button">
+        {busy ? 'Finding road alternatives…' : 'Compare routes'} <ArrowRight size={15} />
+      </button>
+    );
+  }
+  if (trip.status === 'planned') {
+    return (
+      <button type="button" className="op-button secondary" disabled={busy} onClick={onDiscard}>
+        Cancel this plan and start again
+      </button>
+    );
+  }
+  return <p className="op-note">This trip is {trip.status}. Open a new plan from the dashboard.</p>;
+}
+
+// One road alternative. Physics fields (breakdown, climb, speed) are absent on older saved trips.
+function RouteOption({ route, scaleMax, selected, disabled, onSelect }) {
+  return (
+    <button disabled={disabled} className={`op-route-card ${selected ? 'selected' : ''}`} onClick={onSelect} aria-pressed={selected}>
+      <div className="op-row">
+        <strong>{route.title}</strong>
+        {selected && <Check size={16} />}
+      </div>
+
+      <div className="op-route-values">
+        <div><b>{amount(route.distanceKm)}</b><span>kilometers</span></div>
+        <div><b>{amount(route.durationMin)}</b><span>minutes</span></div>
+        <div>
+          <b>{amount(route.co2Kg)}</b>
+          <span>kg CO₂{route.uncertaintyPct != null && ` ± ${amount(route.uncertaintyPct)}%`}</span>
+        </div>
+      </div>
+
+      <BreakdownBar breakdown={route.breakdown} scaleMax={scaleMax} />
+
+      {route.evidence?.limitations?.map(note => <p className="op-note" key={note}>⚠ {note}</p>)}
+
+      <p className="op-note">
+        {fuelText(route.fuelLiters, route.fuelUnit)} predicted
+        {route.climbM != null && ` · climb ${amount(route.climbM)} m`}
+        {route.avgSpeedKmh != null && ` · avg ${amount(route.avgSpeedKmh)} km/h`}
+        {' · '}{route.isFastest ? 'Fastest alternative' : 'Alternative road route'}
+      </p>
+      {route.ecoScore != null && (
+        <p className="op-note">Eco score {amount(route.ecoScore)} · 50 is typical for this vehicle class at half load on a flat road</p>
+      )}
+    </button>
+  );
 }
