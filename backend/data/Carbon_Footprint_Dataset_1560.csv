@@ -1,0 +1,1561 @@
+Shipment_ID,Distance_km,Fuel_Type,Vehicle_Type,Emission_Factor_g_per_km,Fuel_Consumption_L,Load_Weight_kg,Route_Type,Traffic_Density,Idle_Time_min,Maintenance_Status,Weather,Estimated_CO2_kg
+SHP1001,113,Diesel,Truck,300,7.22,475,Mixed,Low,17,Poor,Sunny,33.9
+SHP1002,93,Diesel,Auto,314,5.13,4944,Urban,Low,50,Poor,Cloudy,29.2
+SHP1003,121,Diesel,Van,154,7.59,914,Highway,Medium,4,Poor,Sunny,18.63
+SHP1004,108,Diesel,Auto,225,4.92,1404,Mixed,Medium,46,Poor,Sunny,24.3
+SHP1005,102,EV,Auto,318,10.8,1978,Highway,Medium,24,Good,Rainy,32.44
+SHP1006,137,Diesel,Car,155,4.44,3092,Urban,High,1,Poor,Sunny,21.24
+SHP1007,119,Petrol,Van,88,5.82,2016,Mixed,Medium,9,Average,Sunny,10.47
+SHP1008,91,CNG,Van,153,2.82,4305,Urban,High,55,Good,Rainy,13.92
+SHP1009,63,Diesel,Van,265,2.83,524,Highway,Low,29,Average,Cloudy,16.7
+SHP1010,77,Diesel,Auto,315,2.32,1234,Urban,High,49,Average,Cloudy,24.26
+SHP1011,42,EV,Truck,224,2.04,1551,Mixed,Medium,58,Average,Rainy,9.41
+SHP1012,30,Diesel,Van,309,1.7,3460,Mixed,Low,44,Poor,Rainy,9.27
+SHP1013,57,Diesel,Auto,86,2.16,843,Highway,Low,4,Poor,Rainy,4.9
+SHP1014,137,Diesel,Car,253,4.07,948,Urban,Low,54,Good,Rainy,34.66
+SHP1015,145,EV,Truck,220,6.94,153,Mixed,High,55,Good,Rainy,31.9
+SHP1016,144,Diesel,Car,247,3.38,2125,Highway,Medium,32,Poor,Cloudy,35.57
+SHP1017,137,CNG,Truck,249,14.5,3647,Mixed,Low,53,Average,Cloudy,34.11
+SHP1018,42,EV,Auto,216,1.79,4800,Mixed,Low,0,Good,Rainy,9.07
+SHP1019,124,CNG,Bike,257,2.83,1872,Urban,Low,17,Poor,Sunny,31.87
+SHP1020,128,EV,Truck,106,4.53,4930,Mixed,High,31,Poor,Rainy,13.57
+SHP1021,31,Diesel,Car,201,1.31,4195,Urban,High,46,Poor,Sunny,6.23
+SHP1022,47,CNG,Auto,273,1.62,2953,Mixed,Medium,48,Average,Rainy,12.83
+SHP1023,118,EV,Truck,84,4.03,3304,Highway,High,10,Poor,Rainy,9.91
+SHP1024,60,Petrol,Bike,108,1.71,4318,Mixed,Low,20,Poor,Cloudy,6.48
+SHP1025,17,Diesel,Bike,244,1.34,2831,Urban,Medium,25,Poor,Sunny,4.15
+SHP1026,36,EV,Van,245,2.09,1270,Urban,Low,24,Poor,Sunny,8.82
+SHP1027,36,Petrol,Van,162,1.22,3532,Highway,Low,21,Good,Cloudy,5.83
+SHP1028,30,EV,Car,215,0.75,1276,Mixed,High,58,Good,Cloudy,6.45
+SHP1029,39,Petrol,Truck,319,1.35,3396,Mixed,Medium,26,Poor,Cloudy,12.44
+SHP1030,106,Diesel,Truck,188,6.3,3506,Highway,High,48,Average,Cloudy,19.93
+SHP1031,37,CNG,Van,144,1.12,3604,Mixed,High,12,Good,Sunny,5.33
+SHP1032,120,Petrol,Truck,165,3.39,1416,Mixed,Medium,32,Poor,Sunny,19.8
+SHP1033,70,EV,Truck,323,4.16,3657,Urban,Low,33,Good,Rainy,22.61
+SHP1034,57,Diesel,Bike,224,2.59,3350,Mixed,Low,40,Good,Rainy,12.77
+SHP1035,13,Petrol,Van,150,0.47,2723,Mixed,Medium,34,Average,Cloudy,1.95
+SHP1036,44,EV,Auto,296,1.67,490,Highway,Low,0,Poor,Cloudy,13.02
+SHP1037,58,EV,Van,124,2.59,1373,Highway,Medium,20,Poor,Cloudy,7.19
+SHP1038,26,EV,Auto,211,1.37,2803,Urban,Medium,47,Average,Rainy,5.49
+SHP1039,55,Petrol,Bike,115,4.7,2851,Mixed,High,54,Average,Rainy,6.32
+SHP1040,126,Petrol,Car,149,12.63,377,Mixed,Medium,5,Poor,Rainy,18.77
+SHP1041,15,Petrol,Truck,238,0.35,3039,Mixed,High,27,Poor,Rainy,3.57
+SHP1042,108,CNG,Bike,98,2.74,687,Urban,Low,16,Average,Rainy,10.58
+SHP1043,133,Petrol,Truck,268,6.29,4488,Urban,Low,4,Good,Rainy,35.64
+SHP1044,46,Petrol,Car,187,1.06,1165,Highway,Low,30,Good,Rainy,8.6
+SHP1045,33,Petrol,Car,261,1.0,4205,Urban,Low,4,Average,Cloudy,8.61
+SHP1046,102,CNG,Bike,246,3.95,3739,Mixed,High,37,Good,Cloudy,25.09
+SHP1047,55,Petrol,Car,170,2.1,2765,Mixed,Low,2,Average,Cloudy,9.35
+SHP1048,104,EV,Auto,281,9.38,559,Urban,Medium,52,Good,Cloudy,29.22
+SHP1049,108,Petrol,Car,169,9.48,2799,Mixed,Medium,22,Good,Rainy,18.25
+SHP1050,125,EV,Truck,98,4.13,4984,Mixed,Medium,36,Poor,Sunny,12.25
+SHP1051,76,EV,Truck,118,2.67,4156,Urban,High,52,Poor,Rainy,8.97
+SHP1052,137,EV,Truck,205,8.63,4855,Urban,Low,36,Good,Sunny,28.08
+SHP1053,27,CNG,Truck,274,0.63,3795,Mixed,Low,9,Good,Cloudy,7.4
+SHP1054,34,CNG,Auto,252,0.92,2528,Mixed,Low,9,Poor,Rainy,8.57
+SHP1055,63,CNG,Van,220,5.16,2799,Mixed,High,18,Poor,Cloudy,13.86
+SHP1056,67,Petrol,Bike,321,1.58,944,Highway,Medium,16,Poor,Rainy,21.51
+SHP1057,76,EV,Truck,299,1.73,2976,Highway,Medium,20,Average,Cloudy,22.72
+SHP1058,113,CNG,Car,205,2.52,1601,Highway,Low,13,Good,Sunny,23.16
+SHP1059,33,CNG,Truck,137,3.28,3344,Urban,Medium,8,Poor,Sunny,4.52
+SHP1060,123,Petrol,Car,227,3.49,4505,Highway,Medium,45,Good,Sunny,27.92
+SHP1062,453,Diesel,Van,181,9.74,1932,Highway,Low,69,Good,Rainy,81.99
+SHP1063,226,Electric,Van,315,6.54,6304,Highway,Low,56,Poor,Foggy,71.19
+SHP1064,63,Diesel,Truck,127,13.02,5085,Urban,Medium,86,Good,Sunny,8.0
+SHP1065,353,Diesel,Truck,327,3.8,9234,Urban,High,50,Average,Sunny,115.43
+SHP1066,456,Diesel,Auto,237,16.38,2957,Highway,Medium,53,Average,Cloudy,108.07
+SHP1067,186,Electric,Truck,247,7.04,7400,Highway,Medium,89,Average,Rainy,45.94
+SHP1068,94,Electric,Auto,185,17.19,7362,Highway,Low,67,Poor,Foggy,17.39
+SHP1069,483,Diesel,Mini Truck,194,12.0,7470,Mixed,Medium,84,Poor,Sunny,93.7
+SHP1070,69,Petrol,Truck,307,12.29,8381,Urban,Medium,73,Good,Cloudy,21.18
+SHP1071,111,Diesel,Van,312,4.71,8980,Highway,Low,41,Poor,Foggy,34.63
+SHP1072,415,Petrol,Truck,263,14.01,9840,Highway,High,80,Good,Rainy,109.14
+SHP1073,172,Petrol,Truck,310,8.89,6325,Urban,Medium,87,Average,Foggy,53.32
+SHP1074,241,CNG,Van,294,15.69,4478,Highway,Low,48,Poor,Cloudy,70.85
+SHP1075,458,CNG,Mini Truck,127,8.59,8604,Mixed,High,2,Poor,Sunny,58.17
+SHP1076,121,Electric,Van,345,8.01,3095,Urban,Low,43,Good,Foggy,41.74
+SHP1077,440,Petrol,Truck,180,16.16,3245,Urban,Medium,83,Poor,Foggy,79.2
+SHP1078,307,Diesel,Auto,258,4.98,2389,Urban,Medium,67,Average,Rainy,79.21
+SHP1079,477,Diesel,Auto,342,17.15,4544,Highway,Low,41,Average,Cloudy,163.13
+SHP1080,446,CNG,Truck,194,16.73,4572,Mixed,Medium,29,Poor,Foggy,86.52
+SHP1081,79,CNG,Van,214,9.0,3109,Highway,High,36,Poor,Sunny,16.91
+SHP1082,202,Diesel,Mini Truck,315,18.28,5744,Highway,Low,60,Average,Sunny,63.63
+SHP1083,213,Diesel,Auto,299,18.58,3534,Highway,High,27,Poor,Sunny,63.69
+SHP1084,384,Diesel,Truck,233,13.0,4919,Mixed,Low,65,Poor,Cloudy,89.47
+SHP1085,117,Diesel,Truck,318,15.55,5965,Mixed,High,27,Average,Sunny,37.21
+SHP1086,219,Electric,Mini Truck,271,8.09,5481,Mixed,Medium,10,Poor,Cloudy,59.35
+SHP1087,317,Petrol,Auto,318,13.27,8367,Highway,Medium,59,Average,Cloudy,100.81
+SHP1088,452,Diesel,Van,173,14.77,5233,Mixed,High,40,Poor,Sunny,78.2
+SHP1089,461,Diesel,Auto,148,8.59,5316,Urban,High,78,Poor,Cloudy,68.23
+SHP1090,198,Petrol,Van,329,12.23,8602,Highway,High,18,Poor,Rainy,65.14
+SHP1091,489,CNG,Van,142,7.48,450,Mixed,Low,41,Average,Sunny,69.44
+SHP1092,128,Petrol,Truck,296,10.8,3223,Urban,High,5,Poor,Cloudy,37.89
+SHP1093,339,Electric,Truck,273,8.15,4510,Mixed,Low,82,Good,Rainy,92.55
+SHP1094,271,Petrol,Auto,323,3.6,9623,Urban,Medium,58,Good,Sunny,87.53
+SHP1095,306,Electric,Mini Truck,338,7.42,2384,Mixed,High,22,Good,Sunny,103.43
+SHP1096,347,Petrol,Van,269,15.46,3263,Highway,Low,60,Average,Sunny,93.34
+SHP1097,154,CNG,Van,268,10.06,1457,Urban,High,35,Poor,Foggy,41.27
+SHP1098,259,Electric,Mini Truck,153,3.35,8042,Highway,Medium,61,Poor,Sunny,39.63
+SHP1099,412,Diesel,Van,190,18.73,9638,Urban,High,55,Average,Foggy,78.28
+SHP1100,252,Diesel,Van,310,11.4,3769,Highway,Medium,80,Good,Cloudy,78.12
+SHP1101,434,CNG,Van,136,16.45,2675,Highway,Low,66,Average,Sunny,59.02
+SHP1102,328,Diesel,Mini Truck,276,19.07,3974,Highway,Low,90,Average,Sunny,90.53
+SHP1103,102,Petrol,Truck,348,5.42,5134,Highway,Low,41,Poor,Foggy,35.5
+SHP1104,489,Petrol,Auto,345,3.95,8876,Highway,High,28,Poor,Sunny,168.71
+SHP1105,50,Diesel,Truck,304,17.46,8761,Mixed,Low,11,Average,Foggy,15.2
+SHP1106,167,Electric,Truck,337,18.34,2990,Urban,Medium,32,Average,Sunny,56.28
+SHP1107,243,CNG,Van,150,19.45,8412,Urban,Low,48,Average,Cloudy,36.45
+SHP1108,185,Electric,Van,256,17.91,4386,Highway,High,77,Poor,Sunny,47.36
+SHP1109,179,Petrol,Van,173,17.64,7626,Highway,High,24,Good,Sunny,30.97
+SHP1110,431,Diesel,Truck,285,10.72,9465,Highway,High,88,Good,Rainy,122.83
+SHP1111,95,Electric,Mini Truck,342,18.45,1475,Urban,High,23,Average,Rainy,32.49
+SHP1112,50,CNG,Truck,331,15.41,9942,Highway,Medium,64,Poor,Sunny,16.55
+SHP1113,445,Petrol,Van,144,3.4,9844,Urban,Medium,73,Good,Cloudy,64.08
+SHP1114,254,CNG,Van,301,6.23,4180,Highway,Medium,10,Poor,Sunny,76.45
+SHP1115,178,Petrol,Truck,313,15.72,1179,Mixed,Low,62,Average,Rainy,55.71
+SHP1116,455,Electric,Mini Truck,260,13.49,5715,Mixed,Low,75,Poor,Rainy,118.3
+SHP1117,369,Petrol,Mini Truck,195,3.28,2920,Highway,Low,15,Average,Rainy,71.95
+SHP1118,94,Electric,Truck,145,11.62,4541,Mixed,High,20,Poor,Sunny,13.63
+SHP1119,466,CNG,Truck,213,11.78,7747,Highway,Low,6,Average,Cloudy,99.26
+SHP1120,116,Electric,Auto,266,18.09,6621,Highway,High,45,Good,Foggy,30.86
+SHP1121,312,CNG,Mini Truck,305,8.15,6201,Urban,Low,47,Average,Rainy,95.16
+SHP1122,390,CNG,Mini Truck,237,10.6,5228,Urban,High,31,Poor,Foggy,92.43
+SHP1123,127,Diesel,Auto,275,5.82,863,Highway,Medium,7,Average,Foggy,34.92
+SHP1124,60,Electric,Truck,337,9.81,1653,Urban,High,31,Average,Sunny,20.22
+SHP1125,129,Diesel,Auto,270,12.24,974,Highway,High,82,Average,Cloudy,34.83
+SHP1126,488,Electric,Mini Truck,147,9.92,8717,Urban,Low,61,Poor,Foggy,71.74
+SHP1127,265,Diesel,Van,345,16.41,5828,Highway,High,62,Poor,Rainy,91.42
+SHP1128,147,Electric,Auto,150,16.29,1233,Urban,High,75,Good,Foggy,22.05
+SHP1129,480,Electric,Auto,346,12.39,6697,Highway,Low,38,Good,Cloudy,166.08
+SHP1130,330,Electric,Auto,192,10.36,1902,Urban,High,28,Good,Sunny,63.36
+SHP1131,155,CNG,Van,346,5.07,4730,Mixed,Medium,10,Poor,Cloudy,53.63
+SHP1132,405,Electric,Truck,203,11.33,5804,Mixed,Medium,11,Good,Sunny,82.22
+SHP1133,143,Petrol,Van,314,9.91,4858,Urban,High,2,Good,Rainy,44.9
+SHP1134,433,CNG,Auto,254,6.96,4778,Urban,High,67,Poor,Cloudy,109.98
+SHP1135,204,Petrol,Van,260,9.78,9900,Urban,Low,22,Good,Cloudy,53.04
+SHP1136,172,Electric,Truck,149,5.28,1077,Urban,Low,55,Poor,Sunny,25.63
+SHP1137,93,Diesel,Truck,123,17.03,3952,Urban,Low,41,Poor,Foggy,11.44
+SHP1138,394,Diesel,Auto,285,11.94,8015,Highway,High,85,Average,Foggy,112.29
+SHP1139,404,Electric,Mini Truck,271,3.07,7676,Mixed,Medium,66,Average,Sunny,109.48
+SHP1140,305,Petrol,Truck,213,11.13,7260,Mixed,High,30,Average,Foggy,64.97
+SHP1141,470,CNG,Mini Truck,254,12.59,9002,Urban,Low,7,Average,Cloudy,119.38
+SHP1142,480,Diesel,Truck,169,9.69,2661,Urban,High,53,Poor,Sunny,81.12
+SHP1143,200,CNG,Truck,218,12.27,5483,Mixed,High,14,Poor,Rainy,43.6
+SHP1144,77,CNG,Truck,250,13.44,3260,Highway,High,64,Average,Foggy,19.25
+SHP1145,472,CNG,Van,161,19.76,2228,Highway,Medium,47,Good,Rainy,75.99
+SHP1146,126,CNG,Truck,248,10.05,9641,Mixed,Medium,26,Average,Cloudy,31.25
+SHP1147,423,CNG,Auto,161,16.31,9104,Highway,High,57,Average,Cloudy,68.1
+SHP1148,167,Electric,Truck,157,8.63,636,Urban,Low,18,Average,Foggy,26.22
+SHP1149,166,CNG,Truck,274,7.53,6007,Mixed,Low,37,Good,Cloudy,45.48
+SHP1150,211,Electric,Auto,149,14.74,9881,Mixed,Medium,52,Poor,Foggy,31.44
+SHP1151,345,Petrol,Van,284,8.86,3650,Mixed,High,38,Poor,Rainy,97.98
+SHP1152,285,Electric,Auto,196,8.08,5630,Mixed,Medium,64,Good,Rainy,55.86
+SHP1153,371,Petrol,Truck,342,5.94,7732,Highway,High,55,Good,Foggy,126.88
+SHP1154,368,Electric,Truck,300,9.9,9249,Highway,Low,41,Good,Foggy,110.4
+SHP1155,71,Petrol,Truck,175,17.1,4075,Urban,Low,12,Good,Rainy,12.43
+SHP1156,203,Petrol,Auto,205,8.72,5678,Highway,Medium,24,Average,Rainy,41.62
+SHP1157,380,Diesel,Auto,138,15.26,5943,Highway,Medium,67,Poor,Foggy,52.44
+SHP1158,77,Electric,Van,131,19.28,3532,Urban,High,29,Good,Sunny,10.09
+SHP1159,274,Petrol,Truck,309,17.64,6200,Mixed,Low,35,Poor,Rainy,84.67
+SHP1160,440,Electric,Mini Truck,181,7.28,4606,Mixed,High,32,Average,Sunny,79.64
+SHP1161,347,Electric,Mini Truck,335,13.99,2356,Highway,Low,3,Good,Cloudy,116.25
+SHP2162,857,Electric,Auto,233,12.74,7895,Highway,Medium,145,Good,Foggy,199.68
+SHP2163,188,Petrol,Container,292,21.13,10635,Highway,Medium,16,Average,Sunny,54.9
+SHP2164,983,Hybrid,Container,116,16.32,17499,Highway,Medium,91,Average,Foggy,114.03
+SHP2165,138,Diesel,Mini Truck,188,25.03,16680,Mixed,Medium,177,Average,Foggy,25.94
+SHP2166,261,CNG,Van,153,21.3,5764,Urban,High,38,Poor,Stormy,39.93
+SHP2167,40,Electric,Truck,173,3.57,13491,Highway,Low,29,Good,Stormy,6.92
+SHP2168,154,Electric,Truck,202,23.03,3032,Highway,Medium,7,Average,Rainy,31.11
+SHP2169,986,CNG,Mini Truck,373,14.88,1502,Highway,Medium,151,Good,Stormy,367.78
+SHP2170,106,Electric,Van,228,25.37,10935,Mixed,Low,119,Average,Cloudy,24.17
+SHP2171,640,Hybrid,Auto,170,23.12,6387,Highway,High,57,Average,Stormy,108.8
+SHP2172,801,Electric,Container,311,2.67,13076,Rural,Low,151,Good,Sunny,249.11
+SHP2173,299,Diesel,Truck,207,18.57,14558,Rural,Medium,37,Average,Sunny,61.89
+SHP2174,898,Hybrid,Truck,284,27.44,11263,Urban,Low,12,Average,Stormy,255.03
+SHP2175,972,Petrol,Van,171,22.91,4365,Mixed,Medium,170,Poor,Foggy,166.21
+SHP2176,971,Electric,Truck,144,15.99,7376,Rural,High,4,Average,Cloudy,139.82
+SHP2177,429,CNG,Van,264,3.12,7254,Urban,Low,161,Poor,Sunny,113.26
+SHP2178,118,CNG,Mini Truck,174,16.65,17493,Urban,Medium,82,Poor,Cloudy,20.53
+SHP2179,784,CNG,Mini Truck,360,17.86,15165,Rural,Low,133,Average,Sunny,282.24
+SHP2180,666,Electric,Van,240,26.73,10743,Rural,Low,135,Average,Stormy,159.84
+SHP2181,831,Electric,Truck,221,5.09,11421,Mixed,Medium,44,Poor,Stormy,183.65
+SHP2182,98,Hybrid,Auto,380,19.46,5682,Mixed,High,28,Average,Foggy,37.24
+SHP2183,915,Petrol,Van,212,12.99,8522,Urban,High,91,Good,Stormy,193.98
+SHP2184,725,Diesel,Van,262,29.37,4818,Mixed,Medium,108,Poor,Stormy,189.95
+SHP2185,107,Electric,Mini Truck,165,5.89,18909,Rural,Low,1,Poor,Stormy,17.66
+SHP2186,356,Petrol,Truck,260,24.7,4610,Mixed,High,53,Good,Sunny,92.56
+SHP2187,427,Diesel,Auto,226,16.69,7968,Highway,Low,171,Poor,Foggy,96.5
+SHP2188,769,CNG,Mini Truck,233,21.35,3332,Urban,Medium,61,Poor,Cloudy,179.18
+SHP2189,128,Hybrid,Container,382,15.13,7662,Mixed,Medium,14,Good,Sunny,48.9
+SHP2190,283,Petrol,Container,279,4.55,15467,Urban,Medium,141,Average,Cloudy,78.96
+SHP2191,658,Petrol,Container,170,7.88,153,Rural,Low,156,Poor,Sunny,111.86
+SHP2192,245,Diesel,Van,113,9.74,949,Mixed,Low,35,Poor,Foggy,27.68
+SHP2193,764,Diesel,Auto,150,28.69,18795,Highway,Medium,136,Average,Cloudy,114.6
+SHP2194,938,Petrol,Van,119,18.59,19016,Highway,High,168,Good,Sunny,111.62
+SHP2195,436,Diesel,Container,285,9.64,7029,Highway,High,6,Average,Rainy,124.26
+SHP2196,134,Electric,Container,163,25.26,17742,Urban,Medium,68,Average,Stormy,21.84
+SHP2197,452,Diesel,Container,149,16.18,11896,Rural,Low,58,Poor,Foggy,67.35
+SHP2198,780,Hybrid,Container,276,19.76,8721,Highway,Medium,92,Poor,Sunny,215.28
+SHP2199,198,Petrol,Auto,245,2.85,14175,Highway,Low,60,Good,Cloudy,48.51
+SHP2200,330,Petrol,Truck,175,10.07,5133,Rural,High,177,Average,Rainy,57.75
+SHP2201,870,Electric,Container,332,18.94,1445,Mixed,High,104,Average,Stormy,288.84
+SHP2202,577,Diesel,Van,322,22.55,18646,Rural,Medium,49,Poor,Rainy,185.79
+SHP2203,63,Hybrid,Mini Truck,183,25.64,1102,Rural,High,127,Poor,Foggy,11.53
+SHP2204,140,Hybrid,Container,271,6.67,765,Rural,Low,114,Average,Sunny,37.94
+SHP2205,946,Electric,Auto,228,7.33,9216,Mixed,High,85,Poor,Stormy,215.69
+SHP2206,574,Electric,Van,167,13.77,18838,Urban,Medium,38,Good,Stormy,95.86
+SHP2207,59,Hybrid,Mini Truck,316,23.14,2933,Highway,Medium,124,Good,Rainy,18.64
+SHP2208,469,Electric,Truck,324,16.55,8198,Rural,Medium,126,Poor,Rainy,151.96
+SHP2209,123,Petrol,Van,368,2.11,18580,Urban,Medium,144,Average,Rainy,45.26
+SHP2210,814,Petrol,Container,137,26.55,18352,Mixed,High,67,Good,Rainy,111.52
+SHP2211,662,Petrol,Auto,134,14.06,16479,Highway,Low,96,Average,Cloudy,88.71
+SHP2212,951,Diesel,Van,188,21.71,5528,Urban,Medium,97,Good,Rainy,178.79
+SHP2213,906,Diesel,Container,212,13.3,18532,Urban,High,129,Poor,Stormy,192.07
+SHP2214,986,CNG,Auto,248,28.26,13920,Rural,High,54,Average,Rainy,244.53
+SHP2215,613,Electric,Container,129,4.92,14090,Highway,High,72,Poor,Rainy,79.08
+SHP2216,312,Electric,Container,285,6.59,1589,Urban,Low,50,Average,Stormy,88.92
+SHP2217,172,Diesel,Auto,187,2.21,7361,Highway,Low,55,Poor,Rainy,32.16
+SHP2218,232,Hybrid,Container,353,22.35,12209,Mixed,Low,54,Poor,Rainy,81.9
+SHP2219,626,CNG,Mini Truck,350,5.93,3163,Rural,Low,61,Good,Foggy,219.1
+SHP2220,125,Diesel,Truck,389,7.37,8808,Mixed,High,49,Average,Sunny,48.62
+SHP2221,817,Petrol,Mini Truck,260,2.33,9860,Urban,Low,1,Average,Rainy,212.42
+SHP2222,169,Hybrid,Truck,113,10.27,687,Rural,Medium,148,Average,Cloudy,19.1
+SHP2223,581,Hybrid,Mini Truck,179,15.97,2179,Mixed,High,145,Good,Rainy,104.0
+SHP2224,293,CNG,Mini Truck,224,4.4,14667,Urban,Medium,12,Good,Cloudy,65.63
+SHP2225,311,Electric,Container,340,26.08,11352,Highway,Medium,110,Good,Foggy,105.74
+SHP2226,130,CNG,Van,235,15.68,1091,Rural,Medium,65,Good,Stormy,30.55
+SHP2227,960,Hybrid,Auto,227,10.47,9378,Highway,High,28,Good,Foggy,217.92
+SHP2228,510,Electric,Auto,202,15.83,10685,Mixed,Low,7,Poor,Cloudy,103.02
+SHP2229,463,Diesel,Container,117,28.46,13054,Highway,High,41,Average,Foggy,54.17
+SHP2230,213,CNG,Mini Truck,240,11.6,6956,Urban,Medium,129,Poor,Sunny,51.12
+SHP2231,590,Electric,Mini Truck,369,24.74,11534,Urban,High,155,Average,Sunny,217.71
+SHP2232,637,CNG,Truck,203,3.72,17781,Urban,High,59,Poor,Foggy,129.31
+SHP2233,245,Electric,Van,287,21.13,19568,Urban,High,37,Average,Sunny,70.31
+SHP2234,678,Electric,Auto,342,27.12,19902,Rural,Low,155,Good,Rainy,231.88
+SHP2235,538,CNG,Truck,218,16.49,7291,Mixed,Medium,64,Poor,Stormy,117.28
+SHP2236,434,CNG,Van,371,18.73,17632,Urban,High,128,Good,Cloudy,161.01
+SHP2237,32,CNG,Mini Truck,276,6.75,1456,Rural,Low,172,Average,Stormy,8.83
+SHP2238,668,Petrol,Van,332,10.53,10713,Rural,Medium,94,Good,Rainy,221.78
+SHP2239,318,Diesel,Mini Truck,128,7.74,4701,Highway,Medium,4,Average,Foggy,40.7
+SHP2240,230,Hybrid,Auto,177,15.9,1958,Highway,Low,60,Good,Stormy,40.71
+SHP2241,502,Electric,Container,307,10.98,1525,Rural,Low,139,Good,Rainy,154.11
+SHP2242,309,Electric,Auto,131,25.93,7401,Mixed,Medium,146,Poor,Cloudy,40.48
+SHP2243,374,Petrol,Van,333,25.46,378,Urban,High,180,Average,Foggy,124.54
+SHP2244,32,Hybrid,Mini Truck,269,8.09,423,Mixed,Low,1,Average,Stormy,8.61
+SHP2245,540,Hybrid,Auto,306,2.32,16919,Rural,Medium,23,Poor,Rainy,165.24
+SHP2246,42,Electric,Van,277,19.31,13868,Rural,High,161,Poor,Foggy,11.63
+SHP2247,295,Electric,Auto,312,2.56,15977,Rural,Medium,82,Average,Foggy,92.04
+SHP2248,128,Petrol,Container,382,20.71,2691,Rural,Medium,91,Good,Sunny,48.9
+SHP2249,791,Electric,Van,288,9.62,9788,Rural,Low,64,Average,Stormy,227.81
+SHP2250,328,Diesel,Auto,122,7.73,16703,Mixed,High,18,Good,Rainy,40.02
+SHP2251,548,CNG,Container,291,13.02,7276,Urban,Low,3,Poor,Sunny,159.47
+SHP2252,480,Electric,Mini Truck,150,20.76,5157,Rural,High,51,Average,Foggy,72.0
+SHP2253,362,Hybrid,Mini Truck,277,19.84,7531,Rural,High,114,Poor,Cloudy,100.27
+SHP2254,609,CNG,Truck,132,20.17,8688,Urban,Medium,65,Average,Cloudy,80.39
+SHP2255,917,CNG,Container,246,11.04,18501,Highway,High,145,Average,Stormy,225.58
+SHP2256,302,Electric,Van,216,25.01,17471,Highway,Low,58,Poor,Foggy,65.23
+SHP2257,843,Electric,Container,160,28.73,4071,Rural,High,22,Average,Foggy,134.88
+SHP2258,744,CNG,Auto,354,8.53,15980,Highway,Low,30,Poor,Cloudy,263.38
+SHP2259,920,Petrol,Auto,354,21.39,7481,Highway,Medium,154,Average,Stormy,325.68
+SHP2260,53,Hybrid,Auto,314,2.34,8763,Rural,Medium,120,Good,Sunny,16.64
+SHP2261,218,Hybrid,Auto,318,5.15,15020,Rural,Low,45,Good,Sunny,69.32
+SHP2262,883,Electric,Mini Truck,193,13.23,787,Highway,Medium,24,Good,Sunny,170.42
+SHP2263,414,Hybrid,Mini Truck,326,5.88,10915,Mixed,Medium,172,Poor,Rainy,134.96
+SHP2264,914,Electric,Truck,194,24.35,9833,Highway,Medium,36,Poor,Sunny,177.32
+SHP2265,499,Petrol,Truck,343,19.87,19474,Mixed,Medium,90,Poor,Cloudy,171.16
+SHP2266,779,Petrol,Truck,151,29.73,9379,Highway,Low,15,Poor,Rainy,117.63
+SHP2267,270,Electric,Truck,156,28.76,11847,Mixed,Low,145,Average,Cloudy,42.12
+SHP2268,207,CNG,Mini Truck,306,16.28,5025,Highway,Medium,48,Average,Cloudy,63.34
+SHP2269,657,Electric,Mini Truck,335,15.93,5628,Rural,Medium,54,Good,Sunny,220.09
+SHP2270,264,Electric,Truck,350,6.95,11917,Highway,Low,130,Good,Cloudy,92.4
+SHP2271,25,Diesel,Auto,156,21.64,13395,Mixed,Medium,93,Average,Cloudy,3.9
+SHP2272,689,Petrol,Truck,259,27.43,5371,Rural,High,174,Poor,Stormy,178.45
+SHP2273,374,Diesel,Auto,211,7.85,4119,Highway,High,115,Average,Rainy,78.91
+SHP2274,315,Hybrid,Truck,143,10.32,6933,Urban,Medium,40,Average,Stormy,45.05
+SHP2275,772,Electric,Van,276,22.1,15423,Highway,Low,71,Poor,Sunny,213.07
+SHP2276,721,Diesel,Container,146,6.57,16423,Urban,Medium,123,Poor,Foggy,105.27
+SHP2277,724,Diesel,Mini Truck,358,12.8,4212,Highway,Medium,166,Average,Sunny,259.19
+SHP2278,414,Petrol,Auto,135,9.85,2889,Highway,High,123,Average,Cloudy,55.89
+SHP2279,136,Electric,Truck,182,13.56,837,Urban,High,88,Poor,Cloudy,24.75
+SHP2280,691,Hybrid,Container,390,17.58,11675,Urban,Medium,92,Poor,Stormy,269.49
+SHP2281,91,Petrol,Truck,399,15.63,9130,Urban,High,86,Average,Stormy,36.31
+SHP2282,777,Diesel,Truck,356,17.76,17315,Mixed,High,111,Good,Cloudy,276.61
+SHP2283,663,Electric,Container,263,8.58,18871,Urban,Medium,65,Good,Cloudy,174.37
+SHP2284,162,Diesel,Truck,197,26.83,4268,Mixed,Medium,134,Poor,Cloudy,31.91
+SHP2285,664,Electric,Mini Truck,307,9.4,4962,Urban,Low,92,Poor,Stormy,203.85
+SHP2286,316,Petrol,Truck,114,20.58,8376,Rural,Low,77,Average,Cloudy,36.02
+SHP2287,458,Diesel,Van,387,27.29,2504,Highway,Low,71,Poor,Stormy,177.25
+SHP2288,126,Electric,Container,108,4.49,13062,Rural,High,57,Good,Cloudy,13.61
+SHP2289,152,Electric,Container,267,26.19,12948,Rural,High,42,Poor,Sunny,40.58
+SHP2290,787,Hybrid,Container,149,19.66,17081,Urban,Low,85,Average,Foggy,117.26
+SHP2291,225,Diesel,Mini Truck,102,23.72,753,Rural,Low,86,Poor,Rainy,22.95
+SHP2292,445,Petrol,Mini Truck,217,10.55,4766,Rural,High,84,Poor,Rainy,96.56
+SHP2293,323,Electric,Container,188,2.25,12891,Rural,Low,180,Poor,Rainy,60.72
+SHP2294,57,CNG,Auto,307,19.76,16780,Urban,High,170,Average,Rainy,17.5
+SHP2295,445,CNG,Container,252,24.02,19904,Mixed,High,103,Good,Rainy,112.14
+SHP2296,430,Petrol,Van,127,16.49,3896,Urban,High,102,Good,Stormy,54.61
+SHP2297,20,Petrol,Van,104,13.97,2120,Mixed,Low,108,Poor,Sunny,2.08
+SHP2298,797,Petrol,Truck,163,9.8,11919,Urban,Low,64,Poor,Foggy,129.91
+SHP2299,921,CNG,Auto,217,14.89,6979,Mixed,High,39,Good,Foggy,199.86
+SHP2300,409,CNG,Container,271,8.56,7157,Highway,Low,103,Poor,Stormy,110.84
+SHP2301,653,Diesel,Mini Truck,210,14.04,17406,Rural,Low,28,Average,Foggy,137.13
+SHP2302,450,Petrol,Container,364,21.46,13857,Mixed,Medium,167,Poor,Cloudy,163.8
+SHP2303,445,Petrol,Van,381,24.16,2068,Rural,Low,76,Average,Rainy,169.54
+SHP2304,230,Hybrid,Van,158,22.42,15427,Rural,Medium,151,Good,Foggy,36.34
+SHP2305,250,Hybrid,Truck,134,11.01,4626,Mixed,Medium,11,Poor,Cloudy,33.5
+SHP2306,938,Electric,Van,137,21.57,1234,Urban,High,177,Poor,Foggy,128.51
+SHP2307,765,Hybrid,Container,397,25.89,6795,Mixed,Low,79,Poor,Foggy,303.7
+SHP2308,686,Diesel,Auto,157,5.63,6312,Mixed,Low,132,Average,Stormy,107.7
+SHP2309,920,Hybrid,Van,345,25.16,7172,Rural,Low,61,Average,Rainy,317.4
+SHP2310,679,Hybrid,Container,194,8.59,17584,Mixed,Low,10,Good,Cloudy,131.73
+SHP2311,782,Petrol,Mini Truck,251,11.48,2330,Rural,High,71,Poor,Rainy,196.28
+SHP2312,919,Hybrid,Container,306,5.21,3624,Rural,Medium,141,Average,Foggy,281.21
+SHP2313,779,Petrol,Auto,192,25.96,6169,Highway,Medium,137,Good,Foggy,149.57
+SHP2314,325,Electric,Container,241,17.55,4890,Urban,Medium,83,Poor,Cloudy,78.33
+SHP2315,367,Electric,Container,259,12.4,3206,Highway,Medium,113,Good,Cloudy,95.05
+SHP2316,345,Diesel,Truck,230,2.63,16675,Highway,High,148,Average,Cloudy,79.35
+SHP2317,977,CNG,Truck,115,7.06,3149,Rural,Low,130,Good,Rainy,112.36
+SHP2318,962,Petrol,Truck,355,16.9,14028,Highway,Low,41,Average,Sunny,341.51
+SHP2319,81,Petrol,Auto,152,25.64,327,Rural,Medium,28,Average,Foggy,12.31
+SHP2320,371,Petrol,Container,180,23.59,9086,Urban,Medium,133,Poor,Foggy,66.78
+SHP2321,961,Hybrid,Truck,361,26.6,3863,Mixed,Low,116,Good,Stormy,346.92
+SHP2322,848,CNG,Van,162,15.53,18449,Urban,High,109,Good,Stormy,137.38
+SHP2323,388,Petrol,Container,353,2.23,3829,Mixed,Medium,180,Good,Foggy,136.96
+SHP2324,129,Diesel,Auto,306,24.38,1146,Rural,High,113,Average,Cloudy,39.47
+SHP2325,865,Petrol,Van,383,22.8,15840,Highway,Medium,63,Poor,Foggy,331.3
+SHP2326,605,Hybrid,Truck,151,3.0,3602,Rural,High,128,Good,Foggy,91.36
+SHP2327,155,CNG,Container,376,10.11,3574,Urban,Low,42,Average,Foggy,58.28
+SHP2328,675,Electric,Truck,169,29.72,4874,Highway,High,173,Poor,Cloudy,114.08
+SHP2329,27,Petrol,Mini Truck,181,29.52,7271,Highway,Low,32,Average,Sunny,4.89
+SHP2330,155,Electric,Container,171,6.38,2885,Urban,Low,71,Poor,Foggy,26.5
+SHP2331,26,Petrol,Truck,393,9.92,12567,Mixed,High,20,Poor,Sunny,10.22
+SHP2332,237,Hybrid,Truck,356,12.47,9068,Mixed,Low,165,Poor,Stormy,84.37
+SHP2333,695,Diesel,Auto,178,24.99,6599,Urban,High,16,Average,Foggy,123.71
+SHP2334,665,CNG,Truck,224,3.73,3247,Rural,Medium,31,Good,Rainy,148.96
+SHP2335,414,Petrol,Mini Truck,282,6.32,214,Highway,Low,92,Good,Cloudy,116.75
+SHP2336,375,Electric,Mini Truck,351,16.71,10166,Urban,Medium,107,Poor,Cloudy,131.62
+SHP2337,598,CNG,Mini Truck,224,28.08,6652,Urban,Low,173,Good,Rainy,133.95
+SHP2338,979,CNG,Container,214,25.13,1614,Highway,Medium,79,Average,Stormy,209.51
+SHP2339,560,Electric,Mini Truck,190,7.98,10229,Rural,Low,72,Average,Rainy,106.4
+SHP2340,155,Hybrid,Van,138,10.74,7077,Highway,Low,25,Poor,Cloudy,21.39
+SHP2341,378,Electric,Mini Truck,125,23.11,2620,Highway,Medium,115,Poor,Foggy,47.25
+SHP2342,821,CNG,Mini Truck,258,28.8,18733,Rural,Medium,4,Poor,Foggy,211.82
+SHP2343,181,Diesel,Auto,273,25.01,8327,Highway,Medium,32,Good,Rainy,49.41
+SHP2344,478,Hybrid,Van,299,24.25,3242,Highway,Medium,180,Poor,Rainy,142.92
+SHP2345,188,CNG,Auto,272,22.3,12160,Mixed,Medium,18,Good,Foggy,51.14
+SHP2346,492,Diesel,Van,257,21.65,2997,Mixed,Low,164,Good,Foggy,126.44
+SHP2347,769,Petrol,Mini Truck,263,29.61,5278,Urban,Low,81,Good,Cloudy,202.25
+SHP2348,609,CNG,Mini Truck,192,28.94,250,Rural,Low,37,Average,Foggy,116.93
+SHP2349,692,CNG,Container,114,4.66,14801,Mixed,Medium,76,Poor,Foggy,78.89
+SHP2350,385,Petrol,Auto,179,20.96,18147,Highway,Medium,140,Poor,Sunny,68.92
+SHP2351,479,Diesel,Auto,215,27.6,18640,Urban,High,131,Poor,Foggy,102.98
+SHP2352,932,Petrol,Truck,264,19.39,10590,Mixed,High,139,Average,Cloudy,246.05
+SHP2353,410,Petrol,Mini Truck,215,11.39,12756,Mixed,Medium,63,Good,Sunny,88.15
+SHP2354,294,Electric,Mini Truck,160,22.02,19155,Mixed,High,34,Average,Foggy,47.04
+SHP2355,692,CNG,Container,314,10.48,15541,Rural,Low,108,Poor,Rainy,217.29
+SHP2356,994,Electric,Truck,259,13.2,10364,Highway,Medium,12,Average,Stormy,257.45
+SHP2357,400,Petrol,Truck,185,15.17,583,Highway,Low,103,Good,Rainy,74.0
+SHP2358,997,Hybrid,Container,304,10.35,9133,Rural,Low,14,Average,Foggy,303.09
+SHP2359,630,Electric,Mini Truck,322,9.9,13565,Rural,High,169,Good,Sunny,202.86
+SHP2360,137,Petrol,Mini Truck,145,19.92,9260,Highway,Low,20,Average,Foggy,19.86
+SHP2361,380,Diesel,Mini Truck,233,12.83,5494,Urban,Medium,128,Good,Cloudy,88.54
+SHP5362,1003,Hybrid,Auto,441,23.02,2760,Urban,High,249,Good,Rainy,442.32
+SHP5363,174,CNG,Mini Truck,306,32.17,48566,Industrial,Low,253,Average,Sunny,53.24
+SHP5364,143,Hybrid,Mini Truck,387,29.26,44084,Mixed,High,17,Poor,Rainy,55.34
+SHP5365,1368,Biofuel,Truck,247,1.61,3653,Highway,Medium,267,Good,Sunny,337.9
+SHP5366,1231,Hybrid,Van,193,10.86,22558,Mixed,Very High,37,Good,Stormy,237.58
+SHP5367,965,Hybrid,Auto,430,3.01,13697,Industrial,High,42,Average,Stormy,414.95
+SHP5368,517,Biofuel,Mini Truck,307,10.75,6027,Rural,Low,178,Good,Stormy,158.72
+SHP5369,88,CNG,Van,80,38.24,36527,Mixed,Medium,60,Good,Cloudy,7.04
+SHP5370,1295,Electric,Truck,426,35.32,19053,Industrial,Very High,74,Average,Windy,551.67
+SHP5371,319,Diesel,Truck,83,9.73,11592,Rural,High,138,Poor,Cloudy,26.48
+SHP5372,508,Petrol,Van,291,21.15,43550,Mixed,Very High,299,Average,Cloudy,147.83
+SHP5373,1507,Diesel,Container,307,10.31,24536,Mixed,Very High,116,Good,Cloudy,462.65
+SHP5374,1198,Electric,Auto,199,32.33,17183,Mixed,Medium,17,Poor,Foggy,238.4
+SHP5375,1563,Hybrid,Van,390,13.21,15611,Mixed,High,98,Poor,Cloudy,609.57
+SHP5376,928,Biofuel,Container,493,12.02,1595,Highway,Low,267,Good,Foggy,457.5
+SHP5377,363,Hybrid,Trailer,186,31.7,32454,Urban,Low,168,Average,Stormy,67.52
+SHP5378,933,Hybrid,Van,362,19.15,34154,Mixed,Very High,288,Good,Sunny,337.75
+SHP5379,1835,Biofuel,Auto,214,6.74,3604,Highway,Medium,161,Average,Foggy,392.69
+SHP5380,1442,CNG,Van,250,37.59,36314,Urban,Medium,167,Good,Cloudy,360.5
+SHP5381,496,Electric,Truck,419,25.76,24376,Highway,High,102,Average,Rainy,207.82
+SHP5382,1843,Petrol,Trailer,295,9.09,10858,Mixed,Low,214,Poor,Sunny,543.68
+SHP5383,807,Biofuel,Trailer,178,33.93,4388,Industrial,Low,2,Poor,Sunny,143.65
+SHP5384,615,CNG,Van,466,23.9,30457,Rural,Medium,281,Good,Rainy,286.59
+SHP5385,46,CNG,Auto,82,16.29,26275,Highway,Medium,93,Average,Windy,3.77
+SHP5386,161,Electric,Trailer,450,39.63,10230,Mixed,High,250,Good,Sunny,72.45
+SHP5387,795,Diesel,Container,370,6.24,23804,Rural,High,86,Good,Windy,294.15
+SHP5388,81,Petrol,Trailer,479,21.25,10701,Urban,Medium,137,Average,Rainy,38.8
+SHP5389,1839,Diesel,Auto,182,35.16,31134,Urban,High,225,Poor,Rainy,334.7
+SHP5390,907,Petrol,Truck,466,14.06,45132,Rural,Medium,270,Good,Windy,422.66
+SHP5391,473,Biofuel,Truck,318,15.13,8879,Urban,Medium,12,Poor,Sunny,150.41
+SHP5392,1758,Electric,Truck,94,14.0,33197,Highway,Very High,191,Poor,Windy,165.25
+SHP5393,1564,Electric,Truck,180,5.52,25343,Highway,Low,178,Average,Cloudy,281.52
+SHP5394,1568,Electric,Van,364,3.28,38704,Industrial,Low,56,Good,Foggy,570.75
+SHP5395,1286,Electric,Auto,178,5.17,45626,Rural,Medium,213,Good,Rainy,228.91
+SHP5396,646,CNG,Auto,435,21.54,41461,Mixed,Very High,25,Poor,Cloudy,281.01
+SHP5397,504,Hybrid,Container,283,29.06,2409,Urban,Medium,243,Good,Sunny,142.63
+SHP5398,1273,Petrol,Van,403,9.93,38925,Urban,Low,205,Average,Stormy,513.02
+SHP5399,1704,CNG,Van,228,14.26,40965,Highway,Low,257,Average,Stormy,388.51
+SHP5400,593,Diesel,Trailer,92,12.89,24804,Highway,Medium,40,Good,Rainy,54.56
+SHP5401,1183,Diesel,Mini Truck,425,27.77,2566,Urban,Low,272,Good,Cloudy,502.77
+SHP5402,1542,CNG,Mini Truck,450,12.95,30538,Rural,Medium,138,Average,Cloudy,693.9
+SHP5403,1825,Electric,Truck,394,7.75,37964,Industrial,High,293,Average,Cloudy,719.05
+SHP5404,504,Petrol,Auto,299,9.31,29022,Rural,High,34,Average,Sunny,150.7
+SHP5405,1018,Diesel,Auto,495,21.5,49936,Industrial,Low,100,Average,Windy,503.91
+SHP5406,1227,Hybrid,Trailer,284,30.58,44618,Mixed,Medium,10,Poor,Rainy,348.47
+SHP5407,1553,CNG,Truck,434,14.89,46799,Mixed,High,249,Poor,Cloudy,674.0
+SHP5408,295,Diesel,Container,413,37.31,23545,Highway,Medium,232,Poor,Windy,121.83
+SHP5409,1535,Diesel,Trailer,140,5.64,29757,Rural,Very High,15,Poor,Rainy,214.9
+SHP5410,249,Petrol,Truck,301,29.03,413,Urban,High,159,Average,Windy,74.95
+SHP5411,1527,CNG,Mini Truck,285,37.47,15649,Mixed,High,74,Average,Cloudy,435.19
+SHP5412,1612,Diesel,Mini Truck,229,5.9,40235,Urban,Medium,234,Good,Rainy,369.15
+SHP5413,1150,Biofuel,Mini Truck,101,21.01,1999,Urban,Low,62,Average,Sunny,116.15
+SHP5414,387,Diesel,Van,315,20.02,9251,Highway,Medium,4,Good,Foggy,121.91
+SHP5415,285,Electric,Auto,370,30.77,38033,Industrial,Medium,138,Average,Rainy,105.45
+SHP5416,1583,Biofuel,Auto,189,19.03,25818,Urban,High,294,Good,Foggy,299.19
+SHP5417,44,CNG,Trailer,456,35.74,49652,Mixed,Medium,83,Poor,Sunny,20.06
+SHP5418,191,Petrol,Truck,245,26.6,42574,Urban,Medium,198,Poor,Foggy,46.8
+SHP5419,896,Diesel,Mini Truck,382,2.23,1324,Industrial,High,175,Average,Rainy,342.27
+SHP5420,1342,Electric,Container,275,21.23,42904,Industrial,Medium,209,Poor,Stormy,369.05
+SHP5421,1385,Petrol,Mini Truck,306,28.72,34123,Highway,High,61,Average,Sunny,423.81
+SHP5422,1676,Diesel,Mini Truck,299,7.5,18427,Industrial,Low,200,Poor,Stormy,501.12
+SHP5423,1926,Electric,Mini Truck,427,30.4,19739,Mixed,Low,181,Average,Windy,822.4
+SHP5424,726,Hybrid,Truck,188,17.44,31643,Mixed,Medium,240,Good,Sunny,136.49
+SHP5425,1104,CNG,Van,428,33.48,7707,Mixed,High,59,Good,Cloudy,472.51
+SHP5426,1368,Biofuel,Container,166,9.76,27106,Urban,High,155,Poor,Foggy,227.09
+SHP5427,1868,Petrol,Truck,296,24.41,46214,Mixed,High,213,Poor,Windy,552.93
+SHP5428,1255,Diesel,Van,84,38.27,23752,Highway,Medium,95,Poor,Sunny,105.42
+SHP5429,1420,CNG,Container,471,3.71,12943,Mixed,Low,264,Average,Stormy,668.82
+SHP5430,1971,CNG,Van,494,8.82,27711,Rural,Low,7,Good,Rainy,973.67
+SHP5431,706,Biofuel,Van,400,29.94,7823,Highway,Very High,298,Poor,Windy,282.4
+SHP5432,928,Hybrid,Trailer,310,33.19,47151,Mixed,High,20,Average,Sunny,287.68
+SHP5433,167,CNG,Van,97,13.2,40946,Urban,Medium,83,Poor,Stormy,16.2
+SHP5434,585,CNG,Mini Truck,445,37.98,12239,Urban,Medium,31,Poor,Sunny,260.32
+SHP5435,1126,Hybrid,Truck,192,37.85,6812,Mixed,Medium,76,Poor,Windy,216.19
+SHP5436,1465,Petrol,Mini Truck,279,27.96,41032,Industrial,High,293,Poor,Rainy,408.74
+SHP5437,532,Electric,Container,358,25.79,22901,Rural,Medium,176,Average,Windy,190.46
+SHP5438,415,Petrol,Van,203,13.74,15080,Industrial,Medium,218,Good,Cloudy,84.25
+SHP5439,1811,Diesel,Trailer,210,27.63,11719,Mixed,Very High,232,Average,Windy,380.31
+SHP5440,1497,Diesel,Truck,224,16.46,42039,Rural,High,262,Poor,Windy,335.33
+SHP5441,1263,Diesel,Container,301,10.07,37164,Highway,Medium,217,Good,Cloudy,380.16
+SHP5442,25,Diesel,Mini Truck,320,34.04,44857,Rural,High,1,Good,Windy,8.0
+SHP5443,265,Electric,Mini Truck,304,7.4,41431,Urban,Medium,121,Good,Foggy,80.56
+SHP5444,1926,Petrol,Trailer,182,12.54,10744,Industrial,Low,173,Poor,Cloudy,350.53
+SHP5445,1053,Diesel,Van,137,5.37,20641,Urban,High,271,Average,Windy,144.26
+SHP5446,1889,Diesel,Truck,448,14.22,46563,Highway,Medium,157,Average,Cloudy,846.27
+SHP5447,1008,Petrol,Auto,151,7.82,27434,Industrial,High,179,Average,Foggy,152.21
+SHP5448,1538,Hybrid,Truck,274,6.09,39934,Mixed,Low,204,Poor,Rainy,421.41
+SHP5449,891,Hybrid,Mini Truck,315,29.44,21622,Urban,Very High,276,Good,Cloudy,280.67
+SHP5450,1174,CNG,Van,462,11.64,10345,Industrial,Very High,46,Good,Windy,542.39
+SHP5451,813,Diesel,Mini Truck,324,6.4,12093,Highway,Very High,162,Average,Rainy,263.41
+SHP5452,1853,Hybrid,Auto,271,4.32,16227,Mixed,Low,196,Poor,Windy,502.16
+SHP5453,1347,CNG,Auto,133,27.04,9662,Mixed,Medium,184,Poor,Cloudy,179.15
+SHP5454,566,Electric,Truck,495,36.79,41596,Mixed,High,198,Good,Sunny,280.17
+SHP5455,108,Electric,Mini Truck,325,23.7,38874,Industrial,Medium,0,Good,Foggy,35.1
+SHP5456,1200,Diesel,Container,171,16.45,46887,Highway,Medium,91,Poor,Cloudy,205.2
+SHP5457,792,Diesel,Auto,203,31.65,29275,Industrial,Low,241,Poor,Foggy,160.78
+SHP5458,445,Biofuel,Mini Truck,412,3.23,15380,Urban,Low,30,Poor,Sunny,183.34
+SHP5459,1992,CNG,Truck,475,14.8,26244,Industrial,High,249,Poor,Cloudy,946.2
+SHP5460,1366,Biofuel,Auto,373,21.06,41876,Mixed,Very High,115,Good,Stormy,509.52
+SHP5461,996,Electric,Trailer,115,8.14,26240,Urban,High,211,Good,Windy,114.54
+SHP5462,1726,Hybrid,Van,220,18.71,41619,Rural,Medium,106,Average,Stormy,379.72
+SHP5463,1526,Hybrid,Mini Truck,254,17.94,29375,Industrial,Low,108,Poor,Cloudy,387.6
+SHP5464,1736,Petrol,Truck,233,8.34,252,Industrial,Very High,109,Good,Windy,404.49
+SHP5465,1120,Hybrid,Trailer,186,3.98,10492,Mixed,Very High,240,Poor,Rainy,208.32
+SHP5466,688,CNG,Trailer,358,18.81,1692,Highway,Low,29,Average,Cloudy,246.3
+SHP5467,1062,Electric,Mini Truck,189,9.61,40598,Highway,Very High,58,Average,Sunny,200.72
+SHP5468,1346,Hybrid,Mini Truck,180,7.32,24043,Urban,Low,71,Average,Stormy,242.28
+SHP5469,1302,CNG,Van,127,23.07,36089,Mixed,Medium,167,Good,Foggy,165.35
+SHP5470,542,Hybrid,Mini Truck,327,17.21,38575,Industrial,High,93,Good,Rainy,177.23
+SHP5471,1208,Electric,Container,231,16.31,1679,Industrial,Low,59,Good,Stormy,279.05
+SHP5472,1116,Diesel,Auto,92,37.9,44624,Highway,Very High,102,Good,Windy,102.67
+SHP5473,1933,Hybrid,Container,315,21.71,43372,Urban,High,288,Good,Sunny,608.89
+SHP5474,624,Diesel,Truck,232,19.6,5725,Industrial,Very High,238,Average,Windy,144.77
+SHP5475,1847,Petrol,Van,356,5.84,38767,Rural,Very High,37,Poor,Cloudy,657.53
+SHP5476,744,Petrol,Mini Truck,500,7.64,29163,Mixed,Very High,86,Average,Windy,372.0
+SHP5477,1690,Petrol,Mini Truck,417,33.57,37593,Highway,Low,9,Good,Windy,704.73
+SHP5478,940,Biofuel,Van,382,8.76,31121,Urban,High,43,Good,Sunny,359.08
+SHP5479,809,Electric,Mini Truck,474,8.05,12014,Highway,Low,271,Poor,Sunny,383.47
+SHP5480,1558,Diesel,Truck,445,25.61,35671,Rural,Very High,223,Average,Foggy,693.31
+SHP5481,888,Electric,Container,392,7.26,36270,Rural,High,66,Poor,Rainy,348.1
+SHP5482,1856,CNG,Auto,278,29.9,19124,Industrial,Medium,247,Good,Cloudy,515.97
+SHP5483,805,Biofuel,Van,185,12.66,30909,Industrial,High,49,Good,Foggy,148.93
+SHP5484,755,Diesel,Truck,422,4.21,42533,Highway,High,72,Average,Stormy,318.61
+SHP5485,574,CNG,Container,459,27.92,19157,Urban,High,277,Average,Stormy,263.47
+SHP5486,2000,Hybrid,Van,440,31.58,27817,Mixed,Very High,53,Average,Foggy,880.0
+SHP5487,420,Electric,Auto,382,16.5,12034,Highway,Low,34,Average,Rainy,160.44
+SHP5488,1972,Electric,Trailer,140,36.89,4598,Urban,Medium,113,Poor,Rainy,276.08
+SHP5489,439,Diesel,Mini Truck,112,27.71,25929,Rural,Very High,220,Good,Cloudy,49.17
+SHP5490,1269,Diesel,Container,460,11.45,12882,Mixed,Medium,242,Poor,Foggy,583.74
+SHP5491,440,Diesel,Auto,301,7.62,26968,Industrial,High,12,Poor,Cloudy,132.44
+SHP5492,1507,Diesel,Container,232,9.89,28748,Mixed,Low,187,Poor,Rainy,349.62
+SHP5493,559,Diesel,Trailer,183,37.33,40284,Highway,Low,63,Poor,Rainy,102.3
+SHP5494,370,Biofuel,Mini Truck,279,14.04,8539,Industrial,Medium,105,Average,Rainy,103.23
+SHP5495,1926,Electric,Truck,394,28.88,7497,Urban,Medium,171,Average,Stormy,758.84
+SHP5496,1403,Biofuel,Van,172,38.23,41524,Rural,High,168,Poor,Foggy,241.32
+SHP5497,803,Diesel,Mini Truck,430,9.14,28093,Highway,Low,47,Good,Sunny,345.29
+SHP5498,1361,Hybrid,Auto,243,31.14,26064,Mixed,Low,251,Good,Foggy,330.72
+SHP5499,1634,Biofuel,Mini Truck,388,14.14,12799,Industrial,Low,108,Poor,Rainy,633.99
+SHP5500,1245,Petrol,Trailer,286,37.51,4530,Urban,High,150,Poor,Stormy,356.07
+SHP5501,529,Petrol,Auto,429,9.21,10157,Urban,Low,162,Average,Cloudy,226.94
+SHP5502,734,CNG,Mini Truck,272,34.38,10380,Highway,High,178,Poor,Foggy,199.65
+SHP5503,951,Hybrid,Trailer,309,10.43,32374,Industrial,Low,230,Good,Foggy,293.86
+SHP5504,1062,Petrol,Mini Truck,220,21.93,2520,Industrial,Low,157,Good,Windy,233.64
+SHP5505,393,Petrol,Van,137,25.77,2547,Rural,Low,73,Average,Foggy,53.84
+SHP5506,1312,Hybrid,Truck,468,24.41,9366,Highway,Medium,91,Average,Windy,614.02
+SHP5507,215,Petrol,Mini Truck,200,18.25,18731,Highway,Medium,119,Poor,Sunny,43.0
+SHP5508,1967,Petrol,Container,367,5.45,35323,Highway,Very High,156,Poor,Rainy,721.89
+SHP5509,409,Petrol,Van,459,20.78,21575,Industrial,Medium,109,Poor,Stormy,187.73
+SHP5510,788,Diesel,Truck,401,14.8,32946,Urban,Low,167,Good,Cloudy,315.99
+SHP5511,1871,CNG,Mini Truck,165,14.27,34158,Rural,Very High,223,Good,Windy,308.71
+SHP5512,1590,Petrol,Container,182,37.28,47967,Rural,Medium,213,Poor,Rainy,289.38
+SHP5513,931,Diesel,Van,185,39.19,21731,Urban,Very High,244,Poor,Rainy,172.24
+SHP5514,796,Electric,Container,193,3.86,36406,Mixed,High,259,Poor,Stormy,153.63
+SHP5515,1881,Petrol,Auto,295,9.8,28640,Industrial,Medium,232,Poor,Windy,554.89
+SHP5516,507,Biofuel,Truck,118,7.34,34558,Urban,Medium,185,Average,Foggy,59.83
+SHP5517,408,CNG,Trailer,233,4.32,31939,Rural,Very High,38,Poor,Stormy,95.06
+SHP5518,266,Electric,Trailer,393,39.89,36851,Mixed,Very High,170,Average,Foggy,104.54
+SHP5519,1791,Hybrid,Container,186,20.61,32225,Industrial,Medium,61,Average,Windy,333.13
+SHP5520,647,CNG,Auto,167,15.41,19679,Rural,Medium,166,Good,Foggy,108.05
+SHP5521,1838,Diesel,Van,144,34.61,31538,Mixed,High,142,Poor,Foggy,264.67
+SHP5522,1003,CNG,Trailer,287,14.62,10922,Highway,High,103,Average,Sunny,287.86
+SHP5523,1647,Electric,Van,332,22.2,16331,Urban,Medium,1,Poor,Cloudy,546.8
+SHP5524,1991,Diesel,Mini Truck,384,36.07,5874,Highway,Medium,72,Average,Sunny,764.54
+SHP5525,1437,CNG,Truck,444,9.87,1410,Rural,Low,208,Average,Foggy,638.03
+SHP5526,1476,CNG,Van,161,21.24,42521,Mixed,High,176,Good,Rainy,237.64
+SHP5527,1321,Hybrid,Trailer,284,21.75,47473,Urban,Very High,141,Good,Cloudy,375.16
+SHP5528,1324,Diesel,Truck,152,22.34,9054,Industrial,Low,136,Average,Cloudy,201.25
+SHP5529,1423,Diesel,Trailer,339,24.77,31088,Rural,Very High,152,Average,Windy,482.4
+SHP5530,1411,Petrol,Auto,364,13.08,43565,Industrial,Very High,154,Poor,Rainy,513.6
+SHP5531,782,Electric,Container,463,23.96,44748,Mixed,Very High,246,Average,Foggy,362.07
+SHP5532,813,Hybrid,Truck,120,27.46,35053,Urban,Low,144,Good,Windy,97.56
+SHP5533,648,Petrol,Trailer,137,32.71,3494,Mixed,Medium,81,Average,Foggy,88.78
+SHP5534,276,CNG,Van,90,6.59,11553,Industrial,Low,233,Average,Stormy,24.84
+SHP5535,1948,Hybrid,Container,383,28.99,46775,Urban,Very High,241,Poor,Foggy,746.08
+SHP5536,1821,Biofuel,Mini Truck,465,22.93,28017,Urban,Medium,298,Average,Sunny,846.76
+SHP5537,1571,CNG,Truck,209,4.04,1300,Industrial,Medium,143,Poor,Stormy,328.34
+SHP5538,1387,Biofuel,Trailer,311,22.17,254,Highway,Medium,218,Poor,Stormy,431.36
+SHP5539,1068,CNG,Trailer,250,11.53,36210,Mixed,Low,90,Good,Cloudy,267.0
+SHP5540,1530,Diesel,Mini Truck,199,20.09,9416,Highway,Medium,160,Good,Foggy,304.47
+SHP5541,987,Diesel,Auto,319,34.66,10195,Rural,Low,210,Poor,Stormy,314.85
+SHP5542,142,Biofuel,Auto,170,22.39,9300,Mixed,High,44,Good,Windy,24.14
+SHP5543,285,Biofuel,Mini Truck,437,25.06,47458,Industrial,Low,69,Good,Stormy,124.55
+SHP5544,1146,Diesel,Trailer,235,37.81,48072,Urban,Very High,173,Average,Foggy,269.31
+SHP5545,1451,Diesel,Van,177,35.92,42250,Urban,Very High,179,Good,Rainy,256.83
+SHP5546,505,Biofuel,Auto,498,29.11,14426,Industrial,High,127,Average,Windy,251.49
+SHP5547,1454,Hybrid,Van,254,7.34,2602,Highway,Very High,265,Poor,Stormy,369.32
+SHP5548,1629,CNG,Container,182,30.05,43420,Mixed,Very High,280,Good,Windy,296.48
+SHP5549,1339,Hybrid,Container,453,33.55,31243,Urban,Medium,121,Poor,Rainy,606.57
+SHP5550,389,Biofuel,Container,370,24.98,3918,Industrial,High,259,Average,Stormy,143.93
+SHP5551,1038,Biofuel,Container,265,23.83,41736,Rural,High,129,Poor,Rainy,275.07
+SHP5552,1941,Diesel,Auto,311,18.9,48156,Rural,Low,171,Poor,Stormy,603.65
+SHP5553,1995,Hybrid,Container,288,11.82,42095,Industrial,Very High,40,Average,Sunny,574.56
+SHP5554,1103,Electric,Van,253,36.09,26160,Mixed,High,55,Good,Foggy,279.06
+SHP5555,1400,Hybrid,Auto,312,21.5,35186,Mixed,Medium,46,Good,Sunny,436.8
+SHP5556,1026,Hybrid,Container,497,12.25,20118,Mixed,Very High,8,Good,Sunny,509.92
+SHP5557,1331,CNG,Truck,109,23.47,37423,Urban,High,278,Good,Windy,145.08
+SHP5558,1308,Diesel,Trailer,223,20.63,9902,Urban,Very High,166,Good,Stormy,291.68
+SHP5559,1303,CNG,Container,248,10.41,45549,Urban,High,98,Average,Sunny,323.14
+SHP5560,422,Diesel,Auto,254,25.38,44710,Urban,Very High,216,Good,Stormy,107.19
+SHP5561,1795,Petrol,Container,289,34.43,38862,Industrial,Low,272,Average,Rainy,518.75
+SHP5562,1797,Hybrid,Mini Truck,148,39.87,15713,Rural,Medium,198,Good,Stormy,265.96
+SHP5563,1454,Biofuel,Mini Truck,310,26.92,11833,Highway,Medium,250,Good,Stormy,450.74
+SHP5564,885,Diesel,Van,362,25.03,26834,Rural,Low,155,Good,Cloudy,320.37
+SHP5565,122,Hybrid,Van,365,30.14,1613,Highway,Medium,118,Average,Windy,44.53
+SHP5566,83,Hybrid,Van,218,33.24,21570,Rural,Low,238,Average,Rainy,18.09
+SHP5567,1303,Petrol,Mini Truck,321,4.27,47121,Industrial,High,241,Average,Stormy,418.26
+SHP5568,1930,CNG,Auto,379,25.67,5799,Industrial,Low,6,Average,Sunny,731.47
+SHP5569,81,Biofuel,Truck,463,8.03,11142,Rural,Very High,220,Poor,Rainy,37.5
+SHP5570,1264,Hybrid,Trailer,442,14.96,49249,Highway,Medium,143,Good,Sunny,558.69
+SHP5571,457,Biofuel,Auto,432,4.45,18279,Mixed,High,152,Good,Sunny,197.42
+SHP5572,614,Electric,Container,355,38.04,41726,Highway,Low,87,Good,Windy,217.97
+SHP5573,435,Electric,Mini Truck,378,11.82,4823,Mixed,Very High,127,Poor,Sunny,164.43
+SHP5574,987,Petrol,Van,381,29.88,23859,Mixed,High,91,Good,Sunny,376.05
+SHP5575,1021,Hybrid,Mini Truck,307,7.2,21943,Industrial,Low,34,Poor,Windy,313.45
+SHP5576,26,Diesel,Auto,457,5.09,24745,Highway,Medium,279,Good,Windy,11.88
+SHP5577,1074,Electric,Container,120,23.49,26582,Mixed,Very High,129,Good,Cloudy,128.88
+SHP5578,1717,CNG,Auto,492,38.17,10373,Urban,Medium,242,Poor,Foggy,844.76
+SHP5579,1722,Hybrid,Trailer,458,28.27,13206,Mixed,Medium,173,Average,Rainy,788.68
+SHP5580,1202,Petrol,Truck,457,21.19,20801,Mixed,High,256,Poor,Rainy,549.31
+SHP5581,368,Hybrid,Auto,323,2.69,21264,Industrial,Very High,189,Good,Windy,118.86
+SHP5582,360,Hybrid,Container,384,19.09,49819,Industrial,Very High,143,Average,Windy,138.24
+SHP5583,387,Diesel,Van,234,11.16,19556,Industrial,Medium,299,Poor,Foggy,90.56
+SHP5584,808,Hybrid,Trailer,259,26.23,24563,Mixed,High,291,Average,Stormy,209.27
+SHP5585,261,Hybrid,Container,328,19.37,45622,Urban,Medium,202,Good,Stormy,85.61
+SHP5586,358,Biofuel,Van,229,39.33,17634,Rural,High,191,Average,Foggy,81.98
+SHP5587,663,Biofuel,Mini Truck,403,24.89,25933,Industrial,High,194,Poor,Windy,267.19
+SHP5588,1173,Diesel,Truck,460,16.21,17906,Rural,High,256,Good,Stormy,539.58
+SHP5589,116,Hybrid,Mini Truck,309,36.22,37556,Rural,Medium,241,Good,Cloudy,35.84
+SHP5590,101,Hybrid,Trailer,91,26.81,35377,Industrial,Medium,85,Average,Windy,9.19
+SHP5591,1401,Electric,Mini Truck,417,23.13,35213,Urban,Low,170,Poor,Windy,584.22
+SHP5592,1089,Electric,Auto,395,35.98,21364,Mixed,Low,247,Poor,Stormy,430.15
+SHP5593,1829,Hybrid,Container,420,29.98,4073,Highway,High,169,Poor,Stormy,768.18
+SHP5594,1759,Diesel,Trailer,265,19.16,29027,Urban,Medium,58,Poor,Windy,466.13
+SHP5595,557,Hybrid,Mini Truck,189,30.18,44243,Mixed,Very High,65,Poor,Windy,105.27
+SHP5596,1539,Biofuel,Truck,464,4.79,16979,Urban,Low,45,Poor,Sunny,714.1
+SHP5597,516,Biofuel,Auto,369,24.74,7491,Rural,Low,274,Average,Rainy,190.4
+SHP5598,374,Diesel,Container,328,24.23,49842,Mixed,High,225,Good,Stormy,122.67
+SHP5599,694,CNG,Auto,372,34.42,9731,Rural,High,202,Good,Sunny,258.17
+SHP5600,706,Diesel,Truck,473,21.7,13474,Highway,Low,212,Good,Cloudy,333.94
+SHP5601,63,Diesel,Truck,97,27.58,48241,Industrial,Low,150,Good,Sunny,6.11
+SHP5602,1415,CNG,Van,292,14.15,9543,Highway,Very High,95,Poor,Windy,413.18
+SHP5603,500,Biofuel,Auto,157,31.42,31790,Rural,Low,211,Average,Stormy,78.5
+SHP5604,720,Diesel,Auto,232,19.14,24765,Industrial,High,54,Poor,Rainy,167.04
+SHP5605,991,CNG,Mini Truck,189,5.05,31128,Industrial,Very High,113,Average,Stormy,187.3
+SHP5606,959,Electric,Van,184,9.07,22670,Mixed,High,298,Good,Stormy,176.46
+SHP5607,39,Electric,Trailer,238,2.63,42168,Rural,Low,195,Average,Cloudy,9.28
+SHP5608,1423,Hybrid,Mini Truck,335,10.65,18534,Urban,High,145,Poor,Rainy,476.7
+SHP5609,881,CNG,Trailer,492,30.14,36968,Industrial,Very High,134,Good,Windy,433.45
+SHP5610,754,Petrol,Truck,296,16.9,35291,Urban,Low,47,Average,Windy,223.18
+SHP5611,1255,Hybrid,Van,489,31.44,491,Industrial,High,176,Average,Sunny,613.7
+SHP5612,1185,Hybrid,Container,434,3.23,36965,Industrial,Low,188,Average,Stormy,514.29
+SHP5613,1873,Diesel,Van,148,22.99,34958,Highway,Medium,0,Average,Rainy,277.2
+SHP5614,89,CNG,Trailer,405,34.13,14751,Rural,Very High,242,Average,Stormy,36.05
+SHP5615,768,Biofuel,Van,440,30.52,17227,Highway,Low,68,Average,Cloudy,337.92
+SHP5616,476,Electric,Trailer,174,36.94,46391,Mixed,Very High,272,Good,Foggy,82.82
+SHP5617,1113,Electric,Container,387,33.48,47587,Mixed,Very High,217,Poor,Sunny,430.73
+SHP5618,405,Diesel,Mini Truck,447,22.18,22596,Industrial,Low,68,Poor,Rainy,181.03
+SHP5619,767,Hybrid,Container,127,11.3,38843,Mixed,High,69,Poor,Stormy,97.41
+SHP5620,603,Electric,Mini Truck,207,34.14,26272,Urban,Medium,226,Good,Sunny,124.82
+SHP5621,1718,CNG,Mini Truck,421,35.64,45964,Mixed,Low,247,Good,Rainy,723.28
+SHP5622,965,CNG,Mini Truck,119,15.63,30565,Mixed,High,295,Average,Windy,114.83
+SHP5623,1605,Diesel,Trailer,343,8.85,35767,Industrial,Low,263,Good,Sunny,550.51
+SHP5624,1909,Petrol,Truck,373,10.05,5411,Industrial,High,83,Poor,Cloudy,712.06
+SHP5625,49,Electric,Van,444,28.58,41989,Mixed,Very High,286,Poor,Foggy,21.76
+SHP5626,1085,Petrol,Trailer,254,4.39,37207,Mixed,Very High,113,Poor,Rainy,275.59
+SHP5627,1564,Electric,Van,245,18.38,34212,Industrial,High,204,Good,Foggy,383.18
+SHP5628,1651,Petrol,Mini Truck,327,31.09,29853,Mixed,High,224,Average,Stormy,539.88
+SHP5629,761,CNG,Mini Truck,129,6.18,14341,Highway,Low,77,Poor,Rainy,98.17
+SHP5630,1261,Electric,Container,207,33.48,32969,Rural,High,236,Average,Windy,261.03
+SHP5631,177,Electric,Mini Truck,337,13.24,11737,Industrial,High,127,Poor,Rainy,59.65
+SHP5632,98,Electric,Trailer,417,16.69,3429,Highway,Low,136,Good,Cloudy,40.87
+SHP5633,108,Biofuel,Trailer,175,18.64,46304,Industrial,High,298,Good,Stormy,18.9
+SHP5634,334,Petrol,Trailer,287,32.24,12612,Highway,Low,213,Average,Cloudy,95.86
+SHP5635,527,CNG,Container,85,31.67,16319,Mixed,Medium,149,Poor,Windy,44.8
+SHP5636,1198,Diesel,Truck,175,20.17,42579,Rural,High,236,Good,Cloudy,209.65
+SHP5637,1645,Diesel,Auto,147,27.93,46688,Industrial,Very High,173,Average,Windy,241.81
+SHP5638,1693,Hybrid,Container,203,15.13,42095,Highway,High,87,Average,Windy,343.68
+SHP5639,1903,Petrol,Container,431,28.43,16098,Rural,High,182,Average,Rainy,820.19
+SHP5640,1311,Petrol,Auto,286,23.25,35738,Highway,High,64,Poor,Rainy,374.95
+SHP5641,427,Hybrid,Container,181,18.77,8630,Urban,Low,221,Poor,Windy,77.29
+SHP5642,1604,Hybrid,Auto,234,18.49,25389,Mixed,Medium,260,Average,Cloudy,375.34
+SHP5643,904,Electric,Trailer,124,7.89,43781,Urban,Medium,185,Poor,Windy,112.1
+SHP5644,1469,CNG,Container,281,21.24,2109,Urban,Very High,66,Poor,Rainy,412.79
+SHP5645,837,Petrol,Van,250,20.41,44424,Industrial,Medium,288,Average,Sunny,209.25
+SHP5646,1814,Biofuel,Auto,379,24.26,23659,Mixed,High,62,Average,Foggy,687.51
+SHP5647,568,Diesel,Mini Truck,406,22.51,44027,Industrial,Low,25,Poor,Foggy,230.61
+SHP5648,903,Biofuel,Van,162,23.2,44122,Mixed,Very High,186,Good,Sunny,146.29
+SHP5649,1070,Diesel,Trailer,220,32.87,45999,Industrial,Very High,164,Poor,Sunny,235.4
+SHP5650,1225,Biofuel,Trailer,375,4.89,24807,Mixed,Medium,53,Average,Foggy,459.38
+SHP5651,685,Electric,Trailer,404,22.21,42241,Industrial,Medium,239,Average,Stormy,276.74
+SHP5652,517,Petrol,Container,330,7.37,6365,Rural,Medium,258,Good,Windy,170.61
+SHP5653,1504,Diesel,Van,210,1.56,26452,Rural,Medium,125,Poor,Cloudy,315.84
+SHP5654,690,Biofuel,Container,253,22.78,33382,Urban,Low,28,Good,Cloudy,174.57
+SHP5655,835,Electric,Mini Truck,120,31.56,48934,Highway,Very High,197,Good,Stormy,100.2
+SHP5656,1323,Hybrid,Container,214,26.83,42663,Mixed,Very High,173,Good,Sunny,283.12
+SHP5657,487,CNG,Van,395,2.36,27718,Rural,Medium,82,Good,Rainy,192.37
+SHP5658,823,Biofuel,Container,340,17.2,19387,Rural,Medium,217,Average,Cloudy,279.82
+SHP5659,1700,Petrol,Auto,176,12.41,36015,Mixed,High,222,Good,Cloudy,299.2
+SHP5660,696,Hybrid,Container,257,6.86,42517,Industrial,Very High,97,Good,Rainy,178.87
+SHP5661,594,Diesel,Truck,353,33.69,30837,Urban,Medium,128,Good,Rainy,209.68
+SHP5662,1908,Biofuel,Mini Truck,480,35.13,45769,Urban,High,187,Good,Cloudy,915.84
+SHP5663,1063,Diesel,Mini Truck,280,14.58,19883,Urban,Low,28,Poor,Sunny,297.64
+SHP5664,1633,CNG,Truck,96,28.91,12798,Rural,Medium,85,Poor,Windy,156.77
+SHP5665,1719,CNG,Auto,215,26.58,11918,Industrial,Very High,86,Poor,Stormy,369.58
+SHP5666,1501,Diesel,Mini Truck,481,26.07,11555,Highway,Very High,149,Average,Stormy,721.98
+SHP5667,713,Hybrid,Trailer,120,4.47,37616,Industrial,Medium,131,Good,Foggy,85.56
+SHP5668,1837,Electric,Truck,491,36.94,35250,Industrial,Low,82,Average,Stormy,901.97
+SHP5669,624,Electric,Mini Truck,484,8.51,4285,Highway,High,169,Poor,Sunny,302.02
+SHP5670,350,Biofuel,Trailer,125,14.84,39655,Mixed,Low,164,Average,Rainy,43.75
+SHP5671,572,Biofuel,Truck,229,38.66,47091,Urban,Medium,265,Poor,Sunny,130.99
+SHP5672,1770,CNG,Trailer,297,33.83,10627,Industrial,High,52,Poor,Cloudy,525.69
+SHP5673,570,Biofuel,Trailer,284,35.41,10139,Rural,Medium,279,Good,Stormy,161.88
+SHP5674,1704,CNG,Mini Truck,318,1.51,6526,Urban,High,215,Poor,Stormy,541.87
+SHP5675,1312,Petrol,Van,396,18.94,9911,Industrial,Medium,107,Good,Windy,519.55
+SHP5676,1546,Electric,Trailer,134,2.12,32459,Industrial,Medium,156,Good,Rainy,207.16
+SHP5677,822,Biofuel,Container,424,33.26,28757,Industrial,High,235,Average,Stormy,348.53
+SHP5678,1643,CNG,Van,272,6.67,26906,Highway,Very High,68,Average,Foggy,446.9
+SHP5679,210,Electric,Mini Truck,468,15.87,32740,Urban,Very High,40,Poor,Windy,98.28
+SHP5680,1688,Biofuel,Mini Truck,471,13.04,14974,Industrial,Medium,9,Good,Sunny,795.05
+SHP5681,1303,Petrol,Mini Truck,99,16.88,5599,Urban,Medium,63,Poor,Sunny,129.0
+SHP5682,579,Petrol,Truck,111,35.75,1385,Industrial,Medium,88,Average,Foggy,64.27
+SHP5683,403,Biofuel,Truck,341,11.7,40262,Industrial,Very High,224,Average,Stormy,137.42
+SHP5684,591,Electric,Auto,271,36.69,15815,Mixed,High,203,Poor,Windy,160.16
+SHP5685,184,Biofuel,Auto,429,5.13,15107,Highway,High,143,Poor,Sunny,78.94
+SHP5686,1565,Biofuel,Trailer,243,32.44,48512,Urban,High,67,Average,Stormy,380.3
+SHP5687,1958,CNG,Truck,190,26.57,12203,Rural,Low,243,Poor,Windy,372.02
+SHP5688,798,Hybrid,Truck,144,39.59,39172,Urban,Medium,169,Good,Stormy,114.91
+SHP5689,24,Biofuel,Truck,124,15.18,38656,Industrial,Low,150,Good,Rainy,2.98
+SHP5690,846,Diesel,Truck,143,8.63,30300,Urban,Very High,113,Average,Sunny,120.98
+SHP5691,1065,Petrol,Trailer,104,35.95,46011,Rural,Low,293,Average,Sunny,110.76
+SHP5692,1609,Petrol,Van,202,29.13,47793,Mixed,Medium,30,Average,Foggy,325.02
+SHP5693,164,Diesel,Truck,255,1.85,32893,Urban,Low,88,Average,Stormy,41.82
+SHP5694,1491,CNG,Trailer,339,31.39,35376,Mixed,Low,268,Poor,Sunny,505.45
+SHP5695,164,Electric,Mini Truck,376,34.68,2503,Urban,High,21,Average,Foggy,61.66
+SHP5696,368,Petrol,Auto,229,8.72,36655,Mixed,High,3,Good,Cloudy,84.27
+SHP5697,1033,Electric,Container,146,1.87,27828,Rural,Medium,270,Average,Cloudy,150.82
+SHP5698,1405,Petrol,Mini Truck,171,23.34,9221,Highway,Very High,198,Poor,Foggy,240.25
+SHP5699,1177,CNG,Mini Truck,413,36.56,8138,Rural,Very High,256,Average,Rainy,486.1
+SHP5700,1475,Hybrid,Mini Truck,227,34.3,14001,Industrial,High,103,Poor,Sunny,334.82
+SHP5701,1069,Petrol,Mini Truck,142,29.18,13984,Urban,Low,136,Good,Foggy,151.8
+SHP5702,40,Petrol,Trailer,116,13.08,37423,Industrial,Very High,242,Average,Foggy,4.64
+SHP5703,1221,Petrol,Container,93,4.2,29125,Highway,Medium,92,Poor,Cloudy,113.55
+SHP5704,1371,Hybrid,Mini Truck,167,20.83,10535,Mixed,Very High,69,Average,Sunny,228.96
+SHP5705,208,Diesel,Auto,213,19.55,23282,Industrial,Low,275,Average,Foggy,44.3
+SHP5706,1527,CNG,Container,233,10.82,42167,Industrial,Very High,112,Good,Rainy,355.79
+SHP5707,1874,Petrol,Mini Truck,364,34.99,12429,Mixed,Medium,77,Poor,Rainy,682.14
+SHP5708,1183,Diesel,Trailer,393,38.47,36809,Urban,Low,167,Average,Stormy,464.92
+SHP5709,1989,Petrol,Container,435,39.88,15484,Industrial,Medium,240,Good,Foggy,865.22
+SHP5710,1916,Diesel,Truck,395,15.93,38778,Urban,Very High,45,Poor,Foggy,756.82
+SHP5711,746,Hybrid,Mini Truck,309,33.49,5881,Mixed,High,95,Average,Foggy,230.51
+SHP5712,587,Biofuel,Container,229,12.35,9477,Industrial,Medium,271,Average,Cloudy,134.42
+SHP5713,656,Hybrid,Van,83,9.77,32845,Rural,Medium,57,Poor,Cloudy,54.45
+SHP5714,998,Biofuel,Truck,485,3.55,21853,Industrial,Medium,266,Average,Cloudy,484.03
+SHP5715,1276,Hybrid,Auto,483,32.73,10091,Industrial,Medium,25,Poor,Foggy,616.31
+SHP5716,1964,CNG,Mini Truck,394,4.95,18508,Rural,Very High,192,Good,Cloudy,773.82
+SHP5717,1204,Hybrid,Auto,243,9.59,19333,Mixed,High,59,Average,Windy,292.57
+SHP5718,1105,Petrol,Van,472,2.28,3281,Industrial,High,130,Good,Cloudy,521.56
+SHP5719,429,Electric,Mini Truck,205,12.88,44424,Urban,Medium,262,Poor,Sunny,87.94
+SHP5720,1031,Diesel,Container,362,33.19,20095,Urban,Medium,250,Good,Foggy,373.22
+SHP5721,1653,Petrol,Auto,275,28.95,34831,Industrial,Low,155,Poor,Foggy,454.57
+SHP5722,1149,Petrol,Van,402,27.68,3351,Rural,Low,122,Average,Foggy,461.9
+SHP5723,86,Petrol,Truck,137,4.05,45101,Highway,High,157,Good,Foggy,11.78
+SHP5724,1242,Biofuel,Trailer,176,32.52,5424,Urban,Medium,140,Good,Windy,218.59
+SHP5725,748,Hybrid,Van,224,16.46,30441,Highway,Very High,161,Poor,Rainy,167.55
+SHP5726,1801,Biofuel,Van,472,37.25,22859,Industrial,Low,133,Average,Cloudy,850.07
+SHP5727,494,Electric,Trailer,320,18.22,31688,Mixed,High,138,Average,Foggy,158.08
+SHP5728,140,Diesel,Container,167,32.52,27565,Mixed,Low,180,Poor,Rainy,23.38
+SHP5729,1734,Electric,Mini Truck,452,10.09,23383,Highway,Low,164,Good,Windy,783.77
+SHP5730,852,Hybrid,Van,193,29.31,38246,Rural,Medium,106,Good,Stormy,164.44
+SHP5731,1397,Electric,Auto,111,24.69,7277,Mixed,High,10,Good,Rainy,155.07
+SHP5732,400,Hybrid,Container,105,19.28,36330,Industrial,Very High,177,Average,Foggy,42.0
+SHP5733,758,Diesel,Van,235,28.26,19514,Mixed,High,45,Poor,Windy,178.13
+SHP5734,351,Electric,Van,362,27.09,16487,Highway,Low,23,Poor,Rainy,127.06
+SHP5735,1233,CNG,Container,317,37.84,47822,Highway,Medium,278,Good,Cloudy,390.86
+SHP5736,800,Petrol,Container,334,30.98,24422,Highway,Medium,72,Average,Rainy,267.2
+SHP5737,1754,Hybrid,Auto,111,22.82,31865,Rural,High,283,Poor,Rainy,194.69
+SHP5738,1213,Petrol,Van,222,23.28,5781,Industrial,High,95,Good,Sunny,269.29
+SHP5739,1001,Hybrid,Truck,351,1.81,33321,Industrial,Very High,187,Good,Windy,351.35
+SHP5740,54,Diesel,Auto,361,8.9,29414,Mixed,High,281,Good,Sunny,19.49
+SHP5741,1889,Hybrid,Auto,139,8.8,30319,Rural,Low,183,Good,Foggy,262.57
+SHP5742,332,Hybrid,Container,212,19.51,11488,Highway,Very High,27,Poor,Rainy,70.38
+SHP5743,428,CNG,Mini Truck,228,7.67,27646,Industrial,Very High,150,Average,Cloudy,97.58
+SHP5744,1577,Petrol,Container,202,10.71,32670,Highway,High,173,Average,Cloudy,318.55
+SHP5745,23,Electric,Trailer,317,12.83,25363,Rural,Medium,60,Poor,Foggy,7.29
+SHP5746,359,CNG,Van,246,39.63,35014,Mixed,Very High,200,Average,Sunny,88.31
+SHP5747,834,Electric,Container,308,37.25,5577,Urban,High,155,Good,Stormy,256.87
+SHP5748,427,Diesel,Container,123,38.52,44430,Mixed,Very High,298,Average,Sunny,52.52
+SHP5749,31,Diesel,Mini Truck,272,34.86,9460,Highway,High,162,Poor,Windy,8.43
+SHP5750,652,Electric,Trailer,100,7.67,25513,Mixed,Very High,178,Poor,Rainy,65.2
+SHP5751,1098,Biofuel,Trailer,491,11.13,35084,Rural,Very High,13,Good,Cloudy,539.12
+SHP5752,599,CNG,Auto,250,27.55,29980,Mixed,High,172,Average,Foggy,149.75
+SHP5753,1889,Biofuel,Auto,416,2.25,22515,Highway,Low,121,Poor,Stormy,785.82
+SHP5754,747,Petrol,Container,235,11.58,25861,Mixed,Very High,299,Good,Windy,175.54
+SHP5755,1317,Petrol,Mini Truck,103,24.68,31736,Rural,Low,22,Good,Cloudy,135.65
+SHP5756,1790,Electric,Van,315,38.27,32029,Rural,High,229,Good,Foggy,563.85
+SHP5757,608,Biofuel,Mini Truck,329,17.83,2744,Highway,Very High,253,Poor,Windy,200.03
+SHP5758,626,Biofuel,Mini Truck,178,25.77,30085,Highway,Very High,231,Good,Sunny,111.43
+SHP5759,477,CNG,Truck,189,16.64,20626,Rural,Very High,283,Poor,Cloudy,90.15
+SHP5760,234,CNG,Truck,291,6.07,9517,Urban,Very High,226,Average,Rainy,68.09
+SHP5761,1863,Electric,Truck,437,12.74,34638,Rural,Very High,141,Average,Rainy,814.13
+SHP5762,1308,Biofuel,Container,244,21.01,42244,Mixed,Low,102,Average,Windy,319.15
+SHP5763,1758,Biofuel,Mini Truck,452,22.07,42853,Industrial,High,123,Average,Sunny,794.62
+SHP5764,1466,Hybrid,Auto,251,3.49,40111,Mixed,Medium,230,Average,Stormy,367.97
+SHP5765,366,Biofuel,Trailer,101,27.87,39409,Highway,Low,172,Average,Foggy,36.97
+SHP5766,1318,Electric,Van,476,5.65,1288,Industrial,Low,212,Poor,Cloudy,627.37
+SHP5767,1018,Diesel,Trailer,498,16.08,16458,Mixed,Medium,80,Average,Rainy,506.96
+SHP5768,1161,Electric,Truck,168,3.63,25206,Urban,Medium,3,Poor,Stormy,195.05
+SHP5769,249,Petrol,Trailer,458,24.68,943,Urban,Very High,113,Average,Sunny,114.04
+SHP5770,1540,Biofuel,Van,375,10.61,40140,Highway,Low,175,Good,Sunny,577.5
+SHP5771,1606,Petrol,Truck,289,32.54,40448,Mixed,Low,142,Poor,Stormy,464.13
+SHP5772,757,Biofuel,Truck,244,8.84,13374,Mixed,Low,86,Poor,Cloudy,184.71
+SHP5773,1346,Petrol,Trailer,417,32.19,4433,Mixed,Very High,147,Good,Cloudy,561.28
+SHP5774,409,Biofuel,Van,135,26.88,42213,Rural,Low,1,Good,Cloudy,55.22
+SHP5775,487,Electric,Auto,452,33.94,35475,Industrial,Medium,215,Average,Sunny,220.12
+SHP5776,68,Electric,Auto,457,24.24,9325,Urban,High,37,Average,Foggy,31.08
+SHP5777,1042,CNG,Truck,398,38.05,37760,Mixed,Low,159,Average,Foggy,414.72
+SHP5778,851,Hybrid,Mini Truck,417,32.56,39059,Mixed,Medium,64,Average,Cloudy,354.87
+SHP5779,259,Diesel,Trailer,113,4.75,14531,Rural,Medium,148,Average,Stormy,29.27
+SHP5780,1841,Electric,Container,384,24.51,4802,Mixed,High,150,Poor,Rainy,706.94
+SHP5781,604,Petrol,Auto,423,6.82,47412,Highway,Medium,86,Average,Windy,255.49
+SHP5782,1261,Biofuel,Van,323,29.61,42555,Mixed,Medium,40,Poor,Windy,407.3
+SHP5783,730,CNG,Van,292,36.92,36476,Highway,Medium,141,Good,Foggy,213.16
+SHP5784,740,Electric,Truck,256,21.43,37744,Rural,High,6,Average,Cloudy,189.44
+SHP5785,1032,CNG,Van,457,21.75,20724,Industrial,Very High,101,Poor,Stormy,471.62
+SHP5786,627,Petrol,Trailer,311,30.45,29263,Mixed,High,203,Average,Sunny,195.0
+SHP5787,1397,CNG,Container,320,36.37,47929,Mixed,Very High,134,Average,Stormy,447.04
+SHP5788,1601,Biofuel,Container,106,34.44,25316,Mixed,High,285,Good,Windy,169.71
+SHP5789,1459,Hybrid,Truck,379,36.33,27409,Urban,Very High,137,Average,Rainy,552.96
+SHP5790,552,Electric,Van,318,11.6,18086,Highway,Medium,267,Good,Windy,175.54
+SHP5791,1030,Petrol,Auto,158,2.92,44451,Urban,Medium,10,Good,Stormy,162.74
+SHP5792,134,Biofuel,Mini Truck,296,24.96,18235,Highway,Low,192,Good,Foggy,39.66
+SHP5793,1221,Hybrid,Van,240,15.34,1695,Rural,Low,163,Good,Windy,293.04
+SHP5794,440,CNG,Container,290,26.6,21187,Urban,Very High,218,Average,Foggy,127.6
+SHP5795,940,Electric,Trailer,444,37.69,21625,Mixed,Low,188,Good,Foggy,417.36
+SHP5796,1197,Biofuel,Auto,247,4.91,22571,Rural,Very High,141,Average,Rainy,295.66
+SHP5797,20,Biofuel,Truck,351,27.82,27111,Highway,Very High,292,Poor,Windy,7.02
+SHP5798,1472,Biofuel,Van,351,35.16,29948,Industrial,Low,57,Poor,Windy,516.67
+SHP5799,1737,Diesel,Container,454,24.66,12571,Urban,Medium,233,Poor,Foggy,788.6
+SHP5800,1502,CNG,Auto,145,16.42,25043,Highway,Medium,181,Good,Sunny,217.79
+SHP5801,1804,Hybrid,Mini Truck,308,25.05,25041,Highway,High,33,Poor,Stormy,555.63
+SHP5802,1726,Petrol,Container,236,17.32,2175,Urban,Medium,44,Average,Foggy,407.34
+SHP5803,1430,Petrol,Truck,249,20.51,40925,Mixed,Very High,121,Poor,Foggy,356.07
+SHP5804,736,Biofuel,Mini Truck,151,35.16,21488,Highway,High,35,Average,Stormy,111.14
+SHP5805,501,Biofuel,Mini Truck,389,15.61,15176,Highway,Low,66,Average,Cloudy,194.89
+SHP5806,1356,Electric,Trailer,247,16.84,34280,Mixed,Very High,168,Poor,Windy,334.93
+SHP5807,1973,CNG,Trailer,352,21.7,32425,Industrial,Low,169,Good,Rainy,694.5
+SHP5808,233,Petrol,Container,205,33.53,14877,Mixed,High,62,Average,Cloudy,47.77
+SHP5809,322,CNG,Mini Truck,382,9.58,14573,Urban,Very High,138,Poor,Windy,123.0
+SHP5810,942,Petrol,Container,115,39.67,39480,Urban,Medium,296,Poor,Cloudy,108.33
+SHP5811,47,Biofuel,Container,445,8.43,9783,Rural,Low,300,Average,Sunny,20.91
+SHP5812,935,Diesel,Truck,396,25.32,17734,Urban,High,158,Average,Sunny,370.26
+SHP5813,1720,Electric,Van,149,32.23,15986,Highway,Very High,154,Poor,Foggy,256.28
+SHP5814,1061,Diesel,Truck,280,3.1,18761,Industrial,High,217,Poor,Rainy,297.08
+SHP5815,1707,Electric,Truck,224,13.31,47225,Rural,Low,108,Poor,Foggy,382.37
+SHP5816,829,Hybrid,Van,407,12.8,44079,Highway,High,255,Good,Rainy,337.4
+SHP5817,314,CNG,Trailer,244,21.61,7908,Industrial,Low,139,Good,Sunny,76.62
+SHP5818,867,Petrol,Truck,180,39.6,32945,Industrial,Low,110,Good,Stormy,156.06
+SHP5819,1596,Biofuel,Auto,371,29.64,14746,Highway,Medium,166,Poor,Rainy,592.12
+SHP5820,1684,Hybrid,Trailer,458,17.29,6878,Industrial,High,226,Poor,Windy,771.27
+SHP5821,48,CNG,Mini Truck,388,3.92,1580,Rural,Very High,266,Average,Windy,18.62
+SHP5822,1065,Biofuel,Truck,117,29.75,48535,Urban,Very High,183,Poor,Sunny,124.61
+SHP5823,456,CNG,Container,467,19.48,39139,Rural,Low,226,Poor,Cloudy,212.95
+SHP5824,27,Petrol,Trailer,114,4.12,42511,Mixed,Very High,141,Poor,Stormy,3.08
+SHP5825,1670,Diesel,Trailer,91,37.65,36060,Mixed,Medium,131,Good,Rainy,151.97
+SHP5826,1196,Diesel,Truck,140,38.63,34686,Urban,Very High,97,Poor,Foggy,167.44
+SHP5827,281,Biofuel,Van,243,29.96,32235,Urban,Medium,50,Poor,Sunny,68.28
+SHP5828,1084,Electric,Auto,166,13.64,2652,Rural,Medium,163,Good,Cloudy,179.94
+SHP5829,1541,Diesel,Mini Truck,179,29.82,39538,Mixed,Low,203,Good,Rainy,275.84
+SHP5830,1485,Diesel,Mini Truck,409,39.09,18262,Highway,Medium,36,Poor,Foggy,607.37
+SHP5831,891,Electric,Van,283,28.58,33682,Mixed,High,184,Poor,Cloudy,252.15
+SHP5832,137,Petrol,Auto,352,19.44,29806,Industrial,Low,207,Poor,Foggy,48.22
+SHP5833,314,Hybrid,Container,443,35.2,12156,Mixed,Low,164,Average,Foggy,139.1
+SHP5834,1293,Electric,Container,186,22.47,20397,Industrial,Very High,259,Average,Foggy,240.5
+SHP5835,1184,CNG,Mini Truck,160,36.88,10947,Highway,Low,189,Average,Stormy,189.44
+SHP5836,1308,Petrol,Mini Truck,227,26.09,13197,Rural,Medium,22,Average,Cloudy,296.92
+SHP5837,606,Diesel,Truck,101,23.01,48169,Urban,Very High,86,Average,Cloudy,61.21
+SHP5838,919,Electric,Truck,254,12.23,42870,Rural,Very High,64,Poor,Sunny,233.43
+SHP5839,1870,Petrol,Container,315,14.38,41019,Urban,High,279,Poor,Cloudy,589.05
+SHP5840,1358,Petrol,Truck,256,9.69,14255,Urban,Medium,138,Average,Sunny,347.65
+SHP5841,1282,Petrol,Auto,259,17.04,39090,Mixed,Medium,163,Average,Windy,332.04
+SHP5842,1761,Hybrid,Truck,333,15.13,47955,Highway,Medium,237,Poor,Foggy,586.41
+SHP5843,573,Diesel,Truck,321,20.12,18765,Industrial,Very High,52,Average,Sunny,183.93
+SHP5844,436,Petrol,Mini Truck,303,37.07,7477,Industrial,High,27,Average,Rainy,132.11
+SHP5845,302,Petrol,Trailer,383,11.01,44005,Industrial,High,1,Poor,Windy,115.67
+SHP5846,1482,Petrol,Trailer,165,24.47,10041,Highway,Low,170,Poor,Sunny,244.53
+SHP5847,648,Diesel,Auto,109,16.3,7557,Mixed,Low,8,Good,Foggy,70.63
+SHP5848,672,Diesel,Container,207,21.09,722,Rural,Low,179,Poor,Cloudy,139.1
+SHP5849,519,Biofuel,Auto,258,22.0,11242,Urban,Medium,283,Good,Sunny,133.9
+SHP5850,943,Biofuel,Container,284,21.58,45850,Rural,Medium,131,Average,Sunny,267.81
+SHP5851,909,Hybrid,Trailer,287,38.88,40661,Urban,High,183,Average,Windy,260.88
+SHP5852,944,Electric,Container,200,38.42,48288,Mixed,Low,75,Poor,Rainy,188.8
+SHP5853,1387,Electric,Mini Truck,278,20.8,46227,Mixed,Medium,144,Poor,Foggy,385.59
+SHP5854,1788,Hybrid,Auto,474,2.31,29884,Industrial,Low,210,Poor,Foggy,847.51
+SHP5855,1686,Biofuel,Trailer,445,36.1,48110,Mixed,Medium,201,Average,Foggy,750.27
+SHP5856,693,Petrol,Mini Truck,205,36.6,3474,Rural,Low,58,Good,Cloudy,142.06
+SHP5857,286,Hybrid,Trailer,479,33.37,6218,Highway,High,136,Poor,Rainy,136.99
+SHP5858,1781,Electric,Auto,136,27.63,44171,Rural,High,140,Good,Sunny,242.22
+SHP5859,941,CNG,Van,408,37.1,6487,Highway,High,215,Average,Sunny,383.93
+SHP5860,1176,Hybrid,Van,387,27.26,29875,Highway,Very High,107,Poor,Foggy,455.11
+SHP5861,556,CNG,Trailer,369,29.23,49022,Urban,Medium,205,Average,Foggy,205.16
+SHP1104,436,Petrol,Trailer,323,4.789,49774,Urban,Low,0,Poor,Sunny,111.259
+SHP5663,791,Electric,Trailer,252,33.316,40849,Urban,High,118,Poor,Stormy,124.429
+SHP5477,871,CNG,Auto,188,11.796,19713,Industrial,Very High,67,Average,Foggy,403.036
+SHP1093,170,Diesel,Truck,252,26.455,153,Urban,Medium,143,Good,Sunny,1.95
+SHP5403,869,CNG,Truck,362,16.394,13614,Industrial,Very High,180,Poor,Foggy,102.074
+SHP2189,108,EV,Truck,283,10.375,27126,Urban,Medium,164,Good,Stormy,390.943
+SHP2290,1140,Petrol,Car,287,21.186,32512,Urban,Medium,237,Poor,Cloudy,1.95
+SHP5685,1217,Diesel,Trailer,300,7.621,29680,Highway,Very High,0,Good,Stormy,377.603
+SHP5692,795,Hybrid,Van,237,9.248,24347,Urban,Very High,0,Good,Cloudy,249.655
+SHP5840,290,Hybrid,Truck,216,23.011,35216,Industrial,Very High,73,Poor,Stormy,315.077
+SHP5641,350,Hybrid,Truck,234,31.293,13750,Mixed,Medium,117,Average,Foggy,163.571
+SHP5678,128,CNG,Auto,366,19.939,153,Rural,Low,138,Average,Sunny,196.013
+SHP5511,1359,CNG,Trailer,375,16.944,23177,Rural,High,101,Poor,Cloudy,272.185
+SHP5685,1854,Petrol,Truck,80,15.336,7869,Rural,Medium,105,Average,Cloudy,494.987
+SHP5512,187,Petrol,Truck,209,35.935,31003,Rural,Low,0,Average,Windy,224.985
+SHP5490,228,Electric,Auto,433,30.172,30999,Mixed,High,87,Average,Rainy,323.759
+SHP2347,753,Diesel,Truck,309,18.308,25496,Highway,Low,196,Average,Sunny,1.95
+SHP5405,887,CNG,Truck,306,26.792,44548,Urban,Very High,35,Poor,Cloudy,1.95
+SHP2164,74,Electric,Auto,338,9.579,1338,Rural,Low,151,Good,Rainy,401.637
+SHP5461,2000,CNG,Trailer,285,21.021,18949,Rural,Very High,105,Average,Foggy,387.785
+SHP5610,597,Electric,Mini Truck,500,39.89,17610,Highway,Medium,0,Average,Cloudy,161.839
+SHP5746,674,Petrol,Auto,305,21.241,18821,Highway,Low,38,Good,Foggy,90.171
+SHP2324,867,Petrol,Mini Truck,137,24.391,44168,Rural,High,121,Good,Sunny,1.95
+SHP1105,1357,CNG,Bike,380,27.34,9132,Highway,Very High,118,Poor,Cloudy,387.735
+SHP5686,433,Diesel,Truck,256,9.347,14566,Mixed,Medium,41,Poor,Foggy,118.911
+SHP1151,512,Diesel,Truck,277,12.573,34191,Urban,Very High,245,Good,Rainy,237.138
+SHP1104,2000,Petrol,Mini Truck,464,3.609,153,Highway,Low,158,Average,Sunny,386.487
+SHP5635,478,Petrol,Truck,200,27.772,36818,Highway,Medium,147,Good,Sunny,545.64
+SHP1077,79,Petrol,Mini Truck,293,10.342,14172,Mixed,High,153,Poor,Foggy,368.027
+SHP5475,13,Hybrid,Container,161,0.35,153,Urban,Very High,80,Good,Sunny,237.582
+SHP5660,1402,Hybrid,Trailer,270,23.722,20265,Highway,Low,145,Poor,Stormy,398.739
+SHP5691,163,Petrol,Van,291,16.006,26780,Urban,Medium,76,Average,Stormy,253.152
+SHP5603,48,Diesel,Van,182,27.843,39573,Highway,Low,183,Average,Stormy,338.651
+SHP5395,1693,Diesel,Truck,80,11.036,23738,Urban,Very High,131,Average,Windy,428.076
+SHP5696,1212,Diesel,Truck,355,14.138,49936,Rural,Medium,68,Average,Sunny,150.663
+SHP5446,929,CNG,Van,255,38.141,33840,Urban,Medium,209,Good,Stormy,645.284
+SHP5566,1098,Diesel,Trailer,335,10.137,17941,Urban,Medium,197,Good,Rainy,181.303
+SHP5659,797,Electric,Auto,278,2.198,12395,Industrial,Very High,78,Poor,Windy,258.106
+SHP2340,1344,Diesel,Auto,294,20.743,15300,Mixed,High,225,Good,Cloudy,17.747
+SHP2183,171,Hybrid,Bike,357,0.622,11822,Rural,Low,247,Poor,Foggy,306.644
+SHP5362,1220,CNG,Container,389,11.744,153,Urban,Medium,0,Good,Windy,442.598
+SHP5686,785,Hybrid,Trailer,373,18.681,6629,Mixed,High,300,Good,Foggy,293.392
+SHP5416,1556,Diesel,Truck,195,39.89,6106,Urban,Medium,103,Average,Rainy,1.95
+SHP2179,296,Hybrid,Auto,128,12.327,17339,Rural,Very High,0,Average,Windy,348.787
+SHP2254,677,Diesel,Van,338,19.157,33424,Highway,High,231,Average,Foggy,120.451
+SHP2240,913,Diesel,Container,153,16.406,36395,Highway,Medium,107,Average,Windy,199.855
+SHP5710,1601,CNG,Auto,302,12.808,27291,Highway,Low,4,Good,Stormy,319.58
+SHP1034,279,Petrol,Container,237,34.268,19784,Mixed,Medium,70,Poor,Sunny,725.52
+SHP5854,1395,Petrol,Mini Truck,324,19.812,18805,Mixed,High,184,Poor,Rainy,626.899
+SHP2309,13,Electric,Mini Truck,476,28.16,22967,Urban,Low,0,Good,Stormy,199.842
+SHP5775,13,Diesel,Truck,260,16.316,16957,Mixed,Medium,147,Good,Cloudy,20.686
+SHP2282,711,Petrol,Trailer,370,12.844,11030,Rural,Medium,73,Poor,Foggy,50.468
+SHP5406,1695,CNG,Mini Truck,500,4.567,895,Mixed,High,278,Poor,Foggy,171.14
+SHP1108,1226,Petrol,Truck,203,17.889,22744,Highway,High,180,Average,Rainy,53.007
+SHP5387,1226,Petrol,Trailer,165,13.793,31422,Mixed,Medium,54,Poor,Rainy,1.95
+SHP2274,381,Electric,Trailer,155,19.974,31550,Industrial,Medium,116,Poor,Foggy,510.915
+SHP1112,973,Electric,Mini Truck,443,13.473,8177,Industrial,Low,192,Average,Rainy,597.921
+SHP5378,542,Hybrid,Van,244,10.657,10861,Industrial,High,48,Poor,Foggy,100.65
+SHP5760,844,Electric,Auto,365,36.885,16969,Industrial,High,140,Poor,Rainy,572.333
+SHP2174,372,CNG,Truck,329,20.634,153,Highway,Low,138,Good,Rainy,27.891
+SHP5806,1177,Petrol,Auto,270,16.041,12040,Urban,Medium,199,Good,Foggy,94.224
+SHP5614,2000,Electric,Trailer,205,11.632,40350,Urban,Very High,124,Poor,Foggy,179.557
+SHP2350,937,Diesel,Mini Truck,225,14.219,13349,Highway,Low,140,Good,Windy,631.548
+SHP5750,1710,Petrol,Van,356,23.559,22446,Highway,Low,0,Average,Cloudy,517.167
+SHP2226,1134,Biofuel,Container,80,20.229,153,Highway,Low,216,Good,Cloudy,32.642
+SHP5501,1033,Electric,Truck,401,26.515,33021,Urban,Low,122,Poor,Foggy,114.327
+SHP5636,517,Electric,Van,297,31.435,11490,Highway,High,179,Poor,Rainy,24.275
+SHP1096,1497,Electric,Truck,480,30.309,23373,Highway,Very High,20,Poor,Rainy,73.282
+SHP2347,848,Petrol,Container,500,36.745,26809,Mixed,Medium,215,Good,Foggy,347.321
+SHP1051,850,Electric,Container,280,7.022,16209,Mixed,Low,300,Good,Sunny,317.242
+SHP2310,1350,Electric,Trailer,207,6.781,153,Highway,Low,98,Average,Windy,338.349
+SHP5419,837,Hybrid,Van,351,22.692,153,Mixed,High,57,Good,Foggy,394.618
+SHP5470,997,Hybrid,Truck,270,29.508,20676,Urban,Very High,69,Poor,Sunny,26.627
+SHP2216,1507,Petrol,Truck,234,39.89,9581,Urban,Low,141,Good,Windy,447.415
+SHP5372,1529,CNG,Truck,80,34.703,17806,Industrial,Medium,1,Average,Rainy,53.518
+SHP1088,601,Electric,Truck,377,9.371,8834,Urban,Low,125,Poor,Rainy,184.689
+SHP5610,1714,Biofuel,Van,316,17.773,18983,Rural,Low,94,Poor,Sunny,1.95
+SHP2331,13,Petrol,Van,455,1.563,34934,Rural,Low,0,Good,Windy,333.866
+SHP2257,13,Petrol,Mini Truck,448,11.791,23980,Industrial,Low,196,Good,Rainy,204.823
+SHP5722,2000,CNG,Container,80,9.116,42063,Rural,Very High,34,Good,Foggy,586.687
+SHP1029,442,Electric,Container,187,0.35,26241,Mixed,Very High,201,Good,Windy,306.838
+SHP2343,891,Electric,Trailer,373,6.87,25625,Urban,Medium,0,Poor,Sunny,1.95
+SHP5577,956,CNG,Trailer,256,19.213,14777,Mixed,Medium,98,Average,Sunny,455.74
+SHP2188,1070,Diesel,Van,84,22.924,20808,Urban,Medium,166,Poor,Sunny,1.95
+SHP5508,13,Petrol,Mini Truck,373,17.259,44284,Mixed,Low,51,Poor,Sunny,195.745
+SHP1109,133,CNG,Container,367,28.204,9272,Industrial,Low,110,Good,Rainy,336.836
+SHP2319,1471,Hybrid,Van,342,18.06,18239,Highway,High,228,Poor,Cloudy,419.486
+SHP1047,804,CNG,Trailer,213,26.411,20053,Highway,Medium,28,Good,Windy,424.452
+SHP5499,1511,CNG,Container,231,12.643,31194,Industrial,Very High,124,Good,Sunny,117.444
+SHP5814,871,Diesel,Truck,218,31.938,22776,Rural,Medium,217,Good,Cloudy,380.472
+SHP5494,13,Hybrid,Auto,331,18.516,33844,Mixed,Very High,217,Good,Foggy,72.64
+SHP2246,2000,Diesel,Auto,200,8.991,15099,Highway,Medium,45,Poor,Rainy,371.881
+SHP1143,1190,CNG,Auto,221,17.262,21538,Industrial,Medium,63,Average,Foggy,373.542
+SHP5808,2000,Electric,Container,199,19.419,25361,Mixed,Medium,82,Poor,Sunny,190.016
+SHP5775,1037,Diesel,Truck,395,39.89,25023,Mixed,High,125,Average,Foggy,1.95
+SHP1146,940,Biofuel,Mini Truck,229,0.35,5069,Rural,High,140,Poor,Stormy,278.852
+SHP2262,235,Diesel,Auto,372,27.115,3999,Rural,Medium,191,Average,Rainy,218.367
+SHP1040,1131,Electric,Container,464,20.208,22594,Highway,Low,184,Good,Sunny,313.863
+SHP2171,925,Petrol,Van,203,28.789,16669,Mixed,Medium,72,Poor,Sunny,340.527
+SHP2357,1630,CNG,Van,305,24.631,153,Urban,Medium,98,Average,Rainy,249.531
+SHP5456,1050,Petrol,Mini Truck,274,24.153,20834,Urban,Low,159,Poor,Foggy,84.537
+SHP2193,541,CNG,Auto,287,12.485,19963,Mixed,Medium,70,Poor,Windy,287.514
+SHP1007,1387,Biofuel,Auto,221,24.908,17360,Highway,Low,124,Poor,Sunny,447.296
+SHP1076,1379,Diesel,Trailer,407,24.606,16603,Mixed,Medium,88,Poor,Cloudy,524.947
+SHP5571,610,Hybrid,Container,306,21.953,28283,Mixed,High,300,Good,Windy,1.95
+SHP5658,1664,Petrol,Trailer,80,10.664,31945,Industrial,Low,251,Poor,Foggy,515.189
+SHP5522,723,Petrol,Trailer,118,0.569,26431,Mixed,Medium,80,Average,Windy,1.95
+SHP2275,218,Biofuel,Mini Truck,440,27.305,36940,Rural,Medium,194,Good,Cloudy,382.488
+SHP5589,2000,Diesel,Mini Truck,267,15.264,18469,Urban,Medium,96,Average,Rainy,72.933
+SHP5667,181,CNG,Truck,239,27.492,26250,Urban,Low,139,Good,Cloudy,49.319
+SHP5775,1579,Electric,Truck,430,31.201,26352,Highway,High,290,Average,Sunny,169.513
+SHP2315,689,Electric,Container,427,15.254,153,Mixed,High,92,Average,Foggy,649.427
+SHP1148,1041,Petrol,Container,208,39.89,16641,Urban,Low,158,Poor,Rainy,1.95
+SHP5715,13,Electric,Mini Truck,219,14.024,23278,Industrial,High,209,Poor,Stormy,155.435
+SHP5733,13,Electric,Van,480,33.824,42355,Industrial,High,170,Average,Windy,1.95
+SHP2269,367,Diesel,Van,80,21.941,7922,Highway,Low,71,Good,Cloudy,75.032
+SHP5376,349,Electric,Auto,254,15.49,5526,Urban,Low,265,Average,Cloudy,390.331
+SHP1146,957,Electric,Container,260,3.75,35255,Mixed,High,0,Average,Rainy,155.911
+SHP2271,413,Petrol,Auto,80,0.942,11734,Mixed,High,55,Poor,Foggy,1.95
+SHP1108,1224,CNG,Van,398,21.73,24437,Highway,Low,91,Good,Windy,288.023
+SHP5512,48,Hybrid,Mini Truck,335,36.033,29497,Highway,Low,278,Poor,Rainy,167.916
+SHP2307,784,Electric,Van,311,0.35,22409,Mixed,Medium,56,Poor,Sunny,313.489
+SHP5777,488,Biofuel,Auto,206,26.269,153,Highway,Low,108,Average,Cloudy,205.667
+SHP5649,957,Petrol,Van,323,29.489,35643,Urban,High,27,Good,Rainy,541.543
+SHP5603,188,Diesel,Auto,223,16.946,22938,Industrial,Medium,144,Poor,Foggy,501.847
+SHP5611,13,Biofuel,Bike,170,24.04,28451,Urban,Low,90,Poor,Cloudy,403.185
+SHP5602,1372,Biofuel,Truck,115,8.142,41054,Industrial,Medium,64,Poor,Cloudy,1.95
+SHP5623,1462,Hybrid,Van,343,24.308,18936,Highway,Medium,0,Good,Cloudy,245.732
+SHP1043,1130,Biofuel,Truck,330,25.772,22234,Urban,Low,101,Poor,Cloudy,323.142
+SHP5374,189,CNG,Auto,152,0.35,23946,Highway,Medium,35,Average,Sunny,401.685
+SHP2346,149,Petrol,Mini Truck,276,11.84,25673,Highway,Medium,0,Poor,Sunny,300.33
+SHP5453,1015,Diesel,Truck,80,30.568,23755,Mixed,Low,59,Average,Foggy,76.799
+SHP5634,45,CNG,Auto,196,26.244,9775,Highway,Medium,61,Average,Windy,267.616
+SHP2243,494,Petrol,Auto,207,39.89,153,Urban,Medium,29,Poor,Cloudy,61.17
+SHP5524,432,Diesel,Mini Truck,124,21.005,18041,Highway,Medium,50,Poor,Windy,543.162
+SHP2168,1334,Hybrid,Mini Truck,214,24.94,14023,Mixed,Low,69,Poor,Foggy,5.517
+SHP5709,1445,Electric,Container,246,20.141,153,Urban,Medium,154,Poor,Sunny,640.149
+SHP2260,13,Biofuel,Container,129,0.35,8762,Urban,Very High,224,Average,Rainy,351.774
+SHP5619,683,Diesel,Container,174,0.35,10680,Urban,Medium,187,Good,Cloudy,365.892
+SHP2287,2000,Diesel,Container,311,20.83,32903,Urban,High,93,Poor,Rainy,128.475
+SHP5362,13,Electric,Container,323,39.89,1323,Rural,Medium,116,Good,Rainy,380.964
+SHP1102,761,Hybrid,Bike,80,39.89,28147,Mixed,Low,262,Poor,Sunny,263.822
+SHP1007,460,Hybrid,Trailer,244,23.387,4772,Highway,Medium,121,Poor,Foggy,245.636
+SHP2254,2000,CNG,Mini Truck,237,17.745,153,Urban,Low,66,Poor,Foggy,173.217
+SHP5581,883,Diesel,Auto,167,13.625,27436,Mixed,Medium,0,Good,Foggy,465.635
+SHP5468,429,Biofuel,Container,205,24.561,38415,Industrial,Low,15,Poor,Foggy,158.353
+SHP1157,400,CNG,Mini Truck,237,17.802,7284,Mixed,Very High,152,Average,Cloudy,452.307
+SHP5821,1282,Petrol,Truck,314,12.996,37716,Urban,High,20,Good,Cloudy,1.95
+SHP5742,982,Diesel,Container,258,15.139,2581,Industrial,Low,260,Good,Cloudy,371.954
+SHP1013,737,Hybrid,Mini Truck,330,17.526,49936,Urban,Medium,84,Poor,Foggy,323.296
+SHP2228,13,Electric,Auto,99,20.689,21137,Urban,Medium,61,Good,Cloudy,421.768
+SHP5573,635,Petrol,Van,229,26.309,7555,Urban,Very High,0,Average,Stormy,191.382
+SHP1080,676,Hybrid,Mini Truck,372,11.153,16949,Mixed,Medium,182,Poor,Rainy,459.824
+SHP5484,294,Hybrid,Container,406,30.507,8348,Highway,High,79,Good,Cloudy,122.756
+SHP2351,296,CNG,Mini Truck,254,19.5,21709,Urban,Low,14,Good,Cloudy,109.302
+SHP5383,627,Hybrid,Auto,257,27.952,17289,Rural,Medium,110,Poor,Cloudy,1.95
+SHP5782,1608,Electric,Container,323,8.479,23389,Rural,Medium,31,Average,Foggy,1.95
+SHP5791,924,Diesel,Container,251,14.194,18033,Highway,Very High,178,Average,Rainy,138.124
+SHP5531,46,Petrol,Van,333,27.163,28943,Rural,High,131,Good,Foggy,1.95
+SHP5535,1722,Petrol,Auto,301,11.177,22118,Highway,High,18,Good,Stormy,203.045
+SHP2279,2000,Electric,Truck,383,23.698,153,Highway,High,143,Good,Sunny,393.471
+SHP1112,862,Hybrid,Auto,142,23.415,23128,Mixed,High,222,Poor,Windy,125.438
+SHP1010,1174,Hybrid,Truck,331,30.466,9045,Urban,High,135,Poor,Rainy,258.992
+SHP1014,1213,EV,Truck,353,24.435,25107,Highway,Medium,28,Poor,Sunny,212.281
+SHP1133,1078,Electric,Truck,305,2.424,153,Mixed,High,0,Average,Rainy,466.88
+SHP2274,435,Hybrid,Truck,500,18.99,7888,Mixed,Low,286,Average,Sunny,455.896
+SHP5595,573,Petrol,Container,276,29.6,8461,Mixed,Low,0,Poor,Stormy,285.967
+SHP1114,271,CNG,Van,255,33.864,27409,Urban,Low,32,Good,Rainy,586.713
+SHP5753,1054,Diesel,Auto,169,26.75,31034,Rural,Low,141,Average,Sunny,1.95
+SHP5772,448,Biofuel,Van,350,28.711,15186,Highway,Low,159,Poor,Foggy,103.176
+SHP2262,1259,Petrol,Container,420,14.693,3279,Rural,Very High,90,Poor,Stormy,207.384
+SHP5415,1246,Biofuel,Mini Truck,196,14.376,41284,Urban,Medium,115,Average,Sunny,59.719
+SHP5597,1340,CNG,Container,484,29.12,7293,Highway,High,181,Average,Cloudy,30.562
+SHP5473,1142,Petrol,Trailer,279,0.878,10240,Urban,High,25,Poor,Cloudy,325.974
+SHP5858,404,Electric,Auto,441,28.545,49936,Mixed,High,152,Average,Sunny,351.51
+SHP5599,1972,Electric,Auto,368,15.096,35099,Mixed,Medium,24,Average,Foggy,342.816
+SHP1145,1744,Petrol,Mini Truck,160,17.857,7295,Highway,Medium,0,Average,Foggy,203.694
+SHP1155,1401,Electric,Container,188,21.099,14336,Mixed,Low,87,Poor,Sunny,314.702
+SHP5797,712,Petrol,Mini Truck,191,31.195,11215,Industrial,Medium,0,Poor,Foggy,1.95
+SHP2308,449,CNG,Van,215,21.522,38328,Mixed,Medium,80,Average,Foggy,470.614
+SHP2211,1020,Electric,Container,180,26.575,11739,Rural,Medium,89,Poor,Stormy,129.321
+SHP5689,634,Hybrid,Truck,146,8.419,34982,Urban,Medium,30,Poor,Cloudy,202.786
+SHP2163,75,Biofuel,Truck,242,30.367,49936,Urban,Medium,132,Average,Windy,139.548
+SHP5478,1019,Diesel,Van,244,20.601,28909,Urban,Low,177,Good,Windy,96.235
+SHP5799,1054,Electric,Mini Truck,180,15.072,12641,Urban,Very High,62,Good,Foggy,1.95
+SHP2280,13,Electric,Mini Truck,400,21.963,17713,Urban,Very High,76,Average,Stormy,271.327
+SHP1157,225,Diesel,Auto,322,15.229,9276,Urban,High,34,Poor,Cloudy,73.792
+SHP5630,1568,Electric,Mini Truck,215,25.394,27952,Highway,Medium,150,Average,Sunny,162.219
+SHP5408,532,CNG,Container,149,11.497,153,Highway,Very High,224,Poor,Rainy,134.663
+SHP2282,517,Biofuel,Container,262,21.797,7762,Industrial,High,186,Average,Cloudy,311.42
+SHP5719,219,Biofuel,Trailer,384,24.705,12351,Highway,Low,147,Average,Stormy,583.49
+SHP2266,735,Petrol,Mini Truck,237,0.408,29606,Highway,High,63,Average,Windy,241.23
+SHP5638,1255,Electric,Van,292,16.514,15572,Urban,Medium,0,Average,Stormy,110.64
+SHP5470,332,Diesel,Auto,273,20.477,27574,Industrial,Low,74,Average,Cloudy,259.929
+SHP2175,1034,EV,Mini Truck,414,39.89,1595,Industrial,High,251,Good,Stormy,361.442
+SHP5456,542,Petrol,Truck,216,22.183,20193,Highway,Low,120,Poor,Rainy,554.493
+SHP2215,327,Petrol,Mini Truck,130,15.273,153,Mixed,High,0,Good,Sunny,365.074
+SHP5654,1400,Petrol,Truck,282,29.263,9522,Industrial,Medium,75,Good,Cloudy,187.763
+SHP2345,866,Hybrid,Van,190,18.744,153,Mixed,Low,273,Good,Rainy,198.806
+SHP1128,347,CNG,Bike,109,26.549,15385,Highway,Medium,18,Average,Sunny,419.604
+SHP2251,1134,Petrol,Van,313,26.328,25993,Urban,Medium,85,Poor,Stormy,327.742
+SHP5640,368,CNG,Mini Truck,297,27.497,19758,Urban,Medium,210,Poor,Windy,46.511
+SHP1106,1202,Electric,Auto,301,14.403,13374,Industrial,Low,134,Average,Foggy,552.789
+SHP2297,1061,Electric,Container,366,8.67,16549,Rural,High,70,Poor,Rainy,336.393
+SHP5506,651,Electric,Auto,201,9.713,15584,Highway,Medium,1,Poor,Windy,305.295
+SHP2196,13,Petrol,Trailer,196,31.621,153,Highway,High,35,Good,Sunny,511.336
+SHP1007,202,Biofuel,Mini Truck,224,31.685,38731,Highway,Very High,152,Good,Cloudy,479.797
+SHP2326,1435,Diesel,Auto,281,7.573,20171,Mixed,Medium,77,Poor,Rainy,208.167
+SHP1076,13,Hybrid,Auto,116,17.199,624,Mixed,Medium,174,Good,Stormy,143.467
+SHP2202,686,Diesel,Auto,316,23.306,153,Urban,Medium,259,Average,Sunny,663.131
+SHP5380,502,CNG,Trailer,377,8.411,26314,Rural,Medium,0,Average,Stormy,362.613
+SHP5638,1916,Petrol,Mini Truck,172,25.251,30729,Urban,Low,204,Good,Stormy,82.585
+SHP5854,794,CNG,Mini Truck,260,35.483,41192,Rural,High,72,Poor,Cloudy,201.162
+SHP5488,898,EV,Container,233,17.835,27748,Mixed,High,112,Good,Sunny,543.65
+SHP2229,235,Diesel,Container,200,20.213,153,Mixed,High,203,Average,Sunny,256.321
+SHP5605,1040,Petrol,Van,337,19.383,17957,Mixed,Low,32,Good,Rainy,50.154
+SHP2324,1081,Electric,Trailer,80,38.621,14498,Mixed,Medium,53,Poor,Cloudy,293.559
+SHP2205,393,Electric,Van,360,11.89,30752,Mixed,High,176,Poor,Stormy,315.667
+SHP1142,1198,Electric,Van,349,23.902,24728,Highway,Very High,114,Average,Sunny,32.438
+SHP5415,1936,Biofuel,Mini Truck,352,21.823,29809,Rural,Low,78,Good,Sunny,338.383
+SHP2323,655,CNG,Van,194,14.641,33284,Urban,High,185,Poor,Foggy,171.828
+SHP5566,843,Biofuel,Van,396,33.518,10987,Mixed,Medium,172,Poor,Cloudy,293.363
+SHP5485,380,Electric,Car,289,0.853,14856,Mixed,Very High,159,Good,Stormy,1.95
+SHP1059,329,Electric,Mini Truck,363,21.229,4046,Urban,High,45,Poor,Rainy,167.8
+SHP5787,1285,Hybrid,Auto,160,26.482,5235,Urban,High,94,Good,Foggy,53.575
+SHP5675,1326,Hybrid,Truck,199,0.35,470,Rural,Medium,138,Good,Rainy,93.035
+SHP5730,1041,Diesel,Mini Truck,183,18.585,20992,Rural,Medium,133,Poor,Rainy,153.422
+SHP5811,744,Diesel,Van,167,6.951,17160,Urban,Low,75,Poor,Cloudy,181.157
+SHP5742,930,Diesel,Trailer,301,13.66,49214,Highway,High,172,Average,Sunny,177.786
+SHP1003,1353,Electric,Auto,124,7.976,27521,Highway,Low,44,Poor,Rainy,1.95
+SHP1119,876,Hybrid,Truck,425,6.027,29744,Highway,Low,158,Average,Sunny,375.815
+SHP5676,13,CNG,Auto,249,16.804,18294,Rural,High,118,Average,Foggy,321.935
+SHP5853,13,CNG,Truck,234,9.45,20081,Rural,Medium,24,Poor,Rainy,116.247
+SHP5502,1448,CNG,Mini Truck,182,27.883,46478,Industrial,Very High,165,Average,Cloudy,614.5
+SHP2308,1124,Diesel,Car,341,0.467,5807,Urban,Medium,129,Good,Foggy,339.887
+SHP1125,354,Biofuel,Truck,265,17.858,21486,Highway,High,100,Good,Sunny,79.409
+SHP5493,1216,Diesel,Auto,296,5.44,4166,Rural,Low,191,Average,Rainy,223.374
+SHP5834,1106,Diesel,Trailer,244,28.222,16947,Mixed,Low,27,Average,Windy,179.528
+SHP1015,1003,CNG,Truck,253,24.654,20805,Industrial,Low,9,Good,Cloudy,249.924
+SHP1003,633,CNG,Mini Truck,139,13.031,26784,Industrial,Medium,120,Average,Foggy,278.323
+SHP5602,282,Hybrid,Mini Truck,408,23.274,16270,Rural,High,109,Good,Foggy,1.95
+SHP5607,1532,CNG,Auto,393,33.549,23336,Highway,Low,167,Poor,Sunny,169.063
+SHP5729,470,CNG,Auto,318,11.119,29333,Highway,Medium,289,Average,Foggy,161.051
+SHP2266,742,CNG,Van,334,39.89,13521,Industrial,High,0,Average,Sunny,125.493
+SHP5686,975,Petrol,Auto,102,4.646,28889,Highway,Low,0,Average,Sunny,217.695
+SHP5402,995,Electric,Auto,178,1.117,47431,Urban,Medium,192,Good,Foggy,115.155
+SHP2200,639,Petrol,Mini Truck,366,13.764,153,Highway,High,14,Average,Cloudy,284.763
+SHP5616,798,Petrol,Truck,236,24.896,12663,Urban,Low,152,Average,Foggy,293.001
+SHP5537,1343,Diesel,Mini Truck,218,0.35,22803,Urban,Very High,195,Average,Foggy,1.95
+SHP5510,1135,Hybrid,Truck,80,5.975,1998,Urban,Medium,216,Poor,Sunny,377.33
+SHP2307,264,Petrol,Trailer,171,2.871,11200,Mixed,High,20,Average,Windy,239.866
+SHP5800,821,Petrol,Container,84,0.6,29809,Highway,High,85,Average,Foggy,261.783
+SHP5730,66,Electric,Van,250,13.154,32019,Industrial,Medium,169,Poor,Foggy,1.95
+SHP2338,1343,Electric,Truck,368,17.574,27971,Rural,High,0,Poor,Windy,240.287
+SHP5852,521,Diesel,Van,301,29.166,23447,Urban,Low,190,Good,Cloudy,327.625
+SHP2194,644,CNG,Container,80,20.247,38599,Mixed,High,77,Good,Windy,36.307
+SHP5377,750,Petrol,Auto,412,22.204,15360,Industrial,Very High,119,Average,Rainy,231.731
+SHP5841,785,Diesel,Van,201,6.596,153,Rural,Medium,199,Good,Cloudy,173.529
+SHP1059,366,Diesel,Bike,244,12.161,21206,Urban,Medium,130,Average,Windy,312.751
+SHP5592,895,Electric,Container,231,22.186,15583,Urban,Medium,114,Poor,Cloudy,156.952
+SHP2323,1600,Petrol,Van,204,0.35,4312,Mixed,High,48,Good,Stormy,76.823
+SHP2209,1198,Electric,Auto,492,20.698,2281,Mixed,Low,261,Average,Rainy,83.893
+SHP5484,13,Petrol,Mini Truck,357,28.44,153,Highway,Medium,187,Poor,Sunny,568.372
+SHP1059,1320,Diesel,Truck,298,15.329,22169,Urban,High,75,Good,Cloudy,182.407
+SHP1069,785,Diesel,Trailer,345,29.691,13126,Mixed,High,170,Average,Cloudy,1.95
+SHP5796,259,Petrol,Mini Truck,254,16.224,30299,Rural,Medium,254,Average,Foggy,111.331
+SHP5786,1855,Diesel,Mini Truck,326,21.486,26479,Mixed,Medium,36,Poor,Cloudy,1.95
+SHP2162,419,Hybrid,Mini Truck,294,22.008,24770,Urban,Medium,123,Poor,Rainy,361.554
+SHP5834,1298,Petrol,Van,189,24.043,9400,Urban,Very High,82,Good,Rainy,487.146
+SHP1124,404,Petrol,Van,451,23.407,20799,Mixed,Very High,71,Average,Rainy,385.238
+SHP2186,970,Electric,Van,130,12.56,17619,Rural,High,76,Good,Foggy,503.559
+SHP5386,1585,CNG,Car,278,26.814,32249,Rural,Low,228,Good,Foggy,162.652
+SHP1141,802,Biofuel,Mini Truck,94,3.146,153,Urban,High,62,Good,Sunny,414.805
+SHP5390,100,CNG,Container,125,15.17,5468,Highway,Very High,142,Good,Windy,1.95
+SHP1088,845,Electric,Truck,286,0.35,2296,Rural,High,98,Average,Cloudy,1.95
+SHP2248,809,Diesel,Truck,453,10.025,153,Mixed,Medium,300,Good,Sunny,298.808
+SHP2248,286,CNG,Trailer,174,18.841,24659,Urban,High,0,Poor,Stormy,1.95
+SHP2331,1586,CNG,Trailer,214,39.89,38565,Urban,Low,137,Average,Sunny,25.345
+SHP2296,991,Petrol,Truck,184,26.84,14598,Mixed,Medium,0,Good,Windy,263.682
+SHP5530,982,Petrol,Truck,360,14.818,23461,Mixed,High,145,Poor,Stormy,327.994
+SHP5825,956,CNG,Container,310,0.35,15305,Mixed,High,8,Good,Cloudy,169.974
+SHP1140,642,Electric,Auto,195,17.175,18930,Rural,Very High,94,Good,Rainy,401.67
+SHP2336,854,Biofuel,Auto,210,30.503,10790,Urban,Medium,28,Average,Rainy,71.569
+SHP5833,1618,Petrol,Container,355,12.781,16148,Rural,Medium,101,Poor,Foggy,343.013
+SHP5562,1562,Biofuel,Truck,122,0.35,45007,Highway,Medium,178,Good,Cloudy,337.525
+SHP5722,294,Electric,Truck,428,5.311,153,Urban,Medium,169,Good,Cloudy,1.95
+SHP5859,854,Electric,Mini Truck,368,16.643,153,Highway,Medium,47,Poor,Foggy,78.99
+SHP1040,1329,CNG,Auto,299,27.742,30809,Urban,Medium,31,Average,Sunny,259.803
+SHP5792,1371,CNG,Van,332,5.925,31250,Urban,High,130,Poor,Foggy,1.95
+SHP5623,1007,Petrol,Mini Truck,125,28.835,26023,Urban,High,59,Poor,Foggy,329.007
+SHP2205,515,CNG,Auto,215,11.612,153,Industrial,Medium,153,Poor,Sunny,436.211
+SHP5689,1129,Hybrid,Van,237,24.827,13745,Mixed,Medium,144,Poor,Stormy,275.145
+SHP5769,1086,Hybrid,Van,379,39.89,659,Urban,Medium,131,Good,Sunny,197.336
+SHP5500,639,Petrol,Truck,265,6.57,34552,Mixed,Medium,100,Average,Rainy,212.07
+SHP5710,887,Biofuel,Mini Truck,379,36.601,10786,Highway,Medium,203,Good,Sunny,251.391
+SHP5696,1602,Diesel,Mini Truck,412,24.342,31175,Urban,Very High,193,Good,Foggy,139.189
+SHP2278,453,Electric,Container,285,34.882,23326,Urban,Low,7,Poor,Foggy,132.255
+SHP5755,1283,Electric,Truck,319,34.3,30713,Highway,Low,36,Good,Rainy,831.411
+SHP5835,13,Biofuel,Trailer,326,36.459,41357,Urban,High,85,Average,Windy,247.069
+SHP2341,108,Petrol,Auto,335,6.771,40157,Urban,High,67,Average,Foggy,82.142
+SHP2224,727,Hybrid,Container,317,13.837,5284,Mixed,Low,251,Average,Foggy,7.329
+SHP5495,370,Biofuel,Auto,250,15.738,153,Rural,Low,0,Good,Rainy,117.334
+SHP2193,174,Petrol,Trailer,189,9.377,153,Highway,Low,85,Good,Rainy,278.368
+SHP5857,13,Petrol,Van,253,16.818,153,Mixed,High,28,Good,Rainy,1.95
+SHP5447,655,Petrol,Auto,378,4.917,153,Highway,Low,134,Good,Cloudy,215.339
+SHP2272,1602,Petrol,Truck,307,17.811,12860,Highway,Low,178,Average,Rainy,607.443
+SHP5445,1283,EV,Truck,230,9.979,43091,Highway,High,120,Average,Sunny,483.511
+SHP5859,597,Diesel,Truck,375,33.472,785,Highway,Low,10,Good,Windy,270.019
+SHP5413,13,Petrol,Truck,242,32.452,45797,Rural,Medium,219,Good,Stormy,97.222
+SHP5388,574,Electric,Auto,347,0.35,30438,Rural,Low,300,Good,Cloudy,670.4
+SHP5389,1048,Petrol,Container,399,16.113,547,Urban,Low,128,Average,Cloudy,327.523
+SHP1112,707,Hybrid,Auto,363,11.126,24846,Urban,Very High,276,Poor,Windy,1.95
+SHP5499,1407,Biofuel,Container,230,19.149,153,Highway,High,118,Average,Rainy,390.737
+SHP5472,13,Diesel,Van,355,24.596,29283,Industrial,Low,81,Good,Foggy,1.95
+SHP5668,511,Electric,Bike,150,32.959,8968,Mixed,Medium,139,Average,Foggy,1.95
+SHP5425,647,Biofuel,Mini Truck,340,18.686,37254,Rural,Low,0,Poor,Rainy,78.058
+SHP5451,1031,Electric,Truck,290,5.887,26155,Mixed,High,43,Poor,Stormy,404.628
+SHP1058,1842,Electric,Container,218,5.963,153,Rural,Very High,49,Poor,Windy,1.95
+SHP5448,13,Diesel,Mini Truck,246,21.109,1082,Urban,Low,112,Poor,Rainy,309.326
+SHP2251,895,Diesel,Auto,346,11.677,5168,Urban,Medium,169,Good,Stormy,1.95
+SHP2163,530,CNG,Auto,370,6.446,2337,Mixed,High,254,Average,Foggy,122.803
+SHP5853,875,CNG,Van,450,0.35,17055,Rural,Medium,191,Good,Sunny,232.52
+SHP2304,770,Biofuel,Auto,242,38.11,30060,Industrial,High,171,Poor,Windy,229.525
+SHP2204,677,Petrol,Trailer,279,6.609,16634,Rural,Medium,129,Good,Cloudy,73.448
+SHP5701,1304,Petrol,Trailer,303,20.776,23661,Highway,Very High,229,Good,Rainy,138.915
+SHP5699,13,Petrol,Trailer,178,19.023,13606,Rural,High,162,Average,Windy,1.95
+SHP2192,1110,Electric,Container,301,12.397,24290,Mixed,Very High,19,Good,Sunny,251.071
+SHP5497,1442,Hybrid,Trailer,262,30.505,11215,Rural,Low,51,Poor,Rainy,1.95
+SHP1060,936,EV,Van,476,0.35,8328,Mixed,Low,130,Average,Rainy,221.895
+SHP5527,498,CNG,Trailer,327,24.178,20395,Industrial,Medium,16,Good,Foggy,347.984
+SHP5433,681,Petrol,Truck,238,34.749,12791,Urban,Low,71,Average,Cloudy,252.502
+SHP5809,925,Petrol,Auto,234,4.767,13745,Rural,High,0,Good,Cloudy,276.246
+SHP2172,252,CNG,Trailer,151,32.33,39231,Urban,High,98,Poor,Sunny,193.081
+SHP5573,1281,CNG,Truck,255,13.38,14137,Urban,High,170,Good,Windy,115.217
+SHP5458,1126,Electric,Trailer,83,16.621,24283,Urban,Medium,202,Poor,Sunny,329.315
+SHP1151,347,Hybrid,Truck,359,0.35,153,Rural,Low,100,Average,Rainy,403.387
+SHP1030,490,Electric,Van,305,32.545,14072,Industrial,Medium,47,Poor,Cloudy,165.564
+SHP2356,107,Diesel,Auto,305,22.901,12772,Industrial,High,68,Poor,Stormy,189.576
+SHP2242,356,Hybrid,Truck,379,7.224,38980,Rural,Medium,121,Poor,Foggy,66.109
+SHP2264,768,Diesel,Van,152,5.174,13499,Urban,Medium,23,Poor,Sunny,37.244
+SHP1091,684,Electric,Truck,174,6.829,3670,Highway,High,116,Average,Windy,77.896
+SHP2196,1839,Electric,Container,253,10.652,8687,Urban,Low,125,Good,Cloudy,386.487
+SHP5832,95,CNG,Auto,84,34.446,5348,Urban,Medium,8,Poor,Stormy,368.31
+SHP5368,181,Biofuel,Van,190,20.641,23431,Mixed,Low,38,Average,Cloudy,233.432
+SHP5639,275,Diesel,Mini Truck,276,27.21,45155,Urban,High,93,Average,Cloudy,1.95
+SHP1139,13,Petrol,Van,186,16.336,18616,Highway,High,135,Poor,Cloudy,470.179
+SHP5411,13,Petrol,Van,286,2.565,17542,Urban,High,53,Good,Cloudy,379.283
+SHP1109,668,Biofuel,Container,239,6.843,12980,Urban,Low,173,Good,Sunny,199.862
+SHP5362,40,Electric,Auto,350,13.769,14011,Rural,High,147,Poor,Cloudy,1.95
+SHP1074,567,Hybrid,Truck,267,16.968,36262,Mixed,High,215,Good,Cloudy,397.624
+SHP5570,850,Electric,Truck,368,25.321,153,Mixed,Low,168,Average,Rainy,162.574
+SHP5455,183,Hybrid,Auto,378,24.103,22485,Rural,High,214,Average,Rainy,446.24
+SHP2196,1221,Diesel,Mini Truck,184,15.241,26118,Rural,Low,70,Good,Stormy,196.693
+SHP5600,13,Hybrid,Truck,344,20.116,27641,Highway,Very High,243,Good,Cloudy,78.004
+SHP1043,14,Petrol,Mini Truck,189,24.158,49936,Urban,Medium,0,Poor,Stormy,388.655
+SHP5732,560,Hybrid,Mini Truck,247,16.931,22925,Mixed,High,0,Good,Sunny,131.148
+SHP1130,1692,CNG,Van,169,9.138,12164,Mixed,Medium,134,Poor,Stormy,3.29
+SHP5622,1187,Hybrid,Container,203,25.623,39379,Urban,Medium,54,Poor,Foggy,423.451
+SHP1043,579,Biofuel,Van,244,17.056,3531,Highway,Medium,46,Good,Stormy,228.373
+SHP5552,733,Diesel,Container,316,29.471,25105,Industrial,High,278,Average,Windy,207.151
+SHP2221,1643,Hybrid,Truck,330,12.067,49936,Industrial,Medium,174,Good,Sunny,161.931
+SHP5601,456,Petrol,Mini Truck,361,24.356,20832,Mixed,High,36,Average,Rainy,1.95
+SHP5792,1181,Electric,Trailer,83,16.12,37911,Mixed,Medium,154,Average,Foggy,12.615
+SHP5751,96,CNG,Trailer,91,15.346,32281,Mixed,Very High,58,Poor,Sunny,606.803
+SHP5423,13,CNG,Truck,143,14.452,12773,Mixed,Medium,131,Poor,Cloudy,1.95
+SHP5821,273,Hybrid,Trailer,216,8.622,28085,Mixed,Low,294,Poor,Cloudy,452.287
+SHP2292,560,Electric,Mini Truck,215,18.963,6352,Mixed,Very High,0,Average,Stormy,48.452
+SHP5560,563,Diesel,Auto,368,0.35,21928,Mixed,Medium,300,Good,Cloudy,129.169
+SHP5531,202,CNG,Auto,204,7.091,153,Highway,Medium,105,Poor,Rainy,496.19
+SHP2358,971,Petrol,Truck,217,11.308,30569,Highway,High,280,Average,Sunny,42.529
+SHP2260,646,Electric,Mini Truck,126,14.796,153,Highway,Low,210,Average,Rainy,97.781
+SHP2173,714,Petrol,Truck,346,16.443,19866,Highway,Low,115,Good,Sunny,143.259
+SHP5417,1028,CNG,Container,329,19.319,36312,Rural,High,85,Poor,Cloudy,127.301
+SHP1035,674,Hybrid,Auto,210,0.35,13058,Highway,Medium,97,Poor,Stormy,208.662
+SHP1137,1703,Diesel,Van,469,23.499,19091,Highway,High,166,Good,Rainy,317.318
+SHP1114,514,Diesel,Van,283,12.401,30224,Mixed,Low,181,Average,Foggy,437.24
+SHP2172,1370,Diesel,Container,366,28.038,235,Urban,High,103,Good,Sunny,126.318
+SHP1138,542,CNG,Mini Truck,262,18.818,25583,Rural,Medium,114,Poor,Stormy,4.394
+SHP1149,1026,Electric,Truck,212,26.379,17360,Rural,Low,237,Average,Cloudy,468.467
+SHP2310,810,Diesel,Container,274,39.89,15425,Mixed,Medium,67,Poor,Foggy,378.378
+SHP5541,938,CNG,Van,299,9.103,24354,Highway,Medium,0,Poor,Rainy,434.767
+SHP5663,971,Diesel,Trailer,181,11.395,695,Urban,Medium,0,Poor,Windy,105.465
+SHP5492,44,Electric,Trailer,192,39.89,41674,Highway,High,215,Poor,Foggy,84.66
+SHP5647,1414,Diesel,Auto,182,18.287,153,Industrial,Medium,0,Poor,Windy,88.459
+SHP5605,942,Biofuel,Car,500,17.615,14698,Mixed,High,94,Average,Stormy,87.248
+SHP5772,682,CNG,Truck,132,26.777,49462,Mixed,Very High,178,Good,Rainy,1.95
+SHP5509,875,Hybrid,Truck,166,14.444,37492,Rural,High,128,Good,Sunny,378.563
+SHP5749,461,Diesel,Car,404,0.949,45645,Urban,Low,0,Good,Windy,230.164
+SHP5382,1500,Diesel,Truck,394,39.89,153,Mixed,High,156,Average,Sunny,251.4
+SHP2190,1112,Diesel,Van,231,21.239,14704,Mixed,Medium,77,Average,Stormy,136.988
+SHP5654,107,CNG,Van,349,39.21,20087,Mixed,Low,216,Poor,Rainy,308.459
+SHP5670,1313,Petrol,Van,195,12.863,4699,Mixed,High,275,Good,Foggy,1.95
+SHP5708,359,Electric,Auto,81,4.292,42708,Urban,Low,156,Poor,Windy,319.226
+SHP2184,973,Diesel,Auto,173,14.769,24927,Mixed,Medium,131,Poor,Sunny,57.35
+SHP2274,1188,Petrol,Van,223,11.575,24336,Urban,Low,23,Average,Windy,460.233
+SHP1153,322,Biofuel,Mini Truck,186,21.638,22696,Highway,Low,137,Good,Cloudy,95.983
+SHP2329,525,Electric,Truck,342,9.482,20705,Industrial,Medium,111,Poor,Foggy,225.859
+SHP2284,1050,Petrol,Auto,372,18.611,44813,Rural,High,221,Good,Sunny,180.36
+SHP5373,661,Diesel,Truck,340,22.462,21318,Highway,High,52,Average,Sunny,125.243
+SHP5503,787,Biofuel,Container,289,7.808,5683,Urban,High,109,Poor,Foggy,237.613
+SHP1080,13,Diesel,Auto,137,28.493,15730,Industrial,Low,61,Average,Rainy,184.912
+SHP5387,867,Biofuel,Mini Truck,210,0.35,153,Highway,Medium,158,Poor,Cloudy,112.882
+SHP5626,509,Petrol,Van,197,19.804,26096,Urban,Medium,116,Good,Cloudy,215.362
+SHP5529,1374,Biofuel,Truck,80,25.092,49936,Mixed,High,162,Average,Windy,353.453
+SHP5531,225,Electric,Auto,350,6.215,6315,Mixed,High,188,Average,Sunny,413.981
+SHP5440,1453,CNG,Mini Truck,222,27.936,26490,Mixed,High,99,Average,Rainy,515.832
+SHP2249,1111,Diesel,Container,80,21.243,21713,Industrial,Low,82,Poor,Foggy,342.253
+SHP5522,1121,Electric,Trailer,211,6.226,6379,Industrial,Medium,0,Average,Windy,306.624
+SHP2287,964,Diesel,Van,264,20.464,43112,Urban,Low,104,Average,Rainy,144.91
+SHP5399,1259,Diesel,Truck,318,7.084,32738,Highway,High,131,Good,Stormy,475.124
+SHP2220,387,Diesel,Auto,313,17.719,13251,Highway,Medium,64,Poor,Sunny,30.611
+SHP5815,1951,Diesel,Auto,136,15.113,153,Rural,High,33,Good,Windy,567.852
+SHP5752,263,Petrol,Mini Truck,279,13.529,16240,Mixed,Low,162,Poor,Cloudy,183.919
+SHP5568,764,CNG,Trailer,405,0.35,153,Mixed,Medium,234,Average,Cloudy,491.474
+SHP5682,1413,Diesel,Truck,320,37.901,28169,Industrial,High,210,Poor,Foggy,295.783
+SHP1127,501,Petrol,Van,109,26.043,46510,Mixed,Medium,178,Poor,Stormy,718.502
+SHP2285,662,Biofuel,Mini Truck,118,14.117,29930,Urban,High,86,Average,Sunny,180.444
+SHP5428,13,Petrol,Container,292,23.7,11630,Mixed,Medium,72,Average,Sunny,427.565
+SHP5819,926,Petrol,Truck,444,7.687,33900,Urban,High,134,Good,Rainy,178.759
+SHP1133,1282,Petrol,Van,295,15.057,153,Rural,Low,114,Good,Rainy,34.12
+SHP5687,710,CNG,Truck,326,25.122,14327,Urban,Medium,72,Good,Sunny,427.231
+SHP5667,1419,Electric,Auto,210,23.639,153,Rural,Medium,87,Poor,Cloudy,539.814
+SHP1119,433,Electric,Trailer,474,31.847,153,Urban,High,141,Average,Cloudy,539.537
+SHP2200,482,Hybrid,Auto,267,18.46,3752,Mixed,Medium,44,Average,Rainy,1.95
+SHP5557,2000,Hybrid,Mini Truck,341,14.817,13092,Mixed,High,195,Average,Cloudy,304.789
+SHP5597,1822,Diesel,Van,261,0.35,7127,Urban,Low,64,Good,Cloudy,952.104
+SHP1018,1315,CNG,Auto,211,11.232,153,Industrial,Low,187,Good,Foggy,136.262
+SHP5817,1522,CNG,Auto,153,23.412,28967,Mixed,High,129,Average,Foggy,1.95
+SHP2268,978,CNG,Trailer,290,18.163,29452,Highway,Very High,86,Good,Windy,68.306
+SHP5517,1055,Electric,Container,178,19.613,31234,Urban,Medium,146,Average,Cloudy,84.275
+SHP5638,1376,Diesel,Truck,428,0.625,8258,Industrial,Low,184,Good,Rainy,331.588
+SHP5805,675,Hybrid,Auto,182,0.35,11095,Urban,Low,162,Poor,Cloudy,171.656
+SHP1136,1315,CNG,Auto,168,13.217,30082,Industrial,Low,67,Good,Cloudy,245.333
+SHP1121,756,Hybrid,Truck,319,16.562,153,Industrial,Low,76,Poor,Windy,339.4
+SHP1111,511,Electric,Trailer,387,33.165,15593,Highway,Medium,0,Good,Cloudy,1.95
+SHP5456,1410,Electric,Truck,247,12.083,16767,Highway,High,255,Good,Rainy,584.648
+SHP1089,1249,Hybrid,Van,298,34.776,29945,Urban,Low,57,Poor,Stormy,646.353
+SHP2252,203,Hybrid,Van,147,17.395,7874,Highway,Medium,193,Poor,Cloudy,657.647
+SHP5798,793,CNG,Container,108,21.508,21385,Highway,High,209,Average,Rainy,231.953
+SHP2283,512,Electric,Container,369,12.259,39189,Urban,Very High,167,Average,Sunny,36.585
+SHP5367,187,Petrol,Auto,202,25.824,34760,Highway,High,163,Poor,Rainy,68.325
+SHP5621,495,Hybrid,Auto,281,5.052,16520,Mixed,Medium,85,Good,Cloudy,149.18
+SHP2256,1693,Biofuel,Truck,80,0.35,20165,Highway,High,42,Good,Foggy,269.956
+SHP5846,392,Biofuel,Mini Truck,80,15.929,4855,Mixed,High,162,Average,Sunny,1.95
+SHP2308,1082,Electric,Trailer,207,15.902,8822,Mixed,Medium,227,Good,Stormy,390.627
+SHP5611,580,Petrol,Container,412,10.382,1872,Urban,Very High,25,Poor,Rainy,204.473
+SHP1028,609,Electric,Auto,80,20.026,33706,Rural,Low,255,Poor,Rainy,413.688
+SHP5434,1105,Electric,Mini Truck,98,29.112,36899,Highway,Low,112,Average,Windy,279.562
+SHP5690,1095,Biofuel,Van,442,16.232,34428,Highway,High,182,Average,Cloudy,429.826
+SHP5504,210,Hybrid,Trailer,250,24.338,23685,Rural,Low,72,Average,Cloudy,399.774
+SHP2334,1420,Hybrid,Van,434,37.258,19730,Urban,Very High,100,Poor,Foggy,75.129
+SHP1055,741,CNG,Truck,301,0.35,13173,Urban,Low,37,Poor,Cloudy,410.102
+SHP5726,1127,Electric,Auto,255,23.157,153,Urban,Low,218,Good,Cloudy,610.885
+SHP5379,783,Diesel,Truck,93,29.401,153,Urban,High,117,Average,Foggy,324.761
+SHP1025,13,Electric,Bike,333,18.819,8800,Mixed,Very High,100,Poor,Windy,1.95
+SHP5685,602,CNG,Auto,212,26.19,153,Highway,Medium,90,Average,Windy,216.112
+SHP5575,1362,Hybrid,Mini Truck,364,21.113,153,Highway,Low,20,Poor,Sunny,143.147
+SHP2205,454,Electric,Auto,237,20.478,8504,Highway,Very High,142,Poor,Rainy,281.029
+SHP5642,266,Petrol,Mini Truck,80,21.445,38296,Urban,Very High,68,Poor,Rainy,352.642
+SHP5642,432,CNG,Auto,225,0.35,26826,Highway,High,203,Poor,Foggy,251.369
+SHP5767,121,Petrol,Auto,437,23.394,153,Industrial,Medium,138,Poor,Windy,14.43
+SHP5399,1175,CNG,Truck,238,11.805,6790,Industrial,Low,87,Good,Cloudy,161.525
+SHP2218,13,CNG,Container,155,6.84,9392,Rural,High,111,Poor,Windy,284.832
+SHP1109,1400,Hybrid,Mini Truck,372,14.953,18042,Industrial,Low,248,Average,Sunny,29.259
+SHP2358,13,Electric,Trailer,247,11.559,1490,Rural,Low,30,Poor,Sunny,236.676
+SHP5530,1259,Hybrid,Van,185,3.614,153,Rural,High,23,Good,Windy,30.218
+SHP2297,872,Diesel,Truck,230,5.908,25446,Mixed,Medium,59,Poor,Sunny,354.641
+SHP5475,127,Petrol,Auto,251,29.862,49936,Mixed,Medium,151,Average,Windy,526.502
+SHP2260,820,Petrol,Truck,89,38.527,33246,Highway,High,0,Poor,Rainy,194.309
+SHP5417,492,Hybrid,Container,285,21.969,28668,Urban,Very High,170,Poor,Foggy,328.957
+SHP5602,446,Hybrid,Van,262,9.267,31115,Industrial,Low,175,Poor,Foggy,99.89
+SHP5806,13,Electric,Auto,211,21.96,6648,Highway,High,0,Good,Sunny,624.795
+SHP5376,154,Diesel,Van,250,2.845,33926,Industrial,Low,192,Poor,Rainy,185.383
+SHP5454,828,Electric,Truck,331,39.89,22043,Mixed,Medium,98,Average,Cloudy,260.183
+SHP1003,1010,Diesel,Mini Truck,408,12.669,153,Highway,High,178,Poor,Stormy,283.802
+SHP2292,676,Hybrid,Truck,358,30.54,23152,Mixed,Medium,238,Good,Cloudy,172.727
+SHP1115,894,Petrol,Van,80,16.903,21478,Rural,Low,209,Average,Foggy,467.46
+SHP2237,652,Petrol,Truck,219,22.236,7462,Mixed,Medium,50,Average,Rainy,195.452
+SHP5679,2000,Electric,Van,273,15.702,25953,Urban,High,18,Average,Cloudy,461.363
+SHP5854,626,Diesel,Van,394,8.216,19550,Industrial,Medium,12,Average,Stormy,278.967
+SHP5550,816,Electric,Auto,203,31.228,22345,Rural,Medium,206,Poor,Stormy,1.95
+SHP5542,1167,Petrol,Auto,417,26.675,35285,Mixed,Low,45,Poor,Stormy,141.614
+SHP5538,1100,Diesel,Truck,413,0.35,20671,Urban,Low,0,Average,Rainy,401.934
+SHP5827,1223,Electric,Mini Truck,323,24.473,24731,Mixed,High,2,Poor,Rainy,424.602
+SHP5750,72,CNG,Trailer,299,11.909,8392,Highway,High,151,Poor,Stormy,94.015
+SHP1016,284,Electric,Truck,358,26.821,42901,Rural,High,75,Average,Stormy,1.95
+SHP5395,657,Hybrid,Van,401,15.313,22071,Urban,Low,157,Average,Sunny,1.95
+SHP5499,191,CNG,Truck,331,9.331,17245,Urban,High,185,Poor,Sunny,1.95
+SHP5596,511,Hybrid,Mini Truck,305,5.371,26089,Mixed,Low,76,Average,Foggy,428.743
+SHP1067,1412,Electric,Auto,390,28.064,16435,Industrial,Low,158,Average,Sunny,33.127
+SHP1100,481,Petrol,Van,232,23.048,12287,Mixed,Medium,66,Average,Rainy,1.95
+SHP1012,1349,CNG,Truck,187,21.604,26721,Highway,High,150,Average,Cloudy,164.283
+SHP1144,1327,Electric,Auto,200,6.85,23403,Rural,High,174,Good,Foggy,1.95
+SHP2321,802,Electric,Trailer,209,10.274,5587,Industrial,Low,99,Average,Stormy,184.115
+SHP5375,788,Petrol,Mini Truck,254,24.653,8208,Rural,Very High,83,Good,Foggy,162.345
+SHP5516,82,Diesel,Container,461,14.002,15523,Urban,Medium,134,Poor,Sunny,11.64
+SHP5846,640,Electric,Truck,395,9.382,26173,Highway,Low,100,Average,Cloudy,87.358
+SHP5398,801,Diesel,Van,233,5.461,153,Industrial,Low,165,Average,Rainy,386.004
+SHP5659,333,Electric,Trailer,198,18.361,153,Urban,Low,167,Poor,Cloudy,35.007
+SHP5844,428,Diesel,Container,313,7.2,47480,Mixed,Very High,185,Average,Sunny,382.635
+SHP5610,1125,CNG,Truck,209,9.066,153,Urban,Medium,240,Average,Stormy,335.723
+SHP5620,363,Petrol,Truck,80,1.927,37534,Rural,Medium,29,Average,Foggy,176.93
+SHP5559,1638,Diesel,Trailer,341,0.35,14676,Highway,High,28,Poor,Cloudy,1.95
+SHP2279,689,Diesel,Van,368,7.871,49263,Highway,High,70,Poor,Foggy,115.612
+SHP1051,564,Petrol,Container,260,31.881,153,Rural,High,0,Good,Cloudy,81.039
+SHP5836,1210,Electric,Truck,167,17.867,4062,Urban,Low,3,Poor,Rainy,117.847
+SHP1140,161,Diesel,Container,339,2.153,10923,Highway,Low,12,Average,Stormy,1.95
+SHP2167,592,Biofuel,Container,381,31.308,29779,Mixed,Very High,142,Good,Rainy,31.67
+SHP5600,702,CNG,Truck,277,20.185,9503,Urban,Medium,22,Poor,Windy,81.885
+SHP2249,1025,Petrol,Van,274,0.35,34120,Urban,Medium,176,Average,Stormy,233.744
+SHP1058,761,EV,Van,237,23.369,33123,Highway,High,57,Average,Cloudy,345.367
+SHP5738,1385,Petrol,Truck,281,17.871,26308,Highway,Medium,140,Good,Foggy,28.592
+SHP1070,1651,Electric,Auto,239,39.069,48088,Industrial,High,106,Average,Foggy,227.353
+SHP5499,764,Petrol,Container,255,20.742,26856,Industrial,High,181,Average,Foggy,15.317
+SHP1147,893,Petrol,Container,377,4.947,14330,Mixed,Medium,137,Average,Foggy,435.085
+SHP5790,759,Diesel,Van,347,39.89,30802,Mixed,Low,205,Average,Cloudy,96.846
+SHP5802,555,Petrol,Truck,392,24.442,49936,Industrial,Very High,44,Poor,Rainy,105.629
+SHP5384,1121,Diesel,Car,162,0.35,29013,Mixed,High,108,Average,Sunny,287.372
+SHP5810,13,Diesel,Truck,267,20.04,9500,Rural,High,179,Good,Rainy,1.95
+SHP2227,145,CNG,Mini Truck,500,13.971,30908,Mixed,Very High,168,Poor,Rainy,154.47
+SHP2274,13,Electric,Mini Truck,281,19.998,3324,Highway,Medium,108,Poor,Foggy,202.876
+SHP1138,1236,Hybrid,Truck,144,14.846,5203,Mixed,Medium,140,Good,Sunny,415.904
+SHP5397,1731,CNG,Truck,366,15.489,21763,Highway,Medium,240,Poor,Rainy,477.595
+SHP2167,1404,Petrol,Van,325,21.08,10988,Highway,Low,159,Average,Sunny,13.07
+SHP1079,1886,CNG,Car,275,16.748,49154,Mixed,High,60,Good,Foggy,1.95
+SHP5522,922,Biofuel,Auto,123,19.21,10342,Urban,Medium,120,Poor,Sunny,465.765
+SHP1068,850,CNG,Truck,373,18.303,44644,Rural,Very High,96,Poor,Sunny,32.369
+SHP2327,326,Hybrid,Trailer,225,28.291,38409,Rural,Medium,130,Poor,Cloudy,290.295
+SHP2322,814,Biofuel,Van,321,0.35,20393,Highway,High,114,Good,Sunny,371.97
+SHP5733,743,Petrol,Container,200,0.35,1492,Highway,High,129,Good,Stormy,1.95
+SHP2283,961,Petrol,Truck,222,12.647,35714,Rural,Low,100,Average,Sunny,91.061
+SHP5743,810,Petrol,Mini Truck,359,29.029,12511,Rural,High,190,Average,Foggy,285.224
+SHP5456,801,CNG,Trailer,174,23.933,39005,Industrial,Low,170,Good,Foggy,389.801
+SHP5404,564,Diesel,Container,332,14.818,4654,Urban,Medium,136,Poor,Stormy,329.926
+SHP5395,1839,Electric,Mini Truck,80,17.668,36279,Rural,Medium,93,Average,Cloudy,90.734
+SHP2223,1422,Petrol,Van,400,23.828,37359,Industrial,High,157,Poor,Rainy,118.653
+SHP2258,229,Hybrid,Mini Truck,340,15.535,33764,Highway,High,23,Poor,Cloudy,180.356
+SHP2200,139,Petrol,Truck,378,16.732,17740,Industrial,High,120,Average,Rainy,175.921
+SHP1137,13,CNG,Van,168,32.416,19786,Urban,Medium,284,Poor,Cloudy,269.896
+SHP5802,828,Hybrid,Mini Truck,299,15.264,19098,Rural,Low,300,Poor,Stormy,338.036
+SHP2303,1830,Electric,Container,200,25.999,23747,Urban,Medium,112,Average,Stormy,260.479
+SHP1053,1202,Diesel,Trailer,179,15.786,153,Urban,Medium,177,Good,Cloudy,1.95
+SHP5856,332,CNG,Van,254,18.247,22288,Urban,Medium,117,Poor,Sunny,162.943
+SHP2232,13,CNG,Truck,485,22.75,12175,Mixed,Medium,295,Good,Stormy,352.581
+SHP5656,754,Diesel,Truck,136,4.378,36639,Rural,Medium,176,Good,Rainy,320.176
+SHP5823,1150,Electric,Van,500,14.876,153,Mixed,High,250,Average,Foggy,288.721
+SHP5599,650,Diesel,Container,183,17.477,153,Highway,Low,209,Good,Cloudy,173.276
+SHP2255,939,CNG,Van,240,14.141,29034,Highway,High,175,Average,Foggy,215.037
+SHP5445,574,Biofuel,Truck,380,25.609,15039,Industrial,Medium,162,Average,Foggy,144.45
+SHP2227,500,Petrol,Auto,97,31.607,10424,Highway,Very High,133,Average,Cloudy,231.514
+SHP5845,854,CNG,Mini Truck,197,0.35,21350,Highway,High,195,Poor,Foggy,682.047
+SHP2162,794,Diesel,Van,194,24.357,13970,Mixed,Low,2,Poor,Rainy,556.327
+SHP1114,1248,Petrol,Auto,151,26.281,9182,Urban,High,9,Poor,Foggy,51.377
+SHP5704,1326,Petrol,Van,322,39.648,27609,Rural,Medium,123,Average,Sunny,3.457
+SHP5788,13,Hybrid,Truck,410,17.017,153,Mixed,High,74,Poor,Sunny,54.789
+SHP5840,13,Biofuel,Van,223,14.147,4199,Highway,High,162,Poor,Stormy,216.938
+SHP5793,1078,Diesel,Container,339,22.31,30563,Mixed,High,227,Average,Cloudy,355.345
+SHP2314,495,Petrol,Truck,210,11.478,26012,Industrial,Very High,82,Average,Sunny,425.438
+SHP2298,1196,Biofuel,Mini Truck,145,26.6,39590,Urban,Very High,0,Poor,Cloudy,352.251
+SHP1154,1345,Electric,Container,397,26.84,30441,Industrial,Medium,0,Average,Sunny,180.94
+SHP5719,994,Electric,Truck,84,35.761,39797,Industrial,Low,33,Poor,Cloudy,327.53
+SHP5662,13,CNG,Trailer,384,16.295,18304,Mixed,Medium,154,Poor,Foggy,256.983
+SHP5733,749,Diesel,Mini Truck,354,0.35,19318,Highway,High,36,Average,Rainy,414.952
+SHP5378,13,CNG,Mini Truck,224,22.306,27250,Industrial,Very High,89,Good,Cloudy,107.743
+SHP5809,2000,Electric,Mini Truck,356,18.763,38621,Rural,High,125,Poor,Sunny,1.95
+SHP1023,857,Electric,Van,187,21.439,47907,Industrial,Very High,119,Poor,Windy,1.95
+SHP2177,1955,Diesel,Van,306,13.697,15358,Rural,High,83,Poor,Windy,537.033
+SHP5800,920,Electric,Mini Truck,487,24.888,14084,Mixed,Medium,108,Average,Stormy,40.428
+SHP5772,1649,Petrol,Auto,356,0.35,17805,Industrial,Medium,6,Poor,Cloudy,148.603
+SHP5618,438,Petrol,Trailer,198,22.301,42822,Urban,Low,80,Good,Windy,458.344
+SHP1150,315,Petrol,Auto,393,29.345,9961,Mixed,Very High,146,Poor,Windy,407.222
+SHP5539,945,Hybrid,Truck,324,39.89,42255,Industrial,High,202,Average,Sunny,1.95
+SHP2188,539,Hybrid,Trailer,407,34.993,24227,Mixed,High,208,Poor,Sunny,104.882
+SHP5671,475,Electric,Mini Truck,121,10.676,30385,Highway,Medium,114,Poor,Cloudy,1.95
+SHP5717,1014,Hybrid,Van,184,39.89,5725,Mixed,High,142,Poor,Stormy,310.009
+SHP2193,599,Petrol,Mini Truck,200,16.742,35089,Urban,High,114,Average,Sunny,175.487
+SHP1037,1115,Electric,Van,279,29.26,21185,Highway,Medium,0,Good,Foggy,69.828
+SHP2216,1437,Petrol,Van,250,9.868,17218,Rural,High,63,Average,Foggy,241.899
+SHP2350,1264,Biofuel,Container,500,7.95,3263,Mixed,High,219,Average,Windy,296.42
+SHP1102,893,CNG,Mini Truck,266,14.687,153,Highway,High,210,Average,Rainy,26.232
+SHP1106,13,Electric,Mini Truck,420,5.778,30905,Rural,Medium,269,Good,Sunny,446.02
+SHP1124,1072,Biofuel,Van,324,20.338,36738,Urban,High,107,Average,Rainy,503.188
+SHP2357,658,CNG,Truck,465,24.162,9824,Mixed,Very High,171,Good,Stormy,1.95
+SHP5433,559,Diesel,Truck,379,32.122,153,Rural,Low,87,Poor,Cloudy,1.95
+SHP5446,1346,Petrol,Mini Truck,238,18.737,20282,Mixed,High,206,Average,Foggy,1.95
+SHP1105,13,Biofuel,Auto,418,19.807,21627,Mixed,Medium,169,Good,Stormy,29.458
+SHP5707,1048,Electric,Truck,279,19.865,7367,Urban,High,100,Average,Foggy,437.701
+SHP5681,1400,Petrol,Auto,281,11.518,617,Mixed,Medium,0,Average,Sunny,368.704
+SHP1020,650,Petrol,Van,80,9.364,153,Urban,Low,145,Poor,Stormy,409.633
+SHP5855,1134,Petrol,Trailer,204,0.35,10293,Highway,High,134,Average,Cloudy,332.578
+SHP5649,952,Petrol,Mini Truck,482,21.065,153,Urban,Medium,108,Poor,Foggy,113.392
+SHP1078,1135,CNG,Trailer,314,4.387,18693,Urban,Medium,66,Poor,Foggy,196.02
+SHP5579,13,Biofuel,Truck,267,21.809,30302,Mixed,High,241,Poor,Foggy,288.43
+SHP5654,370,Petrol,Truck,349,16.88,4773,Rural,Medium,26,Poor,Sunny,574.529
+SHP5562,13,Diesel,Truck,348,15.303,33332,Highway,Medium,39,Good,Sunny,169.09
+SHP1065,674,Electric,Truck,200,13.322,1713,Highway,High,177,Average,Cloudy,223.637
+SHP5826,391,Electric,Van,83,15.199,15973,Highway,Low,264,Poor,Cloudy,385.097
+SHP1049,438,Hybrid,Auto,339,0.431,153,Mixed,Medium,0,Poor,Foggy,1.95
+SHP1159,369,Diesel,Truck,186,8.451,9018,Urban,Medium,85,Poor,Foggy,320.845
+SHP1052,1169,Electric,Van,179,22.267,29517,Mixed,High,131,Poor,Foggy,145.825
+SHP5665,995,Electric,Truck,172,35.748,42791,Highway,Medium,166,Average,Stormy,1.95
+SHP5714,1565,Diesel,Car,191,16.952,153,Mixed,Very High,180,Poor,Sunny,220.996
+SHP5631,1307,Diesel,Car,259,0.35,36341,Mixed,Low,280,Poor,Stormy,19.652
+SHP5400,745,Diesel,Mini Truck,213,12.51,1452,Urban,Very High,102,Average,Stormy,216.219
+SHP5720,13,Petrol,Auto,230,24.827,49936,Mixed,High,250,Poor,Cloudy,187.869
+SHP2352,1381,Diesel,Auto,85,3.858,31132,Industrial,Low,104,Average,Cloudy,1.95
+SHP5523,625,Petrol,Container,371,15.822,29450,Industrial,Low,190,Average,Foggy,218.732
+SHP5394,898,CNG,Van,229,22.025,38603,Rural,High,10,Average,Sunny,194.051
+SHP5755,1871,Petrol,Container,221,26.869,29053,Highway,Medium,56,Poor,Foggy,386.299
+SHP5784,305,Hybrid,Mini Truck,344,28.861,153,Urban,Medium,185,Poor,Windy,96.047
+SHP5660,13,Hybrid,Van,413,34.782,26408,Mixed,Low,235,Poor,Cloudy,401.253
+SHP2310,672,CNG,Auto,388,16.492,153,Urban,High,230,Good,Stormy,75.055
+SHP5539,805,Diesel,Trailer,302,0.35,3909,Industrial,Low,83,Good,Sunny,49.634
+SHP5410,838,Petrol,Mini Truck,348,21.205,15155,Highway,Very High,182,Good,Windy,372.383
+SHP5709,949,Diesel,Container,216,16.037,25601,Highway,Medium,109,Average,Rainy,1.95
+SHP2212,1454,Hybrid,Van,216,11.891,6859,Mixed,High,144,Average,Foggy,1.95
+SHP5826,996,Diesel,Truck,274,24.381,13410,Rural,Medium,108,Average,Foggy,335.24
+SHP1125,1088,Electric,Car,233,22.302,6321,Highway,Medium,249,Poor,Cloudy,378.439
+SHP1092,2000,Diesel,Trailer,105,22.465,14197,Mixed,Medium,65,Poor,Rainy,225.896
+SHP2241,1309,Petrol,Van,211,30.15,5849,Mixed,Medium,111,Poor,Sunny,86.662
+SHP2326,864,Petrol,Van,210,23.847,38973,Urban,Medium,14,Poor,Sunny,316.95
+SHP5434,13,Electric,Van,341,19.599,9794,Industrial,High,140,Good,Windy,364.082
+SHP1002,1036,Hybrid,Mini Truck,395,33.579,1695,Urban,Medium,74,Average,Rainy,383.944
+SHP1046,1594,Petrol,Container,235,18.472,23188,Industrial,Medium,183,Poor,Sunny,131.51
+SHP5602,13,Hybrid,Mini Truck,223,26.357,36166,Urban,High,130,Good,Rainy,32.978
+SHP5740,13,CNG,Van,298,22.538,49131,Urban,Low,78,Average,Rainy,420.372
+SHP2332,560,CNG,Truck,90,20.824,20136,Industrial,Low,116,Good,Foggy,90.806
+SHP1148,913,Petrol,Mini Truck,244,38.145,153,Industrial,Medium,0,Average,Stormy,137.959
+SHP5460,1368,Diesel,Container,421,7.491,21920,Urban,Medium,8,Average,Stormy,64.163
+SHP5617,1058,Petrol,Mini Truck,317,1.863,29997,Industrial,High,115,Poor,Sunny,196.65
+SHP5689,837,Petrol,Mini Truck,413,14.816,21345,Rural,Low,24,Average,Rainy,427.704
+SHP5781,13,CNG,Truck,422,21.477,359,Mixed,Medium,137,Average,Sunny,1.95
+SHP2339,512,Petrol,Mini Truck,348,20.554,4765,Rural,Medium,3,Poor,Sunny,1.95
+SHP2261,1718,Biofuel,Truck,290,21.259,27634,Urban,High,94,Good,Rainy,1.95
+SHP5514,657,Petrol,Van,292,10.627,12350,Highway,High,247,Poor,Sunny,148.278
+SHP5388,1011,CNG,Auto,334,13.033,25020,Urban,High,277,Average,Windy,118.358
+SHP5760,13,Diesel,Trailer,446,16.102,153,Highway,High,127,Good,Sunny,394.638
+SHP1055,1037,CNG,Van,361,4.145,2144,Mixed,Medium,111,Average,Sunny,1.95
+SHP1075,622,Hybrid,Van,271,15.664,1818,Highway,High,254,Average,Windy,28.487
+SHP1121,1455,Hybrid,Container,312,8.048,25832,Industrial,Medium,124,Poor,Windy,719.052
+SHP5457,843,CNG,Container,80,10.744,28193,Mixed,High,198,Average,Stormy,1.95
+SHP5789,727,Electric,Van,106,16.905,41297,Highway,Low,249,Poor,Rainy,276.129
+SHP1116,1258,Diesel,Container,403,7.365,32086,Urban,Low,0,Poor,Rainy,105.519
+SHP5602,747,CNG,Mini Truck,106,28.051,28086,Mixed,Medium,0,Average,Stormy,1.95
+SHP2276,823,Diesel,Van,272,25.173,10260,Urban,High,106,Good,Cloudy,333.171
+SHP5736,1214,Diesel,Truck,147,22.017,153,Urban,High,53,Average,Sunny,277.148
+SHP5382,685,Electric,Van,229,6.537,33750,Mixed,Medium,300,Poor,Sunny,168.51
+SHP5788,799,Diesel,Van,160,24.09,10442,Urban,High,171,Average,Cloudy,194.308
+SHP5593,1276,Electric,Trailer,140,26.894,20610,Highway,High,155,Average,Foggy,1.95
+SHP5648,13,CNG,Van,353,16.584,36281,Rural,High,210,Good,Foggy,41.51
+SHP2346,1069,Electric,Van,162,8.467,37090,Highway,Medium,34,Good,Cloudy,138.25
+SHP1039,448,Petrol,Auto,278,27.769,20096,Highway,Very High,105,Poor,Sunny,125.653
+SHP5599,831,Diesel,Mini Truck,476,26.884,153,Rural,Very High,130,Poor,Sunny,403.154
+SHP5706,1213,Petrol,Mini Truck,371,19.764,15185,Highway,Low,76,Good,Foggy,379.271
+SHP2263,1232,CNG,Truck,127,13.74,30719,Urban,High,198,Poor,Cloudy,243.43
+SHP5421,1614,Electric,Mini Truck,320,18.163,28766,Highway,High,42,Average,Windy,203.139
+SHP2332,976,CNG,Van,151,34.861,25007,Urban,Medium,171,Average,Stormy,239.722
+SHP5366,141,Diesel,Auto,407,3.301,37858,Mixed,Medium,121,Poor,Windy,114.583
+SHP5608,15,CNG,Truck,200,20.468,17474,Mixed,High,149,Average,Rainy,260.811
+SHP1048,1697,Petrol,Van,202,12.261,25168,Industrial,Low,0,Poor,Cloudy,1.95
+SHP5758,415,Electric,Van,293,23.103,7319,Industrial,Low,300,Average,Rainy,36.716
+SHP2190,1333,Diesel,Mini Truck,135,9.464,23777,Highway,Low,184,Good,Foggy,41.533
+SHP5446,1424,Hybrid,Truck,488,19.187,6427,Urban,Medium,237,Poor,Windy,239.936
+SHP5782,764,Biofuel,Auto,461,9.032,1090,Industrial,Medium,119,Poor,Sunny,215.497
+SHP5579,13,Biofuel,Mini Truck,362,6.858,2705,Rural,Medium,116,Average,Sunny,450.717
+SHP5382,541,Biofuel,Van,118,9.344,5182,Highway,Low,278,Average,Windy,103.185
+SHP2326,924,Diesel,Auto,209,15.934,4482,Rural,High,0,Average,Cloudy,233.058
+SHP2236,13,Hybrid,Mini Truck,363,22.55,43823,Urban,Very High,95,Average,Sunny,1.95
+SHP5433,531,Hybrid,Truck,130,39.89,23436,Highway,Medium,40,Poor,Rainy,520.535
+SHP2319,1190,Hybrid,Truck,174,12.746,26582,Highway,High,205,Poor,Sunny,1.95
+SHP2297,114,CNG,Van,273,36.164,3477,Mixed,Medium,0,Good,Sunny,69.245
+SHP5697,13,Hybrid,Truck,377,11.712,1831,Highway,Low,124,Average,Cloudy,408.397
+SHP5371,13,Hybrid,Truck,233,13.5,21537,Highway,Low,95,Good,Rainy,788.63
+SHP5620,730,Electric,Auto,341,32.878,18320,Urban,Low,195,Average,Windy,202.759
+SHP2164,13,CNG,Truck,311,11.119,17650,Industrial,Medium,79,Good,Rainy,471.307
+SHP2236,1425,Diesel,Van,361,27.989,41633,Industrial,Medium,8,Poor,Windy,1.95
+SHP5482,993,EV,Mini Truck,263,24.7,11464,Industrial,Very High,67,Poor,Rainy,311.941
+SHP5710,711,Hybrid,Auto,213,38.636,30477,Urban,Low,16,Good,Foggy,474.591
+SHP5464,1317,Electric,Van,342,28.006,25384,Highway,High,53,Average,Windy,132.834
+SHP5606,1247,Diesel,Trailer,439,15.559,16238,Urban,Medium,119,Poor,Stormy,395.659
+SHP5842,1203,Petrol,Trailer,364,11.262,8951,Urban,Medium,90,Good,Cloudy,1.95
+SHP2192,465,Petrol,Van,357,22.053,6222,Urban,High,210,Average,Foggy,630.107
+SHP2337,250,Biofuel,Container,161,8.025,33963,Rural,Medium,63,Average,Windy,182.454
+SHP1089,515,Electric,Trailer,286,14.122,34508,Rural,Low,104,Average,Foggy,524.243
+SHP5651,250,Biofuel,Container,339,27.835,153,Urban,Low,50,Poor,Rainy,351.081
+SHP1126,1531,Electric,Mini Truck,281,12.881,13800,Industrial,Medium,56,Poor,Rainy,388.909
+SHP2264,224,Hybrid,Mini Truck,257,28.072,27307,Mixed,High,20,Average,Windy,65.035
+SHP5808,13,Petrol,Truck,347,17.491,12998,Mixed,Very High,293,Poor,Foggy,1.95
+SHP5803,551,Petrol,Van,287,22.353,153,Rural,Medium,96,Poor,Rainy,1.95
+SHP5530,1157,Hybrid,Mini Truck,358,21.878,20161,Highway,Low,102,Average,Cloudy,433.636
+SHP2263,521,Biofuel,Mini Truck,183,33.716,9953,Industrial,Very High,74,Average,Sunny,185.464
+SHP5456,701,Diesel,Mini Truck,323,33.485,33070,Rural,Medium,115,Average,Sunny,134.111
+SHP1067,237,CNG,Truck,354,17.214,16386,Industrial,Low,175,Average,Stormy,109.975
+SHP2355,1040,Electric,Auto,410,33.53,2788,Urban,Low,153,Poor,Rainy,191.179
+SHP1139,619,Petrol,Auto,374,18.252,10334,Highway,Medium,157,Poor,Stormy,164.686
+SHP1090,1178,Petrol,Truck,148,23.772,5333,Industrial,Low,177,Poor,Foggy,578.562
+SHP5474,392,Electric,Mini Truck,80,12.373,15852,Rural,Medium,6,Good,Stormy,154.135
+SHP5787,393,Electric,Mini Truck,192,13.323,28748,Urban,Low,61,Good,Foggy,1.95
+SHP5633,13,CNG,Container,304,0.35,2670,Mixed,Very High,219,Good,Sunny,64.942
+SHP2217,1773,CNG,Container,339,15.829,26940,Highway,Low,70,Poor,Rainy,136.05

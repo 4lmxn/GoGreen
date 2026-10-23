@@ -1,0 +1,18 @@
+import { Link } from 'react-router-dom';
+import { ArrowUpRight, Car, Leaf, Route, Users, Clock, Download } from 'lucide-react';
+import { usePolling, PageHeader, RefreshButton, ErrorNotice, Loading, Metric, ActivityChart, TripList, amount, formatDate } from '../../components/Operations';
+
+export default function AdminDashboard() {
+  const { data, error, loading, reload } = usePolling('/admin/stats');
+  return <div className="op-page">
+    <PageHeader title="A clearer road ahead." description="Your fleet, its journeys, and the impact of every route choice." action={<RefreshButton onClick={reload} />} />
+    <ErrorNotice>{error && `${error} Displayed data may be out of date.`}</ErrorNotice>
+    {loading ? <Loading /> : data && <>
+      <section className="op-hero"><div><p className="op-eyebrow">MOVE WITH PURPOSE</p><h2>Every journey is a chance<br />to go a little greener.</h2><p>{data.active_trips ? `${data.active_trips} trips are on the road. Follow their latest shared locations and keep your fleet connected.` : 'Your control room is ready. Approve drivers, assign vehicles, and turn the next plan into a tracked journey.'}</p><Link className="op-button" to="/admin/fleet-map">Open fleet map <ArrowUpRight size={16} /></Link></div><div className="op-orbit"><strong>{data.active_trips}</strong><span>active journeys</span></div></section>
+      <div className="op-metrics"><Metric label="Fleet vehicles" value={data.total_vehicles} note={`${data.total_drivers} approved drivers`} icon={Car} /><Metric label="Completed journeys" value={data.total_trips} note={`${data.planned_trips} plans waiting to start`} icon={Route} /><Metric label="Net estimated CO₂ avoided" value={amount(data.co2_saved_kg)} unit="kg" note="Compared with fastest route · modeled" icon={Leaf} /><Metric label="Distance covered" value={amount(data.distance_km)} unit="km" note="Selected routes of comparable completed trips" icon={Route} /></div>
+      <div className="op-columns"><section className="op-panel"><div className="op-panel-heading"><div><h2>The week in motion</h2><p>Completed trips with saved comparisons · last 7 days, UTC</p></div><span className={`op-live ${error ? 'stale' : ''}`}><i />{error ? 'Connection lost' : 'Auto-refresh'}</span></div><ActivityChart days={data.daily} /></section><section className="op-panel"><div className="op-panel-heading"><h2>Keep things moving</h2></div><Link className="op-action-row" to="/admin/approvals"><div className="op-route-icon"><Users size={19} /></div><div><strong>{data.pending_approvals} driver approvals</strong><p>Review the people joining your fleet</p></div><ArrowUpRight size={17} /></Link><Link className="op-action-row" to="/admin/vehicles"><div className="op-route-icon"><Car size={19} /></div><div><strong>Vehicle assignments</strong><p>Get drivers ready for their next journey</p></div><ArrowUpRight size={17} /></Link><Link className="op-action-row" to="/admin/reports"><div className="op-route-icon"><Download size={19} /></div><div><strong>Download your fleet report</strong><p>Saved journeys and modeled impact</p></div><ArrowUpRight size={17} /></Link></section></div>
+      <section className="op-panel"><div className="op-panel-heading"><div><h2>Latest journeys</h2><p>Plans, active trips, and completed deliveries</p></div><Clock size={17} className="op-muted" /></div><TripList trips={data.recent_trips} /></section>
+      <footer className="op-footer"><span>Updated {formatDate(data.updated_at)} · refreshes every 15 seconds</span><span>{data.comparable_trips} completed trips have saved route comparisons. Estimates are not measured reductions.</span></footer>
+    </>}
+  </div>;
+}
