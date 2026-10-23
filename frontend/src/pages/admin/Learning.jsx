@@ -8,14 +8,14 @@ export default function Learning() {
   return (
     <div className="op-page">
       <PageHeader
-        eyebrow="GOGREEN / EVIDENCE & FEEDBACK"
-        title="Make every prediction accountable."
-        description="Compare saved fuel estimates with driver-reported outcomes. Demo fixtures are excluded."
+        eyebrow="Admin · evidence and feedback"
+        title="Evidence and feedback"
+        description="Predicted fuel against what drivers reported, and the per-vehicle calibration learned from it. Demo fixtures are excluded."
         action={<RefreshButton onClick={reload} />}
       />
-      <WeatherContext />
       <ErrorNotice>{error}</ErrorNotice>
       {loading ? <Loading /> : data && <LearningReport data={data} />}
+      <WeatherContext />
     </div>
   );
 }
@@ -24,7 +24,7 @@ function LearningReport({ data }) {
   return (
     <>
       <div className="op-metrics">
-        <Metric label="Reported journeys" value={data.reported_trips} note={`${data.eligible_trips} eligible completed journeys`} />
+        <Metric lead label="Reported trips" value={data.reported_trips} note={`${data.eligible_trips} eligible completed trips`} />
         <Metric label="Reporting coverage" value={data.coverage_percent} unit="%" note="Missing reports are not counted as zero fuel" />
         <Metric label="Mean absolute error" value={data.mae_l == null ? '—' : amount(data.mae_l)} unit="L" note="Unverified operational reports" />
         <Metric label="Mean signed error" value={data.bias_l == null ? '—' : amount(data.bias_l)} unit="L" note="Reported minus predicted; negative = overprediction" />
@@ -63,7 +63,7 @@ function LearningReport({ data }) {
         </div>
         {!data.records.length ? (
           <Empty title="No fuel reports yet">
-            Complete a real journey and report fuel used to begin tracking prediction errors.
+            Complete a trip and report the fuel used to begin tracking prediction errors.
           </Empty>
         ) : (
           data.records.map((record) => <ReportRow key={record.trip_id} record={record} />)
@@ -81,7 +81,7 @@ function ReportRow({ record }) {
         <p>{record.model} · {formatDate(record.completed_at)}</p>
       </div>
       <div>
-        <strong>{amount(record.predicted_l)} predicted / {amount(record.reported_l)} reported</strong>
+        <strong className="op-num">{amount(record.predicted_l)} predicted / {amount(record.reported_l)} reported</strong>
         <p>{record.error_l > 0 ? '+' : ''}{amount(record.error_l)} error · unverified</p>
       </div>
     </article>

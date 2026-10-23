@@ -57,9 +57,9 @@ export default function NewTrip() {
   return (
     <div className="op-page">
       <PageHeader
-        eyebrow="GOGREEN / PLAN A JOURNEY"
-        title="Find your greener way."
-        description="Compare real road alternatives for your assigned vehicle. Save your choice, then start tracking."
+        eyebrow="Driver · plan a trip"
+        title="Plan a trip"
+        description="Up to three real road options for your vehicle, each with predicted fuel and CO₂ split by cause. Pick one, then start tracking."
       />
       <ErrorNotice>{error}</ErrorNotice>
 
@@ -105,7 +105,7 @@ export default function NewTrip() {
 
               {editable && (
                 <button disabled={busy || !selected} onClick={start} className="op-button">
-                  {busy ? 'Saving your journey…' : 'Start selected journey'} <ArrowRight size={16} />
+                  {busy ? 'Starting…' : 'Start trip'} <ArrowRight size={16} />
                 </button>
               )}
             </>
@@ -116,7 +116,7 @@ export default function NewTrip() {
           <div className="op-map">
             <MapView routes={routes} selectedRouteId={selected} origin={source} destination={destination} />
           </div>
-          <p className="op-note">Plans and selected routes are stored in your account. A provider failure never creates a successful journey.</p>
+          <p className="op-note">Plans and selected routes are stored in your account. If a provider fails, no trip is created.</p>
         </div>
       </div>
     </div>
@@ -151,7 +151,7 @@ function RouteOption({ route, scaleMax, selected, disabled, onSelect }) {
       </div>
 
       <div className="op-route-values">
-        <div><b>{amount(route.distanceKm)}</b><span>kilometers</span></div>
+        <div><b>{amount(route.distanceKm)}</b><span>kilometres</span></div>
         <div><b>{amount(route.durationMin)}</b><span>minutes</span></div>
         <div>
           <b>{amount(route.co2Kg)}</b>
@@ -161,7 +161,7 @@ function RouteOption({ route, scaleMax, selected, disabled, onSelect }) {
 
       <BreakdownBar breakdown={route.breakdown} scaleMax={scaleMax} />
 
-      {route.evidence?.limitations?.map(note => <p className="op-note" key={note}>⚠ {note}</p>)}
+      {route.evidence?.limitations?.map(note => <p className="op-note" key={note}>{note}</p>)}
 
       <p className="op-note">
         {fuelText(route.fuelLiters, route.fuelUnit)} predicted

@@ -1,9 +1,4 @@
-import React from 'react';
-
+// A primary panel: surface plus the tinted shadow from operations.css.
 export default function Card({ children, className = '' }) {
-  return (
-    <div className={`bg-neutral-card rounded-2xl shadow-md border border-neutral-border p-6 ${className}`}>
-      {children}
-    </div>
-  );
+  return <div className={`op-panel ${className}`}>{children}</div>;
 }

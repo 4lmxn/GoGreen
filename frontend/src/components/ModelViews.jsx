@@ -3,11 +3,11 @@ import { Empty, amount, formatDate } from './Operations';
 // The five ways a vehicle spends energy in the physics model, plus energy
 // recovered by regenerative braking (electric vehicles only).
 export const BREAKDOWN_PARTS = [
-  { key: 'rolling', label: 'Rolling resistance', color: '#4c8a63' },
-  { key: 'aero', label: 'Air drag', color: '#7fb3d5' },
-  { key: 'grade', label: 'Climbing', color: '#c58b3b' },
-  { key: 'stops', label: 'Turns & stops', color: '#b65c4a' },
-  { key: 'auxiliary', label: 'Accessories & AC', color: '#9a8fc7' },
+  { key: 'rolling', label: 'Rolling resistance', color: 'var(--gg-roll)' },
+  { key: 'aero', label: 'Air drag', color: 'var(--gg-aero)' },
+  { key: 'grade', label: 'Climbing', color: 'var(--gg-grade)' },
+  { key: 'stops', label: 'Turns and stops', color: 'var(--gg-stops)' },
+  { key: 'auxiliary', label: 'Accessories and AC', color: 'var(--gg-aux)' },
 ];
 
 export function fuelText(quantity, unit) {

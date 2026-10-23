@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+// Colours mirror the CSS variables in src/index.css so Tailwind classes and
+// hand-written CSS stay on one palette.
 export default {
   content: [
     "./index.html",
@@ -7,23 +9,29 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#1D4ED8',
-        'primary-dark': '#1E3A8A',
-        'primary-light': '#3B82F6',
-        sky: '#38BDF8',
-        eco: '#22C55E',
-        warning: '#F59E0B',
-        danger: '#EF4444',
+        primary: '#1b6a45',
+        'primary-dark': '#0f3527',
+        'primary-light': '#e3efe8',
+        sky: '#1b6a45',
+        eco: '#1b6a45',
+        warning: '#e0a32e',
+        danger: '#b42318',
         neutral: {
-          bg: '#F8FAFC',
-          card: '#FFFFFF',
-          border: '#E2E8F0',
-          textMain: '#0F172A',
-          textMuted: '#64748B'
+          bg: '#f3f5f2',
+          card: '#ffffff',
+          border: '#dbe2dd',
+          textMain: '#15201b',
+          textMuted: '#5a6862'
         }
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
+        sans: ['"IBM Plex Sans"', 'system-ui', 'sans-serif'],
+        display: ['"Barlow Condensed"', '"Arial Narrow"', 'sans-serif'],
+        mono: ['"IBM Plex Mono"', 'ui-monospace', 'monospace'],
+      },
+      borderRadius: {
+        xl: '14px',
+        lg: '10px',
       },
     },
   },

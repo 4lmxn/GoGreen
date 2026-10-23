@@ -17,9 +17,9 @@ export default function ModelLab() {
   return (
     <div className="op-page">
       <PageHeader
-        eyebrow="GOGREEN / MODEL LAB"
-        title="See why a route burns fuel."
-        description="Run the physics model on real road alternatives for any vehicle. Every kilogram of CO₂ is split into the force that caused it."
+        eyebrow="Admin · model lab"
+        title="Model lab"
+        description="Run the physics fuel model on real road options for any vehicle class and fuel. Nothing is saved. Each route's CO₂ is split into rolling resistance, air drag, climbing, turns and accessories."
       />
       <RouteExperiment />
       <ModelCard />
@@ -88,7 +88,7 @@ function RouteExperiment() {
               <label>
                 Fuel
                 <select className="op-input" value={form.fuel_type} onChange={update('fuel_type')}>
-                  {FUEL_TYPES.map((fuel) => <option key={fuel} value={fuel}>{fuel.toUpperCase()}</option>)}
+                  {FUEL_TYPES.map((fuel) => <option key={fuel} value={fuel}>{fuel === 'cng' ? 'CNG' : fuel[0].toUpperCase() + fuel.slice(1)}</option>)}
                 </select>
               </label>
               <label>Load · kg<input className="op-input" type="number" min="0" step="1" value={form.load_kg} onChange={update('load_kg')} required /></label>
@@ -218,7 +218,7 @@ function ModelCard() {
           <ul className="op-note" style={{ paddingLeft: 18, marginTop: 10 }}>
             {(data.data_sources || []).map((source) => (
               <li key={source.name}>
-                <a href={source.url} target="_blank" rel="noreferrer" style={{ color: '#2f6f4f', fontWeight: 650 }}>{source.name}</a> · {source.use}
+                <a href={source.url} target="_blank" rel="noreferrer" className="op-small-link">{source.name}</a> · {source.use}
               </li>
             ))}
           </ul>

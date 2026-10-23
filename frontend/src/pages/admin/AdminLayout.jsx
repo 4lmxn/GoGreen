@@ -1,33 +1,49 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { NavLink, Outlet, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import {
-  Leaf,
-  LayoutDashboard,
-  Users,
-  Car,
-  Map,
-  BarChart2,
-  FlaskConical,
-  Route,
-  Settings,
-  LogOut,
-  ChevronLeft,
-  ChevronRight,
+  Leaf, LayoutDashboard, Users, Car, Map, BarChart2, FlaskConical, Route, Settings, LogOut,
+  ChevronLeft, ChevronRight, FileDown,
 } from 'lucide-react';
+import '../../components/operations.css';
 
-const NAV = [
-  { label: 'Dashboard', to: '/admin', icon: LayoutDashboard },
-  { label: 'Driver Approvals', to: '/admin/approvals', icon: Users },
-  { label: 'Vehicles', to: '/admin/vehicles', icon: Car },
-  { label: 'Live Fleet Map', to: '/admin/fleet-map', icon: Map },
-  { label: 'Round planner', to: '/admin/rounds', icon: Route },
-  { label: 'Sustainability', to: '/admin/sustainability', icon: Leaf },
-  { label: 'Evidence & Feedback', to: '/admin/learning', icon: BarChart2 },
-  { label: 'Reports', to: '/admin/reports', icon: BarChart2 },
-  { label: 'Model lab', to: '/admin/ai', icon: FlaskConical },
-  { label: 'Settings', to: '/admin/settings', icon: Settings },
+// Grouped like the work itself: running the fleet, then judging its emissions.
+const NAV_GROUPS = [
+  {
+    title: 'Operations',
+    items: [
+      { label: 'Overview', to: '/admin', icon: LayoutDashboard },
+      { label: 'Live fleet', to: '/admin/fleet-map', icon: Map },
+      { label: 'Round planner', to: '/admin/rounds', icon: Route },
+      { label: 'Vehicles', to: '/admin/vehicles', icon: Car },
+      { label: 'Driver approvals', to: '/admin/approvals', icon: Users },
+    ],
+  },
+  {
+    title: 'Emissions and model',
+    items: [
+      { label: 'Emissions', to: '/admin/sustainability', icon: Leaf },
+      { label: 'Evidence and feedback', to: '/admin/learning', icon: BarChart2 },
+      { label: 'Model lab', to: '/admin/ai', icon: FlaskConical },
+      { label: 'Reports', to: '/admin/reports', icon: FileDown },
+    ],
+  },
 ];
+
+function NavItem({ item, collapsed }) {
+  const Icon = item.icon;
+  return (
+    <NavLink
+      title={item.label}
+      to={item.to}
+      end={item.to === '/admin'}
+      className={({ isActive }) => `gg-nav-link ${isActive ? 'active' : ''}`}
+    >
+      <Icon size={17} className="flex-shrink-0" />
+      {!collapsed && <span className="hidden md:inline truncate">{item.label}</span>}
+    </NavLink>
+  );
+}
 
 export default function AdminLayout() {
   const { user, logout } = useAuth();
@@ -40,75 +56,58 @@ export default function AdminLayout() {
   };
 
   return (
-    <div className="flex min-h-screen bg-[#f5f7f1] font-sans">
-      {/* Collapsible Admin Sidebar */}
+    <div className="flex min-h-screen bg-neutral-bg">
       <aside
-        className={`relative flex flex-col bg-[#143d31] text-white transition-all duration-300 ${
-          collapsed ? 'w-16' : 'w-16 md:w-60'
-        } min-h-screen flex-shrink-0 z-20`}
+        className={`sticky top-0 h-screen self-start flex flex-col text-white transition-all duration-300 flex-shrink-0 z-20 ${
+          collapsed ? 'w-16' : 'w-16 md:w-64'
+        }`}
+        style={{ background: 'var(--gg-sign-deep)' }}
       >
-        {/* Brand Header */}
-        <div className="flex items-center gap-2.5 px-4 py-5 border-b border-white/10 overflow-hidden">
-          <Leaf className="text-eco w-6 h-6 flex-shrink-0" />
-          {!collapsed && (
-            <span className="hidden md:inline text-lg font-extrabold tracking-tight truncate">
-              GoGreen
-            </span>
-          )}
+        <div className="flex items-center gap-3 px-4 py-5 border-b border-white/10 overflow-hidden">
+          <span className="gg-sign-mark" aria-hidden="true">G</span>
+          {!collapsed && <span className="hidden md:inline gg-wordmark">GoGreen</span>}
         </div>
 
-        {/* Navigation Items */}
-        <nav className="flex-1 py-4 flex flex-col gap-1 px-2 overflow-y-auto">
-          {NAV.map(({ label, to, icon: Icon }) => (
-            <NavLink
-              key={to}
-              title={label}
-              to={to}
-              end={to === '/admin'}
-              className={({ isActive }) =>
-                `flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-colors ${
-                  isActive
-                    ? 'bg-[#0b0f19]/20 text-white shadow-sm font-semibold'
-                    : 'text-white/70 hover:bg-[#0b0f19]/10 hover:text-white'
-                }`
-              }
-            >
-              <Icon size={18} className="flex-shrink-0" />
-              {!collapsed && <span className="hidden md:inline truncate">{label}</span>}
-            </NavLink>
+        <nav className="flex-1 py-2 px-3 overflow-y-auto" aria-label="Admin">
+          {NAV_GROUPS.map((group) => (
+            <div key={group.title}>
+              {!collapsed && <p className="gg-nav-group hidden md:block">{group.title}</p>}
+              <div className="flex flex-col gap-0.5">
+                {group.items.map((item) => <NavItem key={item.to} item={item} collapsed={collapsed} />)}
+              </div>
+            </div>
           ))}
         </nav>
 
-        {/* User Footer & Logout */}
-        <div className="border-t border-white/10 p-3">
-          {!collapsed && (
-            <div className="hidden md:block text-xs text-white/60 px-2 mb-2 truncate">
-              {user?.name || user?.email || 'System Admin'}
-            </div>
-          )}
-          <button
-            onClick={handleLogout}
-            className="flex items-center gap-3 w-full px-3 py-2 rounded-xl text-sm text-white/70 hover:bg-[#0b0f19]/10 hover:text-white transition-colors"
-            title={collapsed ? 'Logout' : undefined}
-          >
-            <LogOut size={18} className="flex-shrink-0" />
-            {!collapsed && <span className="hidden md:inline truncate">Logout</span>}
+        <div className="border-t border-white/10 px-3 py-3 flex flex-col gap-0.5">
+          <NavItem item={{ label: 'Settings', to: '/admin/settings', icon: Settings }} collapsed={collapsed} />
+          <button onClick={handleLogout} className="gg-nav-link w-full" title="Log out">
+            <LogOut size={17} className="flex-shrink-0" />
+            {!collapsed && <span className="hidden md:inline truncate">Log out</span>}
           </button>
+          {!collapsed && (
+            <p className="hidden md:block px-3 pt-2 text-xs text-white/50 truncate">
+              {user?.name || user?.email || 'Administrator'}
+            </p>
+          )}
         </div>
 
-        {/* Collapse Toggle Floating Button */}
         <button
-          onClick={() => setCollapsed((c) => !c)}
-          className="absolute bottom-20 -right-3 w-6 h-6 bg-[#143d31] border border-white/20 rounded-full flex items-center justify-center text-white/70 hover:text-white transition-colors shadow-md z-30"
+          onClick={() => setCollapsed((value) => !value)}
+          className="absolute bottom-24 -right-3 w-6 h-6 rounded-full border border-white/20 flex items-center justify-center text-white/70 hover:text-white z-30"
+          style={{ background: 'var(--gg-sign-deep)' }}
           aria-label={collapsed ? 'Expand sidebar' : 'Collapse sidebar'}
         >
           {collapsed ? <ChevronRight size={12} /> : <ChevronLeft size={12} />}
         </button>
       </aside>
 
-      {/* Main Content Area */}
-      <main className="flex-1 p-4 md:p-6 lg:p-8 overflow-y-auto relative min-w-0">
-        {user?.demo_mode && <div className="mb-5 rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-xs text-amber-900" role="status">Demonstration workspace · Sample history is labeled and stored in a separate database. New journeys use the connected workflow.</div>}
+      <main className="flex-1 min-w-0 overflow-y-auto px-4 py-6 md:px-8 lg:px-10">
+        {user?.demo_mode && (
+          <div className="gg-demo-strip" role="status">
+            <i />Demo workspace · sample history is labelled and kept in a separate database; new trips use the live workflow.
+          </div>
+        )}
         <Outlet />
       </main>
     </div>

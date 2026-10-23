@@ -106,10 +106,11 @@ function App() {
 // Minimal placeholder for pages not yet built
 function ComingSoon({ title }) {
   return (
-    <div className="flex flex-col items-center justify-center py-20 text-center">
-      <div className="text-5xl mb-4">🚧</div>
-      <h2 className="text-xl font-bold text-neutral-textMain mb-2">{title}</h2>
-      <p className="text-neutral-textMuted text-sm">This screen will be built in a later phase.</p>
+    <div className="op-page">
+      <div className="op-panel op-empty">
+        <h3>{title}</h3>
+        <p>Not part of this release. Trip updates appear on your home screen and in trip history.</p>
+      </div>
     </div>
   );
 }

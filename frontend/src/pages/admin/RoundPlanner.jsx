@@ -112,9 +112,9 @@ export default function RoundPlanner() {
   return (
     <div className="op-page">
       <PageHeader
-        eyebrow="GOGREEN / MULTI-STOP ROUNDS"
-        title="Plan the whole round."
-        description="Order a vehicle's deliveries for time, CO₂, or a balance. The load drops after every delivery, so the visiting order changes fuel use as well as time."
+        eyebrow="Admin · round planner"
+        title="Round planner"
+        description="Exact best delivery order for up to 10 stops, for time, CO₂ or a balance. The vehicle gets lighter after each drop, so the order changes fuel use as well as time."
       />
       <ErrorNotice>{error}</ErrorNotice>
 
@@ -224,7 +224,7 @@ function mapLayers(depot, stops, result, selectedPlan) {
       const stop = result.stops.find((item) => item.index === stopIndex);
       if (stop) markers.push({ lat: stop.lat, lng: stop.lng, label: String(position + 1), title: `${position + 1}. ${stop.label} · drop ${stop.drop_kg} kg` });
     });
-    const lines = selectedPlan.path_points?.length ? [{ points: selectedPlan.path_points, color: '#16a34a' }] : [];
+    const lines = selectedPlan.path_points?.length ? [{ points: selectedPlan.path_points, color: '#1b6a45' }] : [];
     return { markers, lines };
   }
 
@@ -276,8 +276,10 @@ function RoundResult({ result, selectedPlanKey, onSelectPlan }) {
         </section>
         <section className="op-panel">
           <div className="op-panel-heading">
-            <h2>Time versus CO₂</h2>
-            <p>Each point is an optimal order for one weighting</p>
+            <div>
+              <h2>Time versus CO₂</h2>
+              <p>Each point is the optimal order for one time/CO₂ weighting</p>
+            </div>
           </div>
           <ParetoChart points={result.pareto} />
         </section>
@@ -363,19 +365,19 @@ function ParetoChart({ points = [] }) {
 
   return (
     <svg className="op-scatter" viewBox={`0 0 ${width} ${height}`} role="img" aria-label="Trade-off between round duration in minutes and CO2 in kilograms">
-      <line x1={pad.left} y1={height - pad.bottom} x2={width - pad.right} y2={height - pad.bottom} stroke="#cfd9d1" />
-      <line x1={pad.left} y1={pad.top} x2={pad.left} y2={height - pad.bottom} stroke="#cfd9d1" />
+      <line x1={pad.left} y1={height - pad.bottom} x2={width - pad.right} y2={height - pad.bottom} style={{ stroke: 'var(--gg-line-strong)' }} />
+      <line x1={pad.left} y1={pad.top} x2={pad.left} y2={height - pad.bottom} style={{ stroke: 'var(--gg-line-strong)' }} />
       {[xMin, xMax].map((value) => (
-        <text key={`x${value}`} x={x(value)} y={height - pad.bottom + 16} fontSize="10" fill="#6a7a76" textAnchor="middle">{amount(value)}</text>
+        <text key={`x${value}`} x={x(value)} y={height - pad.bottom + 16} fontSize="10" fontFamily="IBM Plex Mono, monospace" style={{ fill: 'var(--gg-faint)' }} textAnchor="middle">{amount(value)}</text>
       ))}
       {[yMin, yMax].map((value) => (
-        <text key={`y${value}`} x={pad.left - 6} y={y(value) + 3} fontSize="10" fill="#6a7a76" textAnchor="end">{amount(value)}</text>
+        <text key={`y${value}`} x={pad.left - 6} y={y(value) + 3} fontSize="10" fontFamily="IBM Plex Mono, monospace" style={{ fill: 'var(--gg-faint)' }} textAnchor="end">{amount(value)}</text>
       ))}
-      <text x={(pad.left + width - pad.right) / 2} y={height - 6} fontSize="11" fill="#5a7162" textAnchor="middle">Round time (min)</text>
-      <text x={14} y={(pad.top + height - pad.bottom) / 2} fontSize="11" fill="#5a7162" textAnchor="middle" transform={`rotate(-90 14 ${(pad.top + height - pad.bottom) / 2})`}>CO₂ (kg)</text>
+      <text x={(pad.left + width - pad.right) / 2} y={height - 6} fontSize="11" style={{ fill: 'var(--gg-muted)' }} textAnchor="middle">Round time (min)</text>
+      <text x={14} y={(pad.top + height - pad.bottom) / 2} fontSize="11" style={{ fill: 'var(--gg-muted)' }} textAnchor="middle" transform={`rotate(-90 14 ${(pad.top + height - pad.bottom) / 2})`}>CO₂ (kg)</text>
       {points.map((point, index) => (
         <g key={index}>
-          <circle cx={x(point.duration_min)} cy={y(point.co2_kg)} r="5" fill="#2f8a5c" stroke="#ffffff" strokeWidth="1.5">
+          <circle cx={x(point.duration_min)} cy={y(point.co2_kg)} r="5" style={{ fill: 'var(--gg-sign)' }} stroke="#ffffff" strokeWidth="1.5">
             <title>{`Weight ${point.weight}: ${amount(point.duration_min)} min, ${amount(point.co2_kg)} kg CO₂`}</title>
           </circle>
         </g>

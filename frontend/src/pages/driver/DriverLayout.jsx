@@ -1,12 +1,12 @@
-import React from 'react';
 import { NavLink, Outlet, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
-import { Leaf, LayoutDashboard, Plus, History, Bell, User, LogOut } from 'lucide-react';
+import { LayoutDashboard, Plus, History, Bell, User, LogOut } from 'lucide-react';
+import '../../components/operations.css';
 
 const NAV = [
-  { label: 'Dashboard', to: '/driver', icon: LayoutDashboard },
-  { label: 'New Trip', to: '/driver/new-trip', icon: Plus },
-  { label: 'Trip History', to: '/driver/history', icon: History },
+  { label: 'Home', to: '/driver', icon: LayoutDashboard },
+  { label: 'Plan a trip', to: '/driver/new-trip', icon: Plus },
+  { label: 'History', to: '/driver/history', icon: History },
   { label: 'Notifications', to: '/driver/notifications', icon: Bell },
   { label: 'Profile', to: '/driver/profile', icon: User },
 ];
@@ -14,45 +14,60 @@ const NAV = [
 export default function DriverLayout() {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
-  const handleLogout = () => { logout(); navigate('/login'); };
+  const handleLogout = () => {
+    logout();
+    navigate('/login');
+  };
 
   return (
-    <div className="min-h-screen bg-[#f5f7f1] flex flex-col">
-      {/* Top nav (desktop) */}
-      <header className="hidden md:flex items-center justify-between px-6 py-4 bg-white/90 backdrop-blur-md border-b border-neutral-border sticky top-0 z-10">
-        <div className="flex items-center gap-2">
-          <Leaf className="text-eco w-6 h-6" />
-          <span className="text-xl font-extrabold text-[#153d31]">GoGreen</span>
+    <div className="min-h-screen bg-neutral-bg flex flex-col">
+      {/* Top bar (desktop) */}
+      <header className="hidden md:flex items-center justify-between px-8 bg-white border-b border-neutral-border sticky top-0 z-10">
+        <div className="flex items-center gap-3">
+          <span className="gg-sign-mark" aria-hidden="true">G</span>
+          <span className="gg-wordmark" style={{ color: 'var(--gg-sign-deep)' }}>GoGreen</span>
         </div>
-        <nav className="flex items-center gap-1">
+        <nav className="flex items-center gap-6" aria-label="Driver">
           {NAV.map(({ label, to, icon: Icon }) => (
-            <NavLink key={to} to={to} end={to === '/driver'}
-              className={({ isActive }) =>
-                `flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-colors ${isActive ? 'bg-[#153d31] text-white' : 'text-neutral-textMuted hover:bg-neutral-bg hover:text-[#153d31]'}`
-              }>
-              <Icon size={15} />{label}
+            <NavLink
+              key={to}
+              to={to}
+              end={to === '/driver'}
+              className={({ isActive }) => `gg-top-link ${isActive ? 'active' : ''}`}
+            >
+              <Icon size={15} />
+              {label}
             </NavLink>
           ))}
         </nav>
         <div className="flex items-center gap-3">
           <span className="text-sm text-neutral-textMuted">{user?.name}</span>
-          <button aria-label="Log out" onClick={handleLogout} className="text-neutral-textMuted hover:text-danger"><LogOut size={18} /></button>
+          <button aria-label="Log out" onClick={handleLogout} className="op-icon-button">
+            <LogOut size={18} />
+          </button>
         </div>
       </header>
 
-      {/* Page content */}
-      <main className="flex-1 p-4 md:p-6 pb-24 md:pb-6">
-        {user?.demo_mode && <div className="mb-5 rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-xs text-amber-900" role="status">Demonstration workspace · Sample history is not measured fleet activity. New journeys are saved in the separate preview database.</div>}
+      <main className="flex-1 px-4 py-6 md:px-8 pb-24 md:pb-8">
+        {user?.demo_mode && (
+          <div className="gg-demo-strip" role="status">
+            <i />Demo workspace · sample history is not measured fleet activity; new trips are saved in the preview database.
+          </div>
+        )}
         <Outlet />
       </main>
 
       {/* Bottom tab bar (mobile) */}
-      <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-neutral-border flex justify-around py-2 z-10">
+      <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-neutral-border flex justify-around py-2 z-10" aria-label="Driver">
         {NAV.map(({ label, to, icon: Icon }) => (
-          <NavLink key={to} to={to} end={to === '/driver'}
+          <NavLink
+            key={to}
+            to={to}
+            end={to === '/driver'}
             className={({ isActive }) =>
-              `flex flex-col items-center gap-0.5 text-xs font-medium transition-colors ${isActive ? 'text-[#153d31]' : 'text-neutral-textMuted'}`
-            }>
+              `flex flex-col items-center gap-0.5 text-xs font-medium ${isActive ? 'text-primary' : 'text-neutral-textMuted'}`
+            }
+          >
             <Icon size={20} />
             {label}
           </NavLink>
