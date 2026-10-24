@@ -29,6 +29,8 @@ import NewTrip from './pages/driver/NewTrip';
 
 import ActiveTrip from './pages/driver/ActiveTrip';
 import TripHistory from './pages/driver/TripHistory';
+import Notifications from './pages/driver/Notifications';
+import Profile from './pages/driver/Profile';
 
 // ── Route Guards ──────────────────────────────────────────────────────────────
 
@@ -89,12 +91,11 @@ function App() {
           {/* Driver */}
           <Route path="/driver" element={<ProtectedRoute allowedRoles={['driver']}><DriverLayout /></ProtectedRoute>}>
             <Route index element={<DriverDashboard />} />
-            {/* Phase 3/4 pages */}
             <Route path="new-trip" element={<NewTrip />} />
             <Route path="active-trip/:id" element={<ActiveTrip />} />
             <Route path="history" element={<TripHistory />} />
-            <Route path="notifications" element={<ComingSoon title="Notifications" />} />
-            <Route path="profile" element={<ComingSoon title="Profile" />} />
+            <Route path="notifications" element={<Notifications />} />
+            <Route path="profile" element={<Profile />} />
           </Route>
 
           {/* Fallback */}
@@ -102,18 +103,6 @@ function App() {
         </Routes>
       </Router>
     </AuthProvider>
-  );
-}
-
-// Minimal placeholder for pages not yet built
-function ComingSoon({ title }) {
-  return (
-    <div className="op-page">
-      <div className="op-panel op-empty">
-        <h3>{title}</h3>
-        <p>Not part of this release. Trip updates appear on your home screen and in trip history.</p>
-      </div>
-    </div>
   );
 }
 

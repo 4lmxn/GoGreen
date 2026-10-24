@@ -7,9 +7,13 @@ import './operations.css';
 export const errorMessage = (error) =>
   error.response?.data?.message || 'Unable to connect. Check the server and try again.';
 
+// The server stores UTC; some endpoints omit the timezone, so a bare timestamp is read as UTC.
+const asUtc = (value) =>
+  typeof value === 'string' && /T\d{2}:\d{2}/.test(value) && !/(Z|[+-]\d{2}:?\d{2})$/.test(value) ? `${value}Z` : value;
+
 export const formatDate = (value) =>
   value
-    ? new Date(value).toLocaleString([], { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' })
+    ? new Date(asUtc(value)).toLocaleString([], { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' })
     : 'Not recorded';
 
 export const amount = (value) =>

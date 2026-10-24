@@ -1,6 +1,8 @@
+import { useEffect } from 'react';
 import { NavLink, Outlet, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { LayoutDashboard, Plus, History, Bell, User, LogOut } from 'lucide-react';
+import { usePolling } from '../../components/Operations';
 import '../../components/operations.css';
 
 const NAV = [
@@ -14,6 +16,13 @@ const NAV = [
 export default function DriverLayout() {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
+  const { data: notifications, reload: reloadNotifications } = usePolling('/notifications', 30000);
+  useEffect(() => {
+    window.addEventListener('gg:notifications-read', reloadNotifications);
+    return () => window.removeEventListener('gg:notifications-read', reloadNotifications);
+  }, [reloadNotifications]);
+  const unread = (notifications || []).filter((item) => !item.is_read).length;
+  const badge = (to) => (to === '/driver/notifications' && unread ? <b className="gg-badge">{unread}</b> : null);
   const handleLogout = () => {
     logout();
     navigate('/login');
@@ -37,6 +46,7 @@ export default function DriverLayout() {
             >
               <Icon size={15} />
               {label}
+              {badge(to)}
             </NavLink>
           ))}
         </nav>
@@ -68,7 +78,10 @@ export default function DriverLayout() {
               `flex flex-col items-center gap-0.5 text-xs font-medium ${isActive ? 'text-primary' : 'text-neutral-textMuted'}`
             }
           >
-            <Icon size={20} />
+            <span className="relative">
+              <Icon size={20} />
+              {badge(to)}
+            </span>
             {label}
           </NavLink>
         ))}

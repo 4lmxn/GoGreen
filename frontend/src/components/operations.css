@@ -783,3 +783,217 @@ input.op-input[inputmode='decimal'] { font-family: var(--gg-font-mono); }
 
 /* Panel whose content (a table, a modal) brings its own padding. */
 .op-panel.flush { padding: 0; }
+
+/* ── Driver rounds: the working screen ──────────────────────────────────── */
+
+.op-route-values.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+.gg-progress {
+  height: 8px;
+  border-radius: 999px;
+  background: var(--gg-sign-tint);
+  overflow: hidden;
+}
+.gg-progress-bar {
+  height: 100%;
+  background: var(--gg-sign);
+  border-radius: 999px;
+  transition: width 0.3s ease;
+}
+
+.gg-round-figures {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 16px 0 18px;
+}
+.gg-round-figures b {
+  display: block;
+  font: 600 24px/1.15 var(--gg-font-mono);
+  font-variant-numeric: tabular-nums;
+}
+.gg-round-figures b small { font-size: 13px; color: var(--gg-faint); font-weight: 500; }
+.gg-round-figures span { font-size: 12px; color: var(--gg-muted); }
+
+.gg-round-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
+  gap: 20px;
+  align-items: start;
+}
+.gg-round-map { height: 460px; }
+
+/* Next stop: the one card the driver looks at, so it gets the tint and the big button. */
+.gg-next-stop {
+  background: var(--gg-sign-tint);
+  border-radius: var(--gg-radius-lg);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.gg-next-stop h3 {
+  font: 700 26px/1.1 var(--gg-font-display);
+  color: var(--gg-sign-deep);
+}
+.gg-next-stop p { font-size: 13.5px; color: var(--gg-muted); }
+.gg-next-actions {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 10px;
+  margin-top: 12px;
+}
+.gg-big-button { min-height: 52px; font-size: 15px; }
+
+.gg-stop-list { display: flex; flex-direction: column; list-style: none; padding: 0; margin: 0; }
+.gg-stop-list li {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--gg-line);
+}
+.gg-stop-list li:last-child { border-bottom: 0; }
+.gg-stop-list strong { font-size: 14px; font-weight: 600; }
+.gg-stop-list p { font-size: 12px; color: var(--gg-faint); }
+.gg-stop-number {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: var(--gg-paper);
+  color: var(--gg-muted);
+  font: 600 12px/1 var(--gg-font-mono);
+}
+.gg-stop-list li.next .gg-stop-number { background: var(--gg-amber); color: var(--gg-sign-deep); }
+.gg-stop-list li.done .gg-stop-number { background: var(--gg-sign); color: #fff; }
+.gg-stop-list li.done strong { color: var(--gg-muted); text-decoration: line-through; text-decoration-color: var(--gg-line-strong); }
+
+.leaflet-marker-icon.op-pin.done { background: var(--gg-line-strong); }
+.leaflet-marker-icon.op-pin.next { background: var(--gg-amber); color: var(--gg-sign-deep); box-shadow: 0 0 0 4px rgb(224 163 46 / 0.35); }
+
+.gg-finish { border-top: 1px solid var(--gg-line); padding-top: 14px; }
+
+.gg-today-empty {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.gg-plate {
+  display: inline-block;
+  font: 600 22px/1 var(--gg-font-mono);
+  letter-spacing: 0.04em;
+  padding: 8px 12px;
+  border: 2px solid var(--gg-ink);
+  border-radius: var(--gg-radius-sm);
+  margin-bottom: 14px;
+}
+
+.gg-facts { display: grid; gap: 0; margin: 0; }
+.gg-facts div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--gg-line);
+  font-size: 13.5px;
+}
+.gg-facts dt { color: var(--gg-muted); }
+.gg-facts dd { margin: 0; font-weight: 500; text-align: right; overflow-wrap: anywhere; }
+.gg-facts dd.cap { text-transform: capitalize; }
+
+.gg-learned {
+  margin-top: 14px;
+  padding: 12px 14px;
+  border-radius: var(--gg-radius-md);
+  background: var(--gg-sign-tint);
+}
+.gg-learned strong { font-size: 14px; color: var(--gg-sign-deep); }
+.gg-learned p { font-size: 12px; color: var(--gg-muted); margin-top: 2px; }
+
+.gg-notifications { list-style: none; margin: 0; padding: 0; }
+.gg-notifications li { border-bottom: 1px solid var(--gg-line); }
+.gg-notifications li:last-child { border-bottom: 0; }
+.gg-notifications button {
+  width: 100%;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  text-align: left;
+  padding: 14px 4px;
+  color: var(--gg-muted);
+}
+.gg-notifications button.unread { color: var(--gg-ink); }
+.gg-notifications button.unread strong::after {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-left: 8px;
+  border-radius: 50%;
+  background: var(--gg-amber);
+  vertical-align: 1px;
+}
+.gg-notification-text { display: flex; flex-direction: column; gap: 2px; flex: 1; min-width: 0; font-size: 13.5px; }
+.gg-notification-text strong { font-size: 14px; font-weight: 600; }
+.gg-notification-time { font-size: 11.5px; color: var(--gg-faint); white-space: nowrap; }
+
+.gg-badge {
+  display: inline-flex;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9px;
+  background: var(--gg-amber);
+  color: var(--gg-sign-deep);
+  font: 700 10.5px/1 var(--gg-font-mono);
+}
+nav[aria-label="Driver"] .relative .gg-badge { position: absolute; top: -6px; right: -10px; }
+
+.gg-dispatch {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--gg-line);
+}
+.gg-dispatch strong { font-size: 14px; font-weight: 600; }
+.op-error-text { font-size: 13.5px; color: var(--gg-risk); font-weight: 500; }
+
+@media (max-width: 900px) {
+  .gg-round-body { grid-template-columns: minmax(0, 1fr); }
+  .gg-round-map { height: 320px; }
+}
+@media (max-width: 560px) {
+  .gg-round-figures { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .gg-round-figures div:last-child { grid-column: span 2; }
+  .op-route-values.four { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .gg-next-actions { grid-template-columns: minmax(0, 1fr); }
+}
+.op-panel h2 + .gg-plate { margin-top: 12px; }
+
+/* Live fleet: sandbox overlay */
+.gg-sim-bar { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; padding: 14px 18px; }
+.gg-sim-tag {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: var(--gg-radius-sm);
+  background: var(--gg-amber-tint);
+  color: #7a5310;
+  font: 600 11px/1.4 var(--gg-font-mono);
+  letter-spacing: 0.06em;
+}
+.gg-sim-kpis { font-size: 12.5px; color: var(--gg-muted); }
+.gg-sim-legend { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; }
+.gg-sim-legend i { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 5px; vertical-align: 0; }

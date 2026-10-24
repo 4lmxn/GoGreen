@@ -50,6 +50,7 @@ export default function MapView({
   markers = NONE, // [{ lat, lng, label, title, className }] numbered pins (round planner)
   lines = NONE, // [{ points, color }] extra polylines drawn in order
   onMapClick = null, // (lat, lng) => void
+  dots = NONE, // [{ lat, lng, color, radius, title }] small circles, e.g. simulated trucks
 }) {
   const mapRef = useRef(null);
   const leafletMapRef = useRef(null);
@@ -99,6 +100,19 @@ export default function MapView({
       bounds.extend(polyline.getBounds());
     });
 
+    // Small circles drawn first so real pins and routes sit on top.
+    dots.forEach((dot) => {
+      const circle = L.circleMarker([dot.lat, dot.lng], {
+        radius: dot.radius || 5,
+        color: '#ffffff',
+        weight: 1,
+        fillColor: dot.color || SIGN_GREEN,
+        fillOpacity: 0.9,
+      }).addTo(layerGroup);
+      if (dot.title) circle.bindTooltip(popupText(dot.title));
+      bounds.extend([dot.lat, dot.lng]);
+    });
+
     // Numbered pins.
     markers.forEach((marker) => {
       const icon = L.divIcon({
@@ -146,7 +160,7 @@ export default function MapView({
       map.fitBounds(bounds, { padding: [50, 50] });
     }
     map.invalidateSize();
-  }, [routes, selectedRouteId, origin, destination, currentLocation, autoCenterOnGps, markers, lines]);
+  }, [routes, selectedRouteId, origin, destination, currentLocation, autoCenterOnGps, markers, lines, dots]);
 
   return (
     <div className="relative w-full h-full overflow-hidden">

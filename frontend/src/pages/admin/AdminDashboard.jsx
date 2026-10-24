@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowUpRight, Car, Leaf, Route, Users, Download, Navigation } from 'lucide-react';
+import { ArrowUpRight, Boxes, Car, Leaf, Route, Users, Download, Navigation } from 'lucide-react';
 import {
   usePolling, PageHeader, RefreshButton, ErrorNotice, Loading, Metric, ActivityChart, TripList, amount, formatDate,
 } from '../../components/Operations';
@@ -58,6 +58,10 @@ function ActionLink({ to, icon: Icon, title, text }) {
 
 export default function AdminDashboard() {
   const { data, error, loading, reload } = usePolling('/admin/stats');
+  const rounds = usePolling('/rounds');
+  const roundList = rounds.data?.rounds || [];
+  const roundsOnRoad = roundList.filter((round) => round.status === 'in_progress').length;
+  const roundsWaiting = roundList.filter((round) => round.status === 'planned').length;
 
   return (
     <div className="op-page">
@@ -94,6 +98,12 @@ export default function AdminDashboard() {
                 icon={Navigation}
                 title={`${data.active_trips} trip${data.active_trips === 1 ? '' : 's'} on the road`}
                 text="Last GPS position and route on the live map"
+              />
+              <ActionLink
+                to="/admin/rounds"
+                icon={Boxes}
+                title={`${roundsOnRoad} round${roundsOnRoad === 1 ? '' : 's'} on the road · ${roundsWaiting} waiting`}
+                text="Plan a round and send it to a driver"
               />
               <ActionLink
                 to="/admin/approvals"

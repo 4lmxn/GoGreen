@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { Route as RouteIcon, Trash2 } from 'lucide-react';
+import { Route as RouteIcon, Send, Trash2 } from 'lucide-react';
 import api from '../../api/api';
 import MapView from '../../components/MapView';
 import { PageHeader, ErrorNotice, Empty, errorMessage, amount } from '../../components/Operations';
@@ -42,6 +42,7 @@ export default function RoundPlanner() {
   const [selectedPlanKey, setSelectedPlanKey] = useState('balanced');
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState('');
+  const [dispatch, setDispatch] = useState(null); // { ok, text } after "Send to driver"
 
   useEffect(() => {
     api.get('/vehicles')
@@ -82,17 +83,23 @@ export default function RoundPlanner() {
     setStops([]);
   }
 
+  // The same inputs go to /plan and /dispatch, so the driver gets exactly the round shown here.
+  function roundRequest() {
+    return {
+      vehicle_id: Number(vehicleId),
+      depot,
+      stops: stops.map((stop) => ({ label: stop.label, place: stop.place, drop_kg: Number(stop.drop_kg) })),
+      return_to_depot: returnToDepot,
+    };
+  }
+
   async function optimise(event) {
     event.preventDefault();
     setBusy(true);
     setError('');
+    setDispatch(null);
     try {
-      const { data } = await api.post('/rounds/plan', {
-        vehicle_id: Number(vehicleId),
-        depot,
-        stops: stops.map((stop) => ({ label: stop.label, place: stop.place, drop_kg: Number(stop.drop_kg) })),
-        return_to_depot: returnToDepot,
-      });
+      const { data } = await api.post('/rounds/plan', roundRequest());
       setResult(data);
       setSelectedPlanKey(data.plans.some((plan) => plan.key === 'balanced') ? 'balanced' : data.plans[0]?.key);
     } catch (err) {
@@ -102,6 +109,21 @@ export default function RoundPlanner() {
     }
   }
 
+  async function sendToDriver() {
+    setBusy(true);
+    setDispatch(null);
+    try {
+      const { data } = await api.post('/rounds/dispatch', { ...roundRequest(), plan_key: selectedPlanKey });
+      const round = data.round || data;
+      setDispatch({ ok: true, text: `Sent to ${round.driver?.name || 'the driver'} as round #${round.id}. They have been notified.` });
+    } catch (err) {
+      setDispatch({ ok: false, text: errorMessage(err) });
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  const selectedVehicle = vehicles.find((vehicle) => String(vehicle.id) === String(vehicleId));
   const selectedPlan = result?.plans.find((plan) => plan.key === selectedPlanKey);
   const { markers, lines } = useMemo(
     () => mapLayers(depot, stops, result, selectedPlan),
@@ -179,7 +201,16 @@ export default function RoundPlanner() {
         <RoundResult
           result={result}
           selectedPlanKey={selectedPlanKey}
-          onSelectPlan={setSelectedPlanKey}
+          onSelectPlan={(key) => { setSelectedPlanKey(key); setDispatch(null); }}
+          dispatchPanel={(
+            <DispatchPanel
+              vehicle={selectedVehicle}
+              planTitle={PLAN_TITLES[selectedPlanKey] || selectedPlanKey}
+              busy={busy}
+              outcome={dispatch}
+              onSend={sendToDriver}
+            />
+          )}
         />
       ) : (
         <section className="op-panel">
@@ -235,7 +266,28 @@ function mapLayers(depot, stops, result, selectedPlan) {
   return { markers, lines: [] };
 }
 
-function RoundResult({ result, selectedPlanKey, onSelectPlan }) {
+/** Send the selected plan to the driver of the chosen vehicle. */
+function DispatchPanel({ vehicle, planTitle, busy, outcome, onSend }) {
+  const driver = vehicle?.assigned_driver_name;
+  return (
+    <div className="gg-dispatch">
+      <div>
+        <strong>Send this round to the driver</strong>
+        <p className="op-note">
+          {driver
+            ? `${vehicle.vehicle_no} is driven by ${driver}. They will see the stops in this order.`
+            : 'This vehicle has no driver. Assign one on the Vehicles page first.'}
+        </p>
+        {outcome && <p className={outcome.ok ? 'op-success' : 'op-error-text'} role="status">{outcome.text}</p>}
+      </div>
+      <button className="op-button" onClick={onSend} disabled={busy || !driver || outcome?.ok}>
+        <Send size={16} /> {outcome?.ok ? 'Sent' : `Send ${planTitle.toLowerCase()} plan to ${driver || 'driver'}`}
+      </button>
+    </div>
+  );
+}
+
+function RoundResult({ result, selectedPlanKey, onSelectPlan, dispatchPanel }) {
   const selectedPlan = result.plans.find((plan) => plan.key === selectedPlanKey);
   const savings = result.savings_vs_fastest;
 
@@ -264,6 +316,7 @@ function RoundResult({ result, selectedPlanKey, onSelectPlan }) {
             />
           ))}
         </div>
+        {dispatchPanel}
       </section>
 
       <div className="op-columns">
