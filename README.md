@@ -53,3 +53,4 @@ Run the demo backend with `CORS_ORIGINS` set to the frontend address (e.g. `http
 Tests: `cd backend && python -m pytest -q` (89 tests, no network needed).
 
 Route planning needs internet access: OSRM and Open-Meteo are free public APIs that need no key. If either is down, the app says so instead of inventing values.
+# GoGreen
