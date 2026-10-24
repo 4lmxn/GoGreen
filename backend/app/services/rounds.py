@@ -67,8 +67,11 @@ class Round:
     """Cost model for one round. Node 0 is the depot; nodes 1..n are stops."""
 
     def __init__(self, durations, distances, elevations, drops, start_load, vehicle_key, fuel_key,
-                 temp_c, wet_road, return_to_depot, calibration_factor=1.0):
+                 temp_c, wet_road, return_to_depot, calibration_factor=1.0, use_hybrid=False):
         self.factor = calibration_factor
+        # The ML correction was learned from trips of 2 km or more, so shorter legs stay physics-only.
+        from app.ml import hybrid
+        self.use_hybrid = use_hybrid and hybrid.applies(vehicle_key, fuel_key)
         self.dur, self.dist, self.elev = durations, distances, elevations
         self.drops, self.start_load = drops, start_load
         self.n = len(drops)
@@ -91,6 +94,9 @@ class Round:
             load = self.load_after(mask)
             result = physics.estimate(seg, self.vehicle_key, self.fuel_key, load,
                                       temp_c=self.temp_c, wet_road=self.wet_road, turns=turns)
+            if self.use_hybrid and d >= 2000:
+                from app.ml import hybrid
+                result, _ = hybrid.apply(result, self.temp_c, t / 60)
             # The learned per-vehicle factor scales every leg equally, so it changes the
             # reported fuel and CO2 but never the optimal order.
             self._legs[key] = dict(result, co2_kg=round(result['co2_kg'] * self.factor, 3),
@@ -184,7 +190,9 @@ def plan_round(depot, stops, vehicle_key, fuel_key, start_load, return_to_depot=
 
     model = Round(durations, distances, elevations, [s['drop_kg'] for s in stops], start_load,
                   vehicle_key, fuel_key, weather['temp_c'], weather['wet_road'], return_to_depot,
-                  calibration_factor)
+                  calibration_factor, use_hybrid=True)
+    if model.use_hybrid:
+        assumptions.append('Fuel includes the ML correction learned from real petrol-car trips.')
     fastest = model.evaluate(model.solve(0.0))
     time_scale = max(fastest['duration_min'] * 60, 1e-9)
     co2_scale = max(fastest['co2_kg'], 1e-9)

@@ -42,6 +42,55 @@ def fleet_health():
                    predictive_maintenance={'available': False, 'reason': 'No measured maintenance model connected'})
 
 
+VED_ROW_NAMES = {
+    'physics': 'Physics model, before the trip',
+    'physics_calibrated': 'Physics + learning per vehicle',
+    'baseline_class_median': 'Simple baseline: distance × typical L/km',
+    'baseline_own_median': "Baseline using the car's own past trips",
+    'physics_post_trip': 'Physics with the real speed trace (after the trip)',
+    'hybrid': 'Hybrid: physics + ML correction',
+    'hybrid_calibrated': 'Hybrid + learning per vehicle',
+}
+VED_ROW_ORDER = ['hybrid_calibrated', 'hybrid', 'baseline_own_median', 'baseline_class_median',
+                 'physics_calibrated', 'physics']
+
+
+def _metric_rows(group):
+    """Pick every {name: {mae_pct, ...}} entry out of one result group."""
+    rows = []
+    if not isinstance(group, dict):
+        return rows
+    for name, metrics in group.items():
+        if isinstance(metrics, dict) and 'mae_pct' in metrics:
+            rows.append({'key': name, 'name': VED_ROW_NAMES.get(name, name.replace('_', ' ').capitalize()),
+                         'mae_pct': metrics['mae_pct'], 'bias_pct': metrics.get('bias_pct'),
+                         'r2': metrics.get('r2'), 'trips': metrics.get('trips')})
+    return rows
+
+
+def ved_validation():
+    """Compact view of the real-trip validation on the Vehicle Energy Dataset, if it has been run."""
+    from pathlib import Path
+    import json
+    path = Path(__file__).resolve().parents[3] / 'public_data' / 'ved_evaluation.json'
+    try:
+        data = json.loads(path.read_text(encoding='utf-8'))
+    except (OSError, ValueError):
+        return None
+    counts = data.get('counts', {})
+    # The hybrid run re-scored every method on the same holdout trips, so prefer its table.
+    hybrid = data.get('hybrid') or {}
+    rows = _metric_rows(hybrid.get('holdout')) or _metric_rows(data.get('headline_holdout_vehicles'))
+    rows.sort(key=lambda r: VED_ROW_ORDER.index(r['key']) if r['key'] in VED_ROW_ORDER else 99)
+    return {'holdout_vehicles': counts.get('holdout_vehicles'), 'holdout_trips': counts.get('holdout_scored_trips'),
+            'trips_kept': counts.get('trips_kept'), 'hybrid_train_trips': hybrid.get('train_trips'),
+            'hybrid_train_vehicles': hybrid.get('train_vehicles'),
+            'rows': rows,
+            'post_trip': _metric_rows(data.get('post_trip_variant'))[:1],
+            'applies_to_indian_trucks': data.get('applies_to_indian_trucks', False),
+            'limitations': (data.get('limitations') or [])[:4]}
+
+
 @ai_bp.route('/model-card')
 @role_required('admin')
 def model_card():
@@ -50,7 +99,8 @@ def model_card():
     return jsonify(model_version=physics.MODEL_VERSION, equation=EQUATION,
                    profiles=physics.PROFILES, fuels=physics.FUELS, powertrains=physics.POWERTRAINS,
                    assumptions=ASSUMPTIONS, data_sources=DATA_SOURCES,
-                   public_benchmark=public_benchmark(), calibration=calibration_rows())
+                   public_benchmark=public_benchmark(), ved_validation=ved_validation(),
+                   calibration=calibration_rows())
 
 
 @ai_bp.route('/model-lab', methods=['POST'])

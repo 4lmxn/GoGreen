@@ -15,6 +15,8 @@ def evidence_for(vehicle, load, details, mode):
     if details['weather_status'] == 'unavailable':
         notes.append(f'Weather unavailable: we assumed {details["temp_c"]:.0f} °C and a dry road.')
     notes.append('Road speeds are normal speeds, not live traffic.')
+    if mode.startswith('Hybrid'):
+        notes.append('Includes an ML correction learned from real petrol-car trips (USA).')
     return {
         'schema': 'planning-evidence-v2', 'within_documented_domain': not out_of_domain,
         'limitations': out_of_domain + notes,

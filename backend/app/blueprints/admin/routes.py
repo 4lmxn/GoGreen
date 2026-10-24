@@ -26,7 +26,10 @@ def get_stats():
 @role_required('admin')
 def get_fleet():
     from app.services.trip_workflow import serialize
-    return jsonify(trips=[serialize(t) for t in Trip.query.filter_by(status=TripStatus.in_progress).all()])
+    from app.services.dispatch import serialize_round
+    from app.models import DispatchedRound, RoundStatus
+    return jsonify(trips=[serialize(t) for t in Trip.query.filter_by(status=TripStatus.in_progress).all()],
+                   rounds=[serialize_round(r) for r in DispatchedRound.query.filter_by(status=RoundStatus.in_progress).all()])
 
 
 # Mock DB Settings Table (since we don't have a real one in models for simplicity, we mock it)

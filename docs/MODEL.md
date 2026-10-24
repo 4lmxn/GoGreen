@@ -88,6 +88,21 @@ Live example (Bengaluru, medium diesel truck, 6,500 kg over 5 stops): the greene
 
 ## 7. Validation and limits
 
+**Real trips (Vehicle Energy Dataset, `backend/scripts/validate_ved.py`).** 10,119 real petrol-car trips from Ann Arbor, USA, with fuel from the engine's air-flow sensor. Scored on 54 cars (2,231 trips) the model never saw:
+
+| Method | Average error | Bias |
+|---|---|---|
+| Physics, before the trip | 41.7% | −41% (too little fuel) |
+| Physics + per-vehicle learning | 24.8% | −2% |
+| Simple baseline: distance × typical L/km | 19.8% | +6% |
+| Physics with the real speed trace (after the trip) | 17.6% | −5% |
+
+Plain reading:
+- Before a trip, the model cannot see stop-and-go driving, so on its own it predicts too little fuel.
+- Learning per vehicle removes that bias, but the simple baseline is still more accurate for planning.
+- With the real speed trace, the physics beats the baseline. So the physics is sound; the missing piece is stop-and-go driving, which you only see during the trip. Ahn and Rakha (2008) warn about exactly this.
+- These are US petrol cars. Accuracy on Indian diesel trucks is still unknown.
+
 - **Real-data check:** `backend/scripts/evaluate_public_data.py` trains a vehicle-efficiency model on 24,593 FuelEconomy.gov vehicles and tests it on 2,097 from 2023–24. MAE is 0.52 L/100 km vs 2.18 for a baseline, R² 0.91. This validates vehicle efficiency, not trip fuel.
 - **No live traffic:** OSRM speeds are typical road speeds, so congestion is not modelled.
 - **Class-typical parameters** until a vehicle has calibration trips. Indian-fleet trip telemetry for a full validation has not been collected yet.

@@ -213,6 +213,11 @@ function ModelCard() {
         </section>
       </div>
 
+      <section className="op-panel">
+        <h2>Tested on real car trips</h2>
+        <RealTripTest validation={data.ved_validation} />
+      </section>
+
       <div className="op-columns">
         <section className="op-panel">
           <h2>Validated on real EPA data (vehicle efficiency)</h2>
@@ -284,6 +289,52 @@ function FuelsTable({ fuels = {} }) {
         </tbody>
       </table>
     </div>
+  );
+}
+
+const BEST_ROW = { background: 'var(--gg-sign-tint)', fontWeight: 600 };
+
+// Real-trip check on the Vehicle Energy Dataset: cars the model never saw.
+function RealTripTest({ validation }) {
+  if (!validation) {
+    return <Empty title="Not run yet">Run backend/scripts/validate_ved.py to test the model on real trips.</Empty>;
+  }
+  const rows = [...validation.rows, ...validation.post_trip];
+  const best = Math.min(...rows.map((row) => row.mae_pct));
+  return (
+    <>
+      <p className="op-description">
+        {amount(validation.holdout_trips)} real trips by {validation.holdout_vehicles} cars the model never saw
+        (Vehicle Energy Dataset, USA). Lower error is better.
+      </p>
+      <div className="op-table-wrap">
+      <table className="op-table">
+        <thead>
+          <tr>
+            <th>Method</th>
+            <th>Average error</th>
+            <th>Bias</th>
+            <th>R²</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row) => (
+            <tr key={row.key} style={row.mae_pct === best ? BEST_ROW : undefined}>
+              <td>{row.name}</td>
+              <td className="op-num">{row.mae_pct.toFixed(1)}%</td>
+              <td className="op-num">{row.bias_pct == null ? '—' : `${row.bias_pct > 0 ? '+' : ''}${row.bias_pct.toFixed(0)}%`}</td>
+              <td className="op-num">{row.r2 == null ? '—' : row.r2.toFixed(2)}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      </div>
+      <p className="op-note">
+        What this means: before a trip, the model does not know the stop-and-go driving, so on its own it
+        guesses too little fuel. Learning per vehicle fixes the bias. With the real speed trace the physics is good.
+        These are US petrol cars, not Indian trucks.
+      </p>
+    </>
   );
 }
 

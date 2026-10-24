@@ -32,8 +32,13 @@ def planning_weather(lat, lng):
 
 
 def estimate(route, vehicle, load, weather=None):
-    """Physics prediction for one candidate route, corrected by the vehicle's learned calibration."""
-    from app.services.calibration import factor_and_uncertainty
+    """Physics prediction for one candidate route.
+
+    Petrol cars and vans also get the ML correction learned from real trips
+    (app/ml/hybrid.py). Every vehicle is then corrected by its own calibration.
+    """
+    from app.ml import hybrid
+    from app.services.calibration import factor_and_uncertainty, DEFAULT_UNCERTAINTY_PCT
     from app.services.evidence import evidence_for
     vehicle_key = physics.vehicle_class(vehicle.type)
     fuel_key = physics.fuel_kind(vehicle.fuel_type, vehicle.type)
@@ -44,11 +49,18 @@ def estimate(route, vehicle, load, weather=None):
     # evidence marks them out of domain and the decision policy withholds ranking.
     result = physics.estimate(segments, vehicle_key or 'van', fuel_key or 'diesel', load,
                               temp_c=temp_c, wet_road=wet_road, turns=route.get('turns', 0))
+    physics_co2 = result['co2_kg']
+    hybrid_ratio = None
+    if hybrid.applies(vehicle_key, fuel_key):
+        result, hybrid_ratio = hybrid.apply(result, temp_c, route['duration_min'])
     factor, uncertainty = factor_and_uncertainty(getattr(vehicle, 'calibration', None))
+    trips = vehicle.calibration.trips if getattr(vehicle, 'calibration', None) else 0
+    if hybrid_ratio is not None and trips < 3 and uncertainty == DEFAULT_UNCERTAINTY_PCT:
+        uncertainty = 15.0  # hybrid's average error on unseen real cars was 14%
     reference = physics.reference_co2_per_km(vehicle_key or 'van', fuel_key or 'diesel', vehicle.load_capacity_kg)
     co2 = result['co2_kg'] * factor
-    trips = vehicle.calibration.trips if getattr(vehicle, 'calibration', None) else 0
-    mode = 'Physics road-load model' + (f', calibrated on {trips} trip' + ('s' if trips != 1 else '') if trips else ', class defaults')
+    base = 'Hybrid model (physics + ML from real trips)' if hybrid_ratio is not None else 'Physics road-load model'
+    mode = base + (f', calibrated on {trips} trip' + ('s' if trips != 1 else '') if trips else ', class defaults')
     details = {'temp_c': temp_c, 'wet_road': wet_road, 'weather_status': weather_status,
                'elevation_status': route.get('elevation_status', 'unavailable'), 'turns': route.get('turns', 0),
                'uncertainty_pct': uncertainty, 'calibration_trips': trips}
@@ -58,7 +70,9 @@ def estimate(route, vehicle, load, weather=None):
         'breakdown': {k: round(v * factor, 3) for k, v in result['co2_breakdown_kg'].items()},
         'climb_m': result['climb_m'], 'avg_speed_kmh': result['avg_speed_kmh'], 'turns': result['turns'],
         'mass_kg': result['mass_kg'], 'uncertainty_pct': uncertainty, 'calibration_factor': round(factor, 3),
-        'eco_score': physics.eco_score(co2, route['distance_km'], reference),
+        # Eco score compares the road itself with the class reference, so it uses physics CO2.
+        'eco_score': physics.eco_score(physics_co2 * factor, route['distance_km'], reference),
+        'hybrid_correction': hybrid_ratio,
         'prediction_mode': mode, 'evidence': evidence_for(vehicle, load, details, mode),
     }
 
