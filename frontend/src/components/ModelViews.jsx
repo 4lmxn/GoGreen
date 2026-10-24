@@ -71,7 +71,7 @@ export function BreakdownLegend() {
 // Per-vehicle correction factors learned from driver-reported fuel.
 export function CalibrationTable({ rows = [] }) {
   if (!rows.length) {
-    return <Empty title="No calibrated vehicles yet">Each completed trip with reported fuel teaches that vehicle's correction factor.</Empty>;
+    return <Empty title="No calibrated vehicles yet">Every trip with reported fuel teaches the app about that vehicle.</Empty>;
   }
   return (
     <div className="op-table-wrap">

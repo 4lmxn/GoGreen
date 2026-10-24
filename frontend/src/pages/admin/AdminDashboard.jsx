@@ -64,7 +64,7 @@ export default function AdminDashboard() {
       <PageHeader
         eyebrow="Admin · overview"
         title="Fleet overview"
-        description="Trips, vehicles and modelled CO₂ for the whole fleet. Refreshes every 15 seconds."
+        description="Your whole fleet at a glance. Updates every 15 seconds."
         action={<RefreshButton onClick={reload} />}
       />
       <ErrorNotice>{error && `${error} Displayed data may be out of date.`}</ErrorNotice>
@@ -118,7 +118,7 @@ export default function AdminDashboard() {
 
           <footer className="op-footer">
             <span>Updated {formatDate(data.updated_at)}</span>
-            <span>Savings are model estimates against the fastest route, not measured reductions.</span>
+            <span>Savings are estimates compared with the fastest road, not measured.</span>
           </footer>
         </>
       )}

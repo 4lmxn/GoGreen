@@ -39,14 +39,14 @@ export default function LiveFleetMap() {
       <PageHeader
         eyebrow="Admin · live fleet"
         title="Live fleet"
-        description="Trips in progress with the last GPS position each driver's phone sent. Polls every 15 seconds; positions older than a minute are marked stale."
+        description="Trucks on the road right now, from each driver's phone GPS. Updates every 15 seconds."
         action={<RefreshButton onClick={reload} />}
       />
       <ErrorNotice>{error}</ErrorNotice>
 
       {loading ? <Loading /> : !trips.length ? (
         <section className="op-panel">
-          <Empty title="No trips in progress">A trip appears here when a driver starts it. Its position shows once the phone shares GPS.</Empty>
+          <Empty title="No trips in progress">A trip shows here when a driver starts it.</Empty>
         </section>
       ) : (
         <div className="op-fleet-grid">
@@ -67,8 +67,8 @@ export default function LiveFleetMap() {
             </div>
             <p className="op-note">
               {trip.lastLocation
-                ? 'The pulsing dot is the last saved GPS position, not a simulated vehicle.'
-                : 'Only the planned route is shown. No position has been received yet.'}
+                ? 'The pulsing dot is where the phone last sent its location.'
+                : 'No location yet. Showing the planned road.'}
             </p>
           </div>
         </div>

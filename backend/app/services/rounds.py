@@ -162,17 +162,16 @@ def plan_round(depot, stops, vehicle_key, fuel_key, start_load, return_to_depot=
     """depot: (lat, lng); stops: [{'lat', 'lng', 'drop_kg'}]. Returns plans, pareto and context."""
     points = [depot] + [(s['lat'], s['lng']) for s in stops]
     durations, distances = osrm_table(points)
-    assumptions = ['Travel times are OSRM free-flow estimates; live congestion is not included.',
-                   'Turns per leg are estimated from road speed (about 1 per km in town, 0.3 per km on faster roads), plus the delivery stop.',
-                   'Vehicle parameters are class averages, corrected by this vehicle\'s learned calibration factor '
-                   f'(×{calibration_factor:.2f}).']
+    assumptions = ['Travel times are normal road times. Live traffic is not included.',
+                   'Turns and stops are estimated from the road speed.',
+                   f'Fuel is corrected by what the app learned about this vehicle (×{calibration_factor:.2f}).']
 
     elevations = get_elevations(points)
     elevation_status = 'available'
     if elevations is None:
         elevations = [0.0] * len(points)
         elevation_status = 'unavailable'
-        assumptions.append('Terrain unknown: elevation provider unavailable, so climbs are not counted.')
+        assumptions.append('Terrain unknown: hill data was unavailable, so hills are not counted.')
 
     context = get_live_context(*depot)
     current = context.get('current') if context.get('status') != 'unavailable' else None
@@ -181,7 +180,7 @@ def plan_round(depot, stops, vehicle_key, fuel_key, start_load, return_to_depot=
                    'status': context['status']}
     else:
         weather = {'temp_c': 25.0, 'wet_road': False, 'status': 'unavailable'}
-        assumptions.append('Weather unavailable: assumed 25 °C and a dry road.')
+        assumptions.append('Weather unavailable: we assumed 25 °C and a dry road.')
 
     model = Round(durations, distances, elevations, [s['drop_kg'] for s in stops], start_load,
                   vehicle_key, fuel_key, weather['temp_c'], weather['wet_road'], return_to_depot,
@@ -217,7 +216,7 @@ def plan_round(depot, stops, vehicle_key, fuel_key, start_load, return_to_depot=
             paths[order] = path
         plans.append(dict(result, key=key, path_points=paths[order]))
     if straight:
-        assumptions.append('Road geometry unavailable for at least one plan; the map shows straight lines between stops.')
+        assumptions.append('Road shapes did not load, so the map shows straight lines.')
 
     saved = fastest['co2_kg'] - greenest['co2_kg']
     return {'plans': plans, 'pareto': pareto,

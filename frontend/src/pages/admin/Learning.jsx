@@ -10,7 +10,7 @@ export default function Learning() {
       <PageHeader
         eyebrow="Admin · evidence and feedback"
         title="Evidence and feedback"
-        description="Predicted fuel against what drivers reported, and the per-vehicle calibration learned from it. Demo fixtures are excluded."
+        description="Predicted fuel vs what drivers reported, and what the app learned for each vehicle."
         action={<RefreshButton onClick={reload} />}
       />
       <ErrorNotice>{error}</ErrorNotice>
@@ -27,7 +27,7 @@ function LearningReport({ data }) {
         <Metric lead label="Reported trips" value={data.reported_trips} note={`${data.eligible_trips} eligible completed trips`} />
         <Metric label="Reporting coverage" value={data.coverage_percent} unit="%" note="Missing reports are not counted as zero fuel" />
         <Metric label="Mean absolute error" value={data.mae_l == null ? '—' : amount(data.mae_l)} unit="L" note="Unverified operational reports" />
-        <Metric label="Mean signed error" value={data.bias_l == null ? '—' : amount(data.bias_l)} unit="L" note="Reported minus predicted; negative = overprediction" />
+        <Metric label="Mean signed error" value={data.bias_l == null ? '—' : amount(data.bias_l)} unit="L" note="Reported minus predicted" />
       </div>
 
       <section className="op-panel">
@@ -39,12 +39,10 @@ function LearningReport({ data }) {
           records and are excluded from these error metrics.
         </p>
         <p className="op-description">
-          Each plausible report updates that vehicle's calibration factor, a multiplier that corrects the physics estimate toward
-          what the vehicle really uses. Reports far outside the prediction are ignored so one typo cannot skew a vehicle.
+          Each report nudges that vehicle's correction factor. Example: factor 1.10 means the vehicle uses 10% more fuel than the model expected. Clearly wrong reports are ignored.
         </p>
         <p className="op-description">
-          Reports describe the trips actually driven, not what an untraveled alternative would have used. They are driver-entered
-          and unverified, so this is an operational check rather than a controlled accuracy test.
+          Drivers type these numbers by hand, so treat them as a check, not a lab test.
         </p>
       </section>
 

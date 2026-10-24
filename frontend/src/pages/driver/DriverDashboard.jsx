@@ -36,8 +36,8 @@ export default function DriverDashboard() {
   const description = active
     ? `Trip #${active.id} is in progress. Resume it to keep sharing your location.`
     : vehicle
-      ? 'Compare real road options for your vehicle, pick one and start tracking.'
-      : 'Your administrator needs to assign a vehicle before you can plan a trip.';
+      ? 'See the road options, pick one, and start your trip.'
+      : 'Ask your admin to give you a vehicle first.';
 
   return (
     <div className="op-page">

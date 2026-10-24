@@ -59,7 +59,7 @@ export default function NewTrip() {
       <PageHeader
         eyebrow="Driver · plan a trip"
         title="Plan a trip"
-        description="Up to three real road options for your vehicle, each with predicted fuel and CO₂ split by cause. Pick one, then start tracking."
+        description="Up to three real roads. Each shows its fuel and CO₂, and what causes it. Pick one and start."
       />
       <ErrorNotice>{error}</ErrorNotice>
 
@@ -71,8 +71,7 @@ export default function NewTrip() {
               <label>Destination<input className="op-input" value={destination} onChange={e => setDestination(e.target.value)} required disabled={!!trip || busy} /></label>
               <label>Cargo weight · kg<input className="op-input" type="number" min="0" step="0.1" value={weight} onChange={e => setWeight(e.target.value)} required disabled={!!trip || busy} /></label>
               <p className="op-note">
-                Cities: Bengaluru, Mysuru, Chennai, Mumbai, Delhi, Pune, Hyderabad, Hosur, Tumakuru, Kochi.
-                You can also enter latitude,longitude. Routes use city centers unless coordinates are supplied.
+                Type a city (Bengaluru, Mysuru, Hosur, Chennai…) or a latitude,longitude.
               </p>
               <PlanActions trip={trip} busy={busy} onDiscard={discard} />
             </form>
@@ -84,10 +83,7 @@ export default function NewTrip() {
                 <h2>Why this route?</h2>
                 <p className="op-description">{routes[0]?.decisionPolicy?.reason}</p>
                 <p className="op-note">
-                  {trip.predictionMode}. CO₂ is calculated from road speeds, terrain climb, vehicle mass and current weather,
-                  then corrected by this vehicle's calibration. The recommendation is the lowest predicted CO₂ within 15% of the
-                  fastest time; gains below 2% or 0.1 kg keep the fastest route. Plans expire after 30 minutes.
-                  OSRM car routes are not certified truck routes.
+                  {trip.predictionMode}. We pick the road with the least CO₂ that is at most 15% slower than the fastest. If the saving is tiny, we keep the fastest road. CO₂ comes from speed, hills, weight and weather. Plans expire after 30 minutes.
                 </p>
                 <BreakdownLegend />
               </section>
@@ -116,7 +112,7 @@ export default function NewTrip() {
           <div className="op-map">
             <MapView routes={routes} selectedRouteId={selected} origin={source} destination={destination} />
           </div>
-          <p className="op-note">Plans and selected routes are stored in your account. If a provider fails, no trip is created.</p>
+          <p className="op-note">Your plan is saved. If the map service is down, no trip is created.</p>
         </div>
       </div>
     </div>

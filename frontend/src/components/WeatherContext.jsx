@@ -69,7 +69,7 @@ export default function WeatherContext() {
       <div className="op-panel-heading">
         <div>
           <h2>Live weather</h2>
-          <p>The same public feed the fuel model reads at the start of every planned trip.</p>
+          <p>The fuel model uses this weather when you plan a trip.</p>
         </div>
         <label className="op-note">
           City

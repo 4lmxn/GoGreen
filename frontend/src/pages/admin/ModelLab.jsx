@@ -19,7 +19,7 @@ export default function ModelLab() {
       <PageHeader
         eyebrow="Admin · model lab"
         title="Model lab"
-        description="Run the physics fuel model on real road options for any vehicle class and fuel. Nothing is saved. Each route's CO₂ is split into rolling resistance, air drag, climbing, turns and accessories."
+        description="Try any vehicle on real roads. See how much CO₂ each road makes, and why. Nothing is saved."
       />
       <RouteExperiment />
       <ModelCard />
@@ -93,7 +93,7 @@ function RouteExperiment() {
               </label>
               <label>Load · kg<input className="op-input" type="number" min="0" step="1" value={form.load_kg} onChange={update('load_kg')} required /></label>
               <label>Capacity · kg<input className="op-input" type="number" min="0" step="1" value={form.capacity_kg} onChange={update('capacity_kg')} required /></label>
-              <p className="op-note">Cities: Bengaluru, Mysuru, Chennai, Hosur, Tumakuru, Mumbai, Pune, Hyderabad, Delhi, Kochi, or latitude,longitude.</p>
+              <p className="op-note">Type a city (Bengaluru, Hosur, Mysuru…) or a latitude,longitude.</p>
               <button className="op-button" disabled={busy}>
                 <FlaskConical size={15} /> {busy ? 'Fetching roads, terrain and weather…' : 'Run the model'}
               </button>
@@ -191,6 +191,11 @@ function ModelCard() {
             <p>{data.model_version}</p>
           </div>
         </div>
+        <p className="op-description">
+          In simple words: a vehicle burns fuel to fight four things. Its tyres on the road, the wind, the hills,
+          and speeding up again after every turn. Heavier and faster means more fuel. We add AC on hot days,
+          then turn fuel into CO₂.
+        </p>
         <div className="op-equation">{data.equation}</div>
         <ul className="op-note" style={{ paddingLeft: 18, marginTop: 14 }}>
           {(data.assumptions || []).map((item) => <li key={item}>{item}</li>)}
@@ -298,7 +303,7 @@ function BenchmarkSummary({ benchmark }) {
       </div>
       <p className="op-note">
         Random forest trained on {amount(benchmark.train_rows)} vehicles, tested on {amount(benchmark.test_rows)} vehicles from model years {years}.
-        This checks vehicle efficiency ratings, not individual trips.
+        This checks fuel ratings of vehicles, not single trips.
       </p>
     </>
   );

@@ -184,7 +184,7 @@ function TripRow({ trip, driver }) {
 
 export function TripList({ trips = [], driver = false }) {
   if (!trips.length) {
-    return <Empty title="No trips yet">Planned, active and completed trips appear here once a driver plans a route.</Empty>;
+    return <Empty title="No trips yet">Trips show here once a driver plans one.</Empty>;
   }
   return (
     <div className="op-trip-list">

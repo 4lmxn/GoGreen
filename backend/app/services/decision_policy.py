@@ -21,12 +21,12 @@ def choose_route(candidates, estimates):
     unsupported = any(p.get('evidence', {}).get('within_documented_domain') is False for p in estimates)
     if unsupported:
         best = fastest
-        reason = 'Eco-ranking withheld: an input is outside the documented model domain. Fastest returned route is the navigation default.'
+        reason = 'We could not compare roads for this vehicle type, so we show the fastest road.'
     elif improvement < threshold:
         best = fastest
-        reason = 'Fastest route retained: predicted improvement is below the policy threshold.'
+        reason = 'The fastest road is kept: no other road saves enough CO₂.'
     else:
-        reason = 'Lowest predicted CO2 within 15% of fastest time, exceeding the minimum improvement threshold.'
+        reason = 'This road saves the most CO₂ and is at most 15% slower than the fastest.'
     return fastest, best, {'version': 'evidence-aware-v2', 'reason': reason,
                           'eco_ranking_withheld': unsupported,
                           'minimum_improvement_kg': round(threshold, 4),

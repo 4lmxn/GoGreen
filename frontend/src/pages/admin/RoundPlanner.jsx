@@ -114,7 +114,7 @@ export default function RoundPlanner() {
       <PageHeader
         eyebrow="Admin · round planner"
         title="Round planner"
-        description="Exact best delivery order for up to 10 stops, for time, CO₂ or a balance. The vehicle gets lighter after each drop, so the order changes fuel use as well as time."
+        description="Find the best order for up to 10 stops. The truck gets lighter after each drop, so the order changes fuel, not just time."
       />
       <ErrorNotice>{error}</ErrorNotice>
 
@@ -171,7 +171,7 @@ export default function RoundPlanner() {
           <div className="op-map">
             <MapView markers={markers} lines={lines} onMapClick={handleMapClick} />
           </div>
-          <p className="op-note">Numbered pins show the visiting order of the selected plan. The amber pin is the depot.</p>
+          <p className="op-note">Numbers show the order of stops. The yellow pin is the depot.</p>
         </div>
       </div>
 
@@ -183,7 +183,7 @@ export default function RoundPlanner() {
         />
       ) : (
         <section className="op-panel">
-          <Empty title="No round optimised yet">Choose a vehicle, check the stops, then optimise. The Bengaluru example is ready to run.</Empty>
+          <Empty title="No round optimised yet">A Bengaluru example is ready. Press Optimise round.</Empty>
         </section>
       )}
     </div>
@@ -247,7 +247,7 @@ function RoundResult({ result, selectedPlanKey, onSelectPlan }) {
             <h2>
               {savings && savings.co2_kg > 0
                 ? `Greenest saves ${amount(savings.co2_kg)} kg CO₂ (${amount(savings.percent)}%) for ${amount(savings.extra_minutes)} extra min`
-                : 'The fastest order is also the lowest-CO₂ order for this round'}
+                : 'For this round, the fastest order is also the greenest'}
             </h2>
             <p>
               {result.vehicle.vehicle_no} · {result.vehicle.class_label} · {result.vehicle.fuel} · model {result.model}

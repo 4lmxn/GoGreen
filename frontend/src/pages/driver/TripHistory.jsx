@@ -9,7 +9,7 @@ export default function TripHistory() {
       <PageHeader
         eyebrow="Driver · history"
         title="Trip history"
-        description="Your latest 100 planned, active and completed trips, stored on the server."
+        description="Your last 100 trips."
         action={<RefreshButton onClick={reload} />}
       />
       <ErrorNotice>{error}</ErrorNotice>

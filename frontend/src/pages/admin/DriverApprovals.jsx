@@ -51,7 +51,7 @@ export default function DriverApprovals() {
       <PageHeader
         eyebrow="Admin · driver approvals"
         title="Driver approvals"
-        description="New drivers register with an email code. They can plan trips only after approval and a vehicle assignment."
+        description="New drivers wait here. Approve them, then give them a vehicle."
       />
       {actionMsg && <p className="op-success" role="status">{actionMsg}</p>}
 

@@ -8,13 +8,13 @@ const REPORTS = [
     type: 'excel',
     title: 'Trip workbook (.xlsx)',
     icon: FileSpreadsheet,
-    description: 'One row per completed trip: chosen route, prediction source, timestamps, and reported fuel where entered.',
+    description: 'One row per finished trip, with its road, times and fuel.',
   },
   {
     type: 'pdf',
     title: 'Fleet summary (.pdf)',
     icon: FileText,
-    description: 'Completed trip count, comparable route estimates and the method behind them.',
+    description: 'A short summary of finished trips and CO₂.',
   },
 ];
 
@@ -38,7 +38,7 @@ export default function Reports() {
       <PageHeader
         eyebrow="Admin · reports"
         title="Reports"
-        description="Export completed trips. Predicted values and driver-reported measurements are kept in separate columns."
+        description="Download finished trips. Predicted and reported fuel are in separate columns."
       />
       <ErrorNotice>{error}</ErrorNotice>
       <div className="op-columns">

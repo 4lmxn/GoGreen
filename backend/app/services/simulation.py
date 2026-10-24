@@ -555,18 +555,14 @@ def summary():
         'traffic': TRAFFIC, 'weather': sc['weather'], 'elevation_status': sc['elevation_status'],
         'calibration': sc['calibration'],
         'assumptions': [
-            'Orders, weights, delivery points and the fleet are generated from a seed; they are not real bookings.',
-            'Road distances, free-flow times and terrain are real (OSRM, Open-Meteo); weather is live at start.',
-            'Traffic is an assumed time-of-day multiplier on OSRM times with ±10% noise per leg; it is not measured.',
-            'Each truck has a hidden true efficiency factor (lognormal, σ 12%) and reports fuel with 6% noise; '
-            '2% of reports are deliberately wrong to exercise the sanity gate. This truth is synthetic.',
-            f'Rounds hold at most {MAX_STOPS} stops, are cut by sweep from the depot and ordered exactly by Held-Karp '
-            'on free-flow times (the planner does not know the traffic).',
-            f'First rounds leave between 06:00 and 14:00; unloading takes {SERVICE_MIN} min per stop, reloading '
-            f'{LOAD_MIN} min; no delivery time windows.',
-            'Terrain is looked up once per locality centre (orders sit within about 400 m of it).',
-            f'Calibration convergence replays the same rounds for {REPLAY_DAYS} days with fresh report noise.',
-            'Simulation results show operations and the learning mechanism. They are not evidence of accuracy on real trucks.',
+            'Orders, delivery points and the fleet are made up for the demo. They are not real bookings.',
+            'Roads, distances and hills are real (OSRM, Open-Meteo). Weather is live.',
+            'Traffic is our guess for each time of day, not measured.',
+            "Each truck has a secret 'true' fuel use. Drivers' reports are based on it, and 2% are deliberately wrong to test the filter.",
+            f'Each round has up to {MAX_STOPS} stops. Our planner picks the best order without knowing the traffic.',
+            f'Trucks leave between 06:00 and 14:00. Each delivery takes {SERVICE_MIN} min, reloading {LOAD_MIN} min.',
+            f'The learning chart repeats the same day {REPLAY_DAYS} times.',
+            'This shows how the system works. It is not evidence of accuracy on real trucks.',
         ],
     }
 

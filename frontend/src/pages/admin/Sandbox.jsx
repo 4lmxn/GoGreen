@@ -79,7 +79,7 @@ export default function Sandbox() {
       <PageHeader
         eyebrow="GoGreen / Sandbox"
         title="Fleet simulation"
-        description="A synthetic day of deliveries in Bengaluru, planned and driven on real roads. Use it to see the system at fleet scale and how per-vehicle calibration learns."
+        description="A pretend day of deliveries on real Bengaluru roads. It shows the system with a big fleet."
         action={ready && (
           <button type="button" className="op-button secondary" onClick={reset}>
             <RotateCcw size={15} /> New scenario
@@ -103,7 +103,7 @@ function SimulationTag() {
       <strong>Simulation</strong>
       <span>
         Orders, traffic and each truck&apos;s true fuel use are synthetic. Roads, distances and terrain are real.
-        These results show operations and learning, not model accuracy on real trucks.
+        It shows how the system works, not how accurate it is on real trucks.
       </span>
     </div>
   );
@@ -159,10 +159,10 @@ function StartPanel({ status, onStarted, onError }) {
           <>
             <h3>What happens</h3>
             <ol className="sb-steps">
-              <li>Orders are spread over 40 Bengaluru localities and split between the Peenya, Hoskote and Electronic City depots.</li>
-              <li>Real road distances come from OSRM, about one request per 80 orders.</li>
-              <li>Orders are packed into rounds of up to 8 stops and each round is ordered exactly by the planner.</li>
-              <li>Trucks drive the rounds in assumed time-of-day traffic, report fuel, and the calibration loop learns each truck.</li>
+              <li>Orders are spread across 40 areas of Bengaluru and sent from 3 depots.</li>
+              <li>Road distances are real, from OSRM.</li>
+              <li>Each truck gets a round of up to 8 stops. Our planner picks the best order.</li>
+              <li>Trucks drive in rush-hour traffic, report fuel, and the app learns each truck.</li>
             </ol>
             {status?.phase === 'failed' && <p className="sb-failed">{status.message} {status.error}</p>}
           </>
@@ -387,7 +387,7 @@ function TruckPanel({ truck, time }) {
     return (
       <aside className="op-panel sb-truck sb-truck-empty">
         <h2>Pick a truck</h2>
-        <p className="op-note">Click any dot on the map to see its rounds, the load falling after each drop, and how calibration learns it.</p>
+        <p className="op-note">Click a dot to see that truck: its stops, its load going down, and what the app learned.</p>
       </aside>
     );
   }
@@ -505,7 +505,7 @@ function DaySummary({ summary }) {
             ))}
           </tbody>
         </table>
-        <p className="op-note">An assumption, not a measurement; each leg also gets ±10% noise.</p>
+        <p className="op-note">Our guess, not measured. Each trip also varies by up to 10%.</p>
       </section>
 
       <section className="op-panel sb-assumptions">

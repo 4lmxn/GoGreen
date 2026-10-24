@@ -7,14 +7,14 @@ def evidence_for(vehicle, load, details, mode):
     fuel_key = physics.fuel_kind(vehicle.fuel_type, vehicle.type)
     out_of_domain, notes = [], []
     if not vehicle_key:
-        out_of_domain.append(f'Vehicle type "{vehicle.type}" has no physics profile; use car, van, truck or heavy truck.')
+        out_of_domain.append(f'Vehicle type "{vehicle.type}" has no physics profile. Use car, van, truck or heavy truck.')
     if not fuel_key:
         out_of_domain.append(f'Fuel "{vehicle.fuel_type}" is not modelled; supported: diesel, petrol, CNG, electric.')
     if details['elevation_status'] != 'available':
-        notes.append('Terrain unavailable; the route is treated as flat.')
+        notes.append('Hill data unavailable, so the road is treated as flat.')
     if details['weather_status'] == 'unavailable':
-        notes.append(f'Weather unavailable; assumed {details["temp_c"]:.0f} °C and a dry road.')
-    notes.append('Road speeds are OSRM typical speeds, not live traffic.')
+        notes.append(f'Weather unavailable: we assumed {details["temp_c"]:.0f} °C and a dry road.')
+    notes.append('Road speeds are normal speeds, not live traffic.')
     return {
         'schema': 'planning-evidence-v2', 'within_documented_domain': not out_of_domain,
         'limitations': out_of_domain + notes,

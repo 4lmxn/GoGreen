@@ -30,7 +30,7 @@ export default function ActiveTrip() {
         if (alive) setGpsStatus(`Location shared at ${new Date().toLocaleTimeString()} · device accuracy ±${Math.round(position.coords.accuracy)} m`);
       } catch (err) { if (alive) setGpsStatus(`Location not shared: ${errorMessage(err)}`); }
       finally { pending = false; }
-    }, err => { if (alive) setGpsStatus(err.code === 1 ? 'Location permission denied. Enable it in your browser to share GPS with the fleet.' : 'Waiting for a GPS fix. Your trip is still saved.'); }, { enableHighAccuracy: true, maximumAge: 5000, timeout: 20000 });
+    }, err => { if (alive) setGpsStatus(err.code === 1 ? 'Location is blocked. Allow it in your browser to share your position.' : 'Waiting for a GPS fix. Your trip is still saved.'); }, { enableHighAccuracy: true, maximumAge: 5000, timeout: 20000 });
     return () => { alive = false; navigator.geolocation.clearWatch(watch); };
   }, [id, active]);
   async function finish(event) {
@@ -75,7 +75,7 @@ export default function ActiveTrip() {
                 </p>
                 <p className="op-note">
                   Last server update: <span className="op-num">{formatDate(trip.lastLocation?.timestamp)}</span>.
-                  Browsers share GPS only over HTTPS or localhost.
+                  GPS works only on a secure (https) page.
                 </p>
               </section>
 
@@ -83,7 +83,7 @@ export default function ActiveTrip() {
                 <section className="op-panel">
                   <form onSubmit={finish} className="op-form">
                     <h2>End the trip</h2>
-                    <p className="op-note">Confirm when you have arrived. Arrival is not detected automatically.</p>
+                    <p className="op-note">Tap this when you arrive.</p>
                     <FuelReportField unit={route?.fuelUnit || 'L'} value={fuel} onChange={setFuel} />
                     <button disabled={busy} className="op-button">{busy ? 'Saving…' : 'Confirm trip complete'}</button>
                     <button disabled={busy} type="button" onClick={cancel} className="op-button danger">Cancel trip</button>
@@ -126,7 +126,7 @@ function FuelReportField({ unit, value, onChange }) {
         placeholder="Leave blank if unknown"
       />
       <span className="op-note block">
-        Your report trains this vehicle's calibration: the model compares it with its own prediction and adjusts future estimates. Implausible values are ignored.
+        Your number helps the app learn how much fuel this vehicle really uses. Clearly wrong numbers are ignored.
       </span>
     </label>
   );

@@ -11,7 +11,7 @@ export default function Sustainability() {
       <PageHeader
         eyebrow="Admin · emissions"
         title="Emissions"
-        description="Modelled CO₂ of completed trips and the signed difference against the fastest road option for the same vehicle and cargo."
+        description="CO₂ from finished trips, and how much was saved compared with the fastest road."
         action={<RefreshButton onClick={reload} />}
       />
       <ErrorNotice>{error}</ErrorNotice>
@@ -38,15 +38,10 @@ export default function Sustainability() {
           <section className="op-panel">
             <h2>How savings are calculated</h2>
             <p className="op-description">
-              Each plan scores every road option for the same vehicle and cargo with the physics model:
-              rolling resistance, air drag, climbing, turns and accessories, using live road speeds,
-              terrain and weather. Savings are the fastest option&apos;s predicted CO₂ minus the chosen
-              option&apos;s, kept with their sign. Only completed trips with a saved choice count.
+              For every trip we predict the CO₂ of each road. Saving = CO₂ of the fastest road minus CO₂ of the road the driver took. If the driver took a worse road, the saving shows as negative.
             </p>
             <p className="op-description">
-              These are model estimates. Live traffic is not included. Driver-reported fuel calibrates each
-              vehicle over time (see Evidence and feedback), but a measured saving needs metered fuel on
-              both routes.
+              These are estimates, not measurements. Live traffic is not included yet.
             </p>
           </section>
         </>

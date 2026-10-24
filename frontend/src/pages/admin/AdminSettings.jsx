@@ -50,7 +50,7 @@ export default function AdminSettings() {
       <PageHeader
         eyebrow="Admin · settings"
         title="Settings"
-        description="Business rules and data management. These values are held in server memory for this demo and reset on restart."
+        description="Demo settings. They reset when the server restarts."
       />
       {notice && <p className="op-success" role="status">{notice}</p>}
 

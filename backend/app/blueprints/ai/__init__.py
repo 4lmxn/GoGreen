@@ -14,12 +14,12 @@ EQUATION = ('F = Crr·m·g·cos θ + ½·ρ·CdA·v² + m·g·sin θ;  '
             'fuel = energy / (efficiency · energy per litre);  CO₂ = fuel · emission factor')
 
 ASSUMPTIONS = [
-    'Vehicle parameters (mass, drag area, rolling resistance) are typical values for each class until a vehicle is calibrated.',
-    'Road speeds are OSRM typical speeds for each road; live traffic is not available.',
-    'Each turn or junction slows the vehicle to 15 km/h; kinetic energy above that is lost (EVs recover 60%).',
-    'Air density uses the live temperature and road elevation; air-conditioning ramps up above 24 °C.',
-    'Wet roads (more than 0.2 mm/h rain) raise rolling resistance by 15%.',
-    'Electric CO₂ uses the Indian grid average, not the vehicle tailpipe (which is zero).',
+    'Each vehicle type uses typical weight, size and tyre values until the app learns that vehicle.',
+    'Road speeds are normal road speeds. Live traffic is not included.',
+    'Every turn slows the vehicle down and costs fuel to speed up again. Electric vehicles get 60% of it back.',
+    'Hot days use more fuel because the AC runs. Thin air on high roads means less wind resistance.',
+    'Wet roads add 15% to tyre resistance.',
+    'Electric vehicles count the CO₂ of the electricity from the Indian grid, not zero.',
 ]
 
 DATA_SOURCES = [

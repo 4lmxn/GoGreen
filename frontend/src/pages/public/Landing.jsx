@@ -26,10 +26,10 @@ const ROUND_LOADS = {
 };
 
 const STEPS = [
-  { source: 'OSRM', title: 'Real roads', text: 'Two or three road options, each cut into about 99 stretches with their typical speed and every turn.' },
-  { source: 'Open-Meteo', title: 'Terrain and weather', text: 'Height along the road for every climb, plus live temperature and rain at the start.' },
-  { source: 'Road-load physics', title: 'Fuel and CO₂', text: 'Rolling, air drag, climbing, turns and AC become energy, then fuel, then CO₂ with IPCC and CEA factors.' },
-  { source: 'Your trips', title: 'Per-vehicle calibration', text: 'Fuel that drivers report after each trip corrects the model for that exact vehicle.' },
+  { source: 'OSRM', title: 'Real roads', text: 'We get 2–3 real roads, with their speed and turns.' },
+  { source: 'Open-Meteo', title: 'Terrain and weather', text: 'We add the hills on the road and today’s weather.' },
+  { source: 'Road-load physics', title: 'Fuel and CO₂', text: 'Physics turns tyres, wind, hills, turns and AC into fuel, then CO₂.' },
+  { source: 'Your trips', title: 'Per-vehicle calibration', text: 'Drivers report fuel after each trip. The app learns each vehicle.' },
 ];
 
 const SOURCES = [
@@ -78,8 +78,7 @@ function Hero() {
             Plan every delivery for time and <CO2 />.
           </h1>
           <p className="mt-5 max-w-[52ch] text-[15px] leading-relaxed text-white/80">
-            GoGreen compares real road options and orders multi-stop rounds with a physics fuel model,
-            live terrain and weather, and each vehicle’s own trip history.
+            GoGreen finds the road and the stop order that use the least fuel, using real roads, hills and weather.
           </p>
 
           <div className="mt-8">
@@ -144,8 +143,7 @@ function BreakdownFigure() {
         ))}
       </ul>
       <figcaption className="mt-4 text-[13px] leading-relaxed text-[color:var(--gg-muted)]">
-        B is faster, so drag grows with the square of speed, and it climbs 307 m instead of 233 m.
-        A distance-only model would only say “it’s longer”.
+        Road B is faster, and faster means more wind resistance. It also climbs more hills: 307 m vs 233 m.
       </figcaption>
     </figure>
   );
@@ -183,8 +181,7 @@ function HowItWorks() {
           Four milestones from a road to a kilogram of <CO2 />.
         </h2>
         <p className="mt-4 max-w-[46ch] text-[15px] leading-relaxed text-[color:var(--gg-muted)]">
-          Every input is available before the truck leaves, so the plan is ready at dispatch.
-          If a source is down, the app says so instead of guessing.
+          All of this is ready before the truck leaves. If a data source is down, the app tells you.
         </p>
       </div>
 
@@ -217,8 +214,7 @@ function RoundOrder() {
           Drop the heavy load first.
         </h2>
         <p className="mt-4 text-[15px] leading-relaxed text-[color:var(--gg-muted)]">
-          A truck gets lighter after every delivery, so the order of stops changes fuel, not just time.
-          GoGreen finds the exact best order for up to 10 stops and shows the time you trade for it.
+          A truck gets lighter after each delivery. So drop the heaviest load first and the truck burns less fuel. GoGreen finds the best order for up to 10 stops.
         </p>
         <dl className="mt-7 grid grid-cols-3 gap-4 border-t border-[color:var(--gg-line)] pt-5">
           <Stat value="4.9%" label="less CO₂" />
@@ -295,8 +291,7 @@ function Proof() {
           ×1.000 <span className="text-[color:var(--gg-faint)]">→</span> <span className="text-[color:var(--gg-sign)]">×1.038</span>
         </p>
         <p className="mt-4 text-[15px] leading-relaxed text-[color:var(--gg-muted)]">
-          A driver reported 15% more fuel than predicted. The van’s correction factor moved a little,
-          not all the way: one report is evidence, not proof. Impossible reports are rejected.
+          A driver reported 15% more fuel than we predicted. The app adjusted a little, not fully, because one trip is not enough. Clearly wrong reports are ignored.
         </p>
       </div>
 
@@ -353,7 +348,7 @@ function Footer() {
     <footer className="bg-[color:var(--gg-sign-deep)] text-white/75">
       <div className="mx-auto flex max-w-[1200px] flex-wrap items-center justify-between gap-4 px-5 py-6 text-sm lg:px-8">
         <BrandMark onDark />
-        <p>Estimates are modelled from public road, terrain and weather data. They are not measured savings.</p>
+        <p>Numbers are estimates from public road, hill and weather data, not measured savings.</p>
       </div>
     </footer>
   );

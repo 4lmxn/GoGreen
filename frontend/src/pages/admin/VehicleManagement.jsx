@@ -71,7 +71,7 @@ export default function VehicleManagement() {
       <PageHeader
         eyebrow="Admin · vehicles"
         title="Vehicles"
-        description="Each vehicle's class and fuel decide which physics profile predicts its fuel. Supported classes: car, van, truck, heavy truck."
+        description="The vehicle type and fuel decide how its fuel is predicted. Use car, van, truck or heavy truck."
         action={<Button variant="primary" onClick={openCreate}><Plus size={16} />Add vehicle</Button>}
       />
       {msg && !showModal && <p className="op-success" role="status">{msg}</p>}
@@ -82,7 +82,7 @@ export default function VehicleManagement() {
         <ErrorNotice>{error}</ErrorNotice>
       ) : vehicles.length === 0 ? (
         <Card>
-          <Empty title="No vehicles yet">Add a vehicle and assign it to an approved driver before they plan a trip.</Empty>
+          <Empty title="No vehicles yet">Add a vehicle and give it to a driver.</Empty>
         </Card>
       ) : (
         <Card className="flush">
